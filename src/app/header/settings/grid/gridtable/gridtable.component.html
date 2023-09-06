@@ -1,0 +1,32 @@
+
+<div>
+    <table class="table table-hover" >
+    <thead class="thead-light">
+    <th scope = "col">Sno.</th>
+    <th scope = "col">Grid Name</th>
+    <th scope = "col">Design</th>
+    <th scope = "col">Image</th>
+    <th scope = "col">Status</th>
+    <th scope = "col">Date Created</th>
+    <th scope = "col"></th>
+    <th scope = "col"></th>
+    </thead>
+    <tbody>
+
+      <tr *ngFor = "let gri of grids; index as i">
+        <td scope = "row">{{i+1}}</td>
+        <td>{{gri.GridName}}</td>
+        <td>{{gri.Design}}</td>
+        <td><div class="color-image"><img [src]="gri.imagePath" [alt]="gri.GridName"></div></td>
+        <td>{{gri.Status}}</td>
+        <td>{{gri.DateCreated}}</td>
+        <td style="cursor: pointer;" ><a [routerLink] = "['/settings/grids/edit',gri._id]">Edit</a></td>
+        <td style="cursor: pointer;"> <a (click)="OnDeleteGrid(gri._id)">Delete </a></td>
+      </tr>
+    </tbody>
+  
+    </table>
+  
+  
+  
+    </div>

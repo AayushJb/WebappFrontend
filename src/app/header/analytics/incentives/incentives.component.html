@@ -1,0 +1,634 @@
+  
+<form  [formGroup] ="form" (submit) = "onIncentivesReport()">
+
+
+  <h4 class="card-title">Incentives Report</h4>
+ 
+  <mat-slide-toggle  formControlName = "Toggle"> <span *ngIf="Toggle">Monthly</span> <span *ngIf="!Toggle">Date Range</span></mat-slide-toggle>
+
+
+  <ng-container *ngIf="Toggle">
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">From Date :</label>
+      <div class="col-sm-2 col-form-input">
+        <input type="date"  formControlName = "FromDate" class="form-control"  placeholder="Select From Date">
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">To Date :</label>
+      <div class="col-sm-2 col-form-input">
+        <input type="date"  formControlName = "ToDate" class="form-control"  placeholder="Select To Date">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Select User:</label>
+      <div class="col-sm-4 col-form-input">
+          <mat-select  class="form-control" formControlName = "UserTo">
+          <mat-option value="NONE" >NONE</mat-option>
+          <mat-option value="SHASHANK SINGH" >SHASHANK SINGH</mat-option>
+          <mat-option value="ANKIT AGGARWAL" >ANKIT AGGARWAL</mat-option>
+          <mat-option value="VIKAS SINGHAL" >VIKAS SINGHAL</mat-option>
+          <mat-option value="RIYAZ SAYYED" >RIYAZ SAYYED</mat-option>
+          <mat-option value="SAKINA BATSIH" >SAKINA BATISH</mat-option>
+          <mat-option value="NAYAN PATIL" >NAYAN PATIL</mat-option>
+          <mat-option value="UTKALIKA" >UTKALIKA</mat-option>
+          <mat-option value="RAHUL JAISWAL" >RAHUL JAISWAL</mat-option>
+          <mat-option value="RAJENDRA BADAYA" >RAJENDRA BADAYA</mat-option>
+          <mat-option value="VISHAL PARIKH" >VISHAL PARIKH</mat-option>
+          <mat-option value="RUCHIR" >RUCHIR</mat-option>
+          <mat-option value="PRAVEEN KANODIA" >PRAVEEN KANODIA</mat-option>
+          <mat-option value="VIPIN KUMAR" >VIPIN KUMAR</mat-option>
+          <mat-option value="SOCIAL" >SOCIAL</mat-option>
+          
+    
+         
+         </mat-select>
+      </div>
+    </div>
+
+ 
+
+  </ng-container>
+
+
+
+
+<ng-container *ngIf="!Toggle">
+
+    <div class="content">
+      <div class="container-fluid">
+          <div>
+            
+                  
+                   
+                       
+                 
+                    <label class="col-sm-2 col-form-label">Select Month:</label>
+                    <div class="col-sm-2">
+                        <mat-select class="form-control" formControlName = "Month">
+                        <mat-option value = "1">Jan</mat-option>
+                        <mat-option value = "2">Feb</mat-option>
+                        <mat-option value = "3">Mar</mat-option>
+                        <mat-option value = "4">Apr</mat-option>
+                        <mat-option value = "5">May</mat-option>
+                        <mat-option value = "6">Jun</mat-option>
+                        <mat-option value = "7">Jul</mat-option>
+                        <mat-option value = "8">Aug</mat-option>
+                        <mat-option value = "9">Sep</mat-option>
+                        <mat-option value = "10">Oct</mat-option>
+                        <mat-option value = "11">Nov</mat-option>
+                        <mat-option value = "12">Dec</mat-option>
+                       </mat-select>
+                       <mat-select class="form-control" formControlName = "Year">
+                        <mat-option value = "2020">2020</mat-option>
+                        <mat-option value = "2021">2021</mat-option>
+                        <mat-option value = "2022">2022</mat-option>
+                        <mat-option value = "2023">2023</mat-option>
+                        <mat-option value = "2024">2024</mat-option>
+                        <mat-option value = "2025">2025</mat-option>
+                        <mat-option value = "2026">2026</mat-option>
+                        <mat-option value = "2027">2027</mat-option>
+                        <mat-option value = "2028">2028</mat-option>
+                        <mat-option value = "2029">2029</mat-option>
+                        <mat-option value = "2030">2030</mat-option>
+                       </mat-select>
+                    </div>
+                 
+
+
+        
+
+
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Select User:</label>
+                          <div class="col-sm-4 col-form-input">
+                              <mat-select  class="form-control" formControlName = "User">
+                              <mat-option value="NONE" >NONE</mat-option>
+                              <mat-option value="SHASHANK SINGH" >SHASHANK SINGH</mat-option>
+                              <mat-option value="ANKIT AGGARWAL" >ANKIT AGGARWAL</mat-option>
+                              <mat-option value="VIKAS SINGHAL" >VIKAS SINGHAL</mat-option>
+                              <mat-option value="RIYAZ SAYYED" >RIYAZ SAYYED</mat-option>
+                              <mat-option value="SAKINA BATSIH" >SAKINA BATISH</mat-option>
+                              <mat-option value="NAYAN PATIL" >NAYAN PATIL</mat-option>
+                              <mat-option value="UTKALIKA" >UTKALIKA</mat-option>
+                              <mat-option value="RAHUL JAISWAL" >RAHUL JAISWAL</mat-option>
+                              <mat-option value="RAJENDRA BADAYA" >RAJENDRA BADAYA</mat-option>
+                              <mat-option value="VISHAL PARIKH" >VISHAL PARIKH</mat-option>
+                              <mat-option value="RUCHIR" >RUCHIR</mat-option>
+                              <mat-option value="PRAVEEN KANODIA" >PRAVEEN KANODIA</mat-option>
+                              <mat-option value="VIPIN KUMAR" >VIPIN KUMAR</mat-option>
+                              <mat-option value="SOCIAL" >SOCIAL</mat-option>
+                              
+                        
+                             
+                             </mat-select>
+                          </div>
+                        </div>
+
+                        
+                       
+               
+                
+                                   
+          </div> 
+
+
+     
+
+
+      </div>
+  </div>   
+  
+</ng-container> 
+ 
+    
+  <button *ngIf="!Toggle" type="submit" class="btn btn-info btn-fill" >Incentives Report<i class="pe-7s-like2"></i></button> 
+  <button *ngIf="Toggle" type="button" (click)="OnDateRangeReport()" class="btn btn-info btn-fill" >Incentives Report Excel<i class="pe-7s-like2"></i></button> 
+  <button *ngIf="Toggle" type="button" (click)="OnSalesRangeReport()" class="btn btn-info btn-fill" >Incentives Report Excel<i class="pe-7s-like2"></i></button>                       
+   
+</form>
+
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+
+<ng-container *ngIf="!Toggle">
+
+<ng-container *ngIf="dataloaded">
+
+  <button  class="btn btn-info btn-fill" printTitle="Incentive"  styleSheetFile="assets/css/incentives.css" printSectionId="pdf" ngxPrint>GET PDF</button>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+
+<button  type="button" class="btn btn-info btn-fill" (click) ="GetFirstMonth()">DETAILED {{FirstMonth}} EXCEL<i class="pe-7s-like2"></i></button>
+ 
+&nbsp; &nbsp;
+
+<button  type="button" class="btn btn-info btn-fill" (click) ="GetSales()"> {{FirstMonth}} SALES EXCEL <i class="pe-7s-like2"></i></button>
+ 
+
+
+<div id="pdf">
+
+ 
+
+
+<section class="page-break">
+
+        
+          <div class="page-8" size="A4" id="waltzslide">
+
+
+            <div class="black-band">
+
+
+              <div class="width-50">
+                <div class="project">
+                  <p>WALTZ INCENTIVE REPORT</p>
+                  <p>{{User}} </p> 
+                  <p>{{FirstMonth}} '23</p>      
+                </div>
+              </div>
+
+              <div class="width-50">
+                <div class="logo">
+                 <img src="https://i.imgur.com/7A5QggX.jpg">
+               </div>
+              </div>
+              
+            </div>
+          
+       
+
+
+
+            <table class="table table-striped" style="margin-top: 40px;">
+                <thead style="color:#fff; background: #000; ">
+                  <tr >
+                    <th style="text-align: center;">Particulars</th>
+                    <th style="text-align: center;">{{FirstMonth}} '23</th>
+                    <th style="text-align: center;">{{SecondMonth}} '23</th>
+                    <th style="text-align: center;">{{ThirdMonth}} '23</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+
+                  
+                  <tr  style=" border: 1px ">
+                    <td>Incentive</td>
+                    <td>Rs. {{FirstIncentive}}</td>
+                    <td>Rs. {{SecondIncentive }}</td>
+                    <td>Rs. {{ThirdIncentive}}</td>
+                  </tr>
+
+                  <tr  style=" border: 1px ">
+                    <td>Collection</td>
+                    <td>Rs. {{FirstCollection}}</td>
+                    <td>Rs. {{SecondCollection}}</td>
+                    <td>Rs. {{ThirdCollection}}</td>
+                  </tr>
+                 
+                  <tr >
+                    <td>Proj Count_col</td>
+                    <td>{{FirstProjectCount}}</td>
+                    <td>{{SecondProjectCount}}</td>
+                    <td>{{ThirdProjectCount}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Avg EffectiveDiscount</td>
+                    <td>{{FirstEffectiveDiscount}}</td>
+                    <td>{{SecondEffectiveDiscount}}</td>
+                    <td>{{ThirdEffectiveDiscount}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Sales</td>
+                    <td>{{FirstSales}}</td>
+                    <td>{{SecondSales}}</td>
+                    <td>{{ThirdSales}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>WinCount</td>
+                    <td>{{FirstMonthWinCount}}</td>
+                    <td>{{SecondMonthWinCount}}</td>
+                    <td>{{ThirdMonthWinCount}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>WinAmount</td>
+                    <td>{{FirstMonthWinAmount.toFixed(0)}}</td>
+                    <td>{{SecondMonthWinAmount.toFixed(0)}}</td>
+                    <td>{{ThirdMonthWinAmount.toFixed(0)}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+              
+<div class="row" style="margin-top: 300px;margin-left: 50px;">
+    <div class="column">
+      <p>Prepared By</p>
+      <p>Sanchit</p>
+    </div>
+    <div class="column">
+        <p>Checked By</p>
+        <p>{{User}}</p>
+    </div>
+    <div class="column">
+      <p>Approved By</p>
+      <p>Gaurav</p>
+    </div>
+  </div>
+
+
+            
+          <div>
+            <footer class="footer8">
+              <p class="bottom-link">PREPARED BY WEBPRO ANALYTICS AS ON {{AsOnDate}} </p>
+            </footer>  
+          </div>
+
+        </div>
+
+        
+      
+</section>
+
+
+
+<section class="page-break" *ngIf="!social">
+
+        
+  <div class="page-8" size="A4" id="waltzslide">
+
+
+    <div class="black-band">
+
+
+      <div class="width-50">
+        <div class="project">
+          <p>WALTZ INCENTIVE REPORT</p>
+          <p>{{User}} </p> 
+          <p>{{FirstMonth}} '23</p>      
+        </div>
+      </div>
+
+      <div class="width-50">
+        <div class="logo">
+         <img src="https://i.imgur.com/7A5QggX.jpg">
+       </div>
+      </div>
+      
+    </div>
+  
+
+
+
+
+    <table class="table table-striped" style="margin-top: 40px;table-layout: auto;">
+        <thead style="color:#fff; background: #000; ">
+          <tr >
+            <th style="font-size: 12px;">OrderNo</th>
+            <th style="font-size: 12px;">ProName</th>
+            <th style="font-size: 12px;">ArchitectFirmName</th>
+            <th style="font-size: 12px;">ClientDis</th>
+            <th style="font-size: 12px;">ProPlusDis</th>
+            <th style="font-size: 12px;">EffectiveDis</th>
+            <th style="font-size: 12px;">Collection</th>
+            <th style="font-size: 12px;">Due</th>           
+          </tr>
+        </thead>
+        <tbody>
+
+          
+          <tr  style=" border: 1px " *ngFor="let arrs of First">
+            <td style="font-size: 12px;">{{arrs.ProjectRefNo}}</td>
+            <td style="font-size: 12px;">{{arrs.ProjectName}}</td>
+            <td style="font-size: 12px;">{{arrs.ArchitectFirm}}</td>
+            <td style="font-size: 12px;">{{arrs.ClientDiscount}}</td>
+            <td style="font-size: 12px;">{{arrs.ProPlusDiscount}}</td>
+            <td style="font-size: 12px;">{{arrs.EffectiveDiscount}}</td>
+            <td style="font-size: 12px;">{{arrs.Collection}}</td>
+            <td style="font-size: 12px;">{{arrs.Due}}</td>
+            
+          </tr>
+
+          <tr  style=" border: 1px ">
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;">Avg : {{FirstEffectiveDiscount}} </td>
+            <td style="font-size: 12px;">Tot Rs. {{FirstCollection}}</td>
+            <td style="font-size: 12px;">Tot Rs. {{FirstIncentive}}</td>
+            
+          </tr>
+
+
+        </tbody>
+      </table>
+
+
+      
+<div class="row" style="margin-top: 300px;margin-left: 50px;">
+<div class="column">
+<p>Prepared By</p>
+<p>Sanchit</p>
+</div>
+<div class="column">
+<p>Checked By</p>
+<p>{{User}}</p>
+</div>
+<div class="column">
+<p>Approved By</p>
+<p>Gaurav</p>
+</div>
+</div>
+
+
+    
+  <div>
+    <footer class="footer8">
+      <p class="bottom-link">PREPARED BY WEBPRO ANALYTICS AS ON {{AsOnDate}} </p>
+    </footer>  
+  </div>
+
+</div>
+
+
+
+</section>
+
+
+
+<section *ngIf="social" class="page-break">
+
+        
+  <div class="page-8" size="A4" id="waltzslide">
+
+
+    <div class="black-band">
+
+
+      <div class="width-50">
+        <div class="project">
+          <p>WALTZ INCENTIVE REPORT</p>
+          <p>{{User}} </p> 
+          <p>{{FirstMonth}} '23</p>      
+        </div>
+      </div>
+
+      <div class="width-50">
+        <div class="logo">
+         <img src="https://i.imgur.com/7A5QggX.jpg">
+       </div>
+      </div>
+      
+    </div>
+  
+
+
+
+
+    <table class="table table-striped" style="margin-top: 40px;table-layout: auto;">
+        <thead style="color:#fff; background: #000; ">
+          <tr >
+            <th style="font-size: 12px;">Sno</th>
+            <th style="font-size: 12px;">Win Date</th>
+            <th style="font-size: 12px;">WA Name</th>
+            <th style="font-size: 12px;">OrderNo</th>
+            <th style="font-size: 12px;">ProjectName</th>
+            <th style="font-size: 12px;">ArchitectFirmName</th>
+            <th style="font-size: 12px;">ProjectCount</th>
+            <th style="font-size: 12px;">PlanValue</th>
+            <th style="font-size: 12px;">Collection</th>
+            <th style="font-size: 12px;">Due</th>
+
+
+         
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr  style=" border: 1px " *ngFor="let archs of  socialdue;index as i">
+            <td style="font-size: 12px;">{{i + 1}}</td>
+            <td style="font-size: 12px;">{{archs.WinDate}}</td>
+            <td style="font-size: 12px;">{{archs.WAName}}</td>
+            <td style="font-size: 12px;">{{archs.OrderNo}}</td>
+            <td style="font-size: 12px;">{{archs.ProjectName}}</td>
+            <td style="font-size: 12px;">{{archs.ArchitectFirmName}}</td>
+            <td style="font-size: 12px;">{{archs.ProjectCount}}</td>
+            <td style="font-size: 12px;">{{archs.PlanValue}}</td>
+            <td style="font-size: 12px;">{{archs.Collection}}</td>
+            <td style="font-size: 12px;">{{archs.Due}}</td>
+          </tr>
+
+          <tr  style=" border: 1px ">
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;"></td>
+            <td style="font-size: 12px;">Total</td>
+            <td style="font-size: 12px;">Rs {{FirstCollection}}</td>
+            <td style="font-size: 12px;">Rs {{FirstIncentive}}</td>
+          </tr>
+
+      
+
+
+        </tbody>
+      </table>
+
+
+      
+<div class="row" style="margin-top: 300px;margin-left: 50px;">
+<div class="column">
+<p>Prepared By</p>
+<p>Sanchit</p>
+</div>
+<div class="column">
+<p>Checked By</p>
+<p>{{User}}</p>
+</div>
+<div class="column">
+<p>Approved By</p>
+<p>Gaurav</p>
+</div>
+</div>
+
+
+    
+  <div>
+    <footer class="footer8">
+      <p class="bottom-link">PREPARED BY WEBPRO ANALYTICS AS ON {{AsOnDate}} </p>
+    </footer>  
+  </div>
+
+</div>
+
+
+
+</section>
+
+
+
+<section *ngIf="social" class="page-break">
+
+        
+  <div class="page-8" size="A4" id="waltzslide">
+
+
+    <div class="black-band">
+
+
+      <div class="width-50">
+        <div class="project">
+          <p>WALTZ INCENTIVE REPORT</p>
+          <p>{{User}} </p> 
+          <p>{{FirstMonth}} '23</p>      
+        </div>
+      </div>
+
+      <div class="width-50">
+        <div class="logo">
+         <img src="https://i.imgur.com/7A5QggX.jpg">
+       </div>
+      </div>
+      
+    </div>
+  
+
+
+
+
+    <table class="table table-striped" style="margin-top: 40px;table-layout: auto;">
+        <thead style="color:#fff; background: #000; ">
+          <tr >
+            <th style="font-size: 12px;">Sno</th>
+            <th style="font-size: 12px;">Win Date</th>
+            <th style="font-size: 12px;">WA Name</th>
+            <th style="font-size: 12px;">OrderNo</th>
+            <th style="font-size: 12px;">ProjectName</th>
+            <th style="font-size: 12px;">ArchitectFirmName</th>
+            <th style="font-size: 12px;">SocialProjectCount</th>
+            <th style="font-size: 12px;">PlanValue</th>
+            <th style="font-size: 12px;">Collection</th>
+            <th style="font-size: 12px;">Sales</th>
+
+
+         
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr  style=" border: 1px " *ngFor="let archs of  socialArray;index as i">
+            <td style="font-size: 12px;">{{i + 1}}</td>
+            <td style="font-size: 12px;">{{archs.WinDate}}</td>
+            <td style="font-size: 12px;">{{archs.WAName}}</td>
+            <td style="font-size: 12px;">{{archs.OrderNo}}</td>
+            <td style="font-size: 12px;">{{archs.ProjectName}}</td>
+            <td style="font-size: 12px;">{{archs.ArchitectFirmName}}</td>
+            <td style="font-size: 12px;">{{archs.ProjectCount}}</td>
+            <td style="font-size: 12px;">{{archs.PlanValue}}</td>
+            <td style="font-size: 12px;">{{archs.Collection}}</td>
+            <td style="font-size: 12px;">{{archs.Sales}}</td>
+          </tr>
+
+      
+
+
+        </tbody>
+      </table>
+
+
+      
+<div class="row" style="margin-top: 300px;margin-left: 50px;">
+<div class="column">
+<p>Prepared By</p>
+<p>Sanchit</p>
+</div>
+<div class="column">
+<p>Checked By</p>
+<p>{{User}}</p>
+</div>
+<div class="column">
+<p>Approved By</p>
+<p>Gaurav</p>
+</div>
+</div>
+
+
+    
+  <div>
+    <footer class="footer8">
+      <p class="bottom-link">PREPARED BY WEBPRO ANALYTICS AS ON {{AsOnDate}} </p>
+    </footer>  
+  </div>
+
+</div>
+
+
+
+</section>
+
+
+
+     
+      
+     
+
+</div>
+
+</ng-container>
+
+</ng-container>

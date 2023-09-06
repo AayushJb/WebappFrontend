@@ -1,0 +1,216 @@
+
+<app-login *ngIf = "!userIsAuthenticated"></app-login>
+
+
+
+<div  *ngIf = "userIsAuthenticated" class="wrapper">
+
+
+    
+    <div  id="myLinks" class="sidebar" data-image="assets/img/sidebar-5.jpg">
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="index.html" class="simple-text">
+                    <img src="assets/img/jb-glass-logo.png">
+                </a>
+            </div>
+            <ul class="nav">
+                <li *ngIf="UserProfile==='ACCOUNTS'">
+                    <a class="nav-link" routerLink ="/accounts">
+                        <i class="nc-icon nc-settings-gear-64"></i>
+                        <p>Accounts</p>
+                    </a>
+                </li>
+
+
+                <ng-container *ngIf="UserFullName!=='AMIT PANDEY'">
+                <li>
+                    <a  class="nav-link" routerLink ="/projects">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+
+              </ng-container>
+
+                <ng-container   *ngIf ="UserFullName==='GAURAV SINGHAL' ||UserFullName==='AAYUSH PANDEY'||UserFullName==='AMIT PANDEY'">
+                <li>
+                    <a  class="nav-link" routerLink ="/goprojects">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Glass</p>
+                    </a>
+                </li>
+            </ng-container>
+
+            
+            <ng-container   *ngIf ="UserProfile==='ACCOUNTS'">
+                <li>
+                    <a  class="nav-link" routerLink ="/goprojects">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Glass</p>
+                    </a>
+                </li>
+            </ng-container>
+                
+
+  <ng-container *ngIf="UserProfile!=='PROJECT MANAGER'">
+
+    <ng-container *ngIf="UserFullName!=='AMIT PANDEY'">
+                <li>
+                    <a  *ngIf="UserProfile!=='ACCOUNTS'" class="nav-link"  routerLink ="/newproject">
+                        <i class="nc-icon nc-notes"></i>
+                        <p>New Order</p>
+                    </a>
+                </li>
+
+                </ng-container>
+                <ng-container *ngIf="UserFullName!=='AMIT PANDEY'">
+                <li>
+                    <a *ngIf="UserProfile!=='ACCOUNTS'" class="nav-link" routerLink ="/downloads">
+                        <i class="nc-icon nc-cloud-download-93"></i>
+                        <p>Downloads</p>
+                    </a>
+                </li>
+                </ng-container>
+                <ng-container *ngIf="UserProfile!=='BACKEND'">
+                    <ng-container *ngIf="UserProfile!=='PRE PRODUCTION'">
+
+                <li>
+                    <a  class="nav-link" >
+                        <i class="nc-icon nc-chart-bar-32"></i>
+                        <p>Analytics</p>
+                    </a>
+
+                    <ul class="submenu">
+                        <ng-container *ngIf ="UserFullName!=='PRAVEEN OJHA'">
+                        <a  style="cursor: pointer;" routerLink ="/analytics"><li class = "subs">DETAILED REPORT</li></a> 
+                        </ng-container>
+                        <ng-container *ngIf ="UserFullName!=='PRAVEEN OJHA'&&UserFullName!=='ANUJ JAIN'">
+                        <a *ngIf="UserProfile==='ADMIN'||UserProfile==='ACCOUNTS'" style="cursor: pointer;" routerLink ="/incentives"><li class = "subs">INCENTIVES REPORT</li></a> 
+                        <a *ngIf="UserProfile==='ADMIN'||UserProfile==='ACCOUNTS'"  style="cursor: pointer;" routerLink ="/proplusreport"><li class = "subs">PROPLUS REPORT</li></a> 
+                        <a *ngIf="UserProfile==='ADMIN'||UserProfile==='ACCOUNTS'"  style="cursor: pointer;"><li class = "subs">ARCHITECT REPORT</li></a> 
+                       </ng-container>
+                    
+                    </ul>
+
+                </li>
+
+
+               
+                
+                     
+                  
+                
+            </ng-container>
+                </ng-container>
+                
+                <li *ngIf="UserProfile!=='USER'">
+                    <ng-container *ngIf="UserProfile!=='BACKEND'">
+                        <ng-container *ngIf="UserProfile!=='ACCOUNTS'">
+                            <ng-container *ngIf="UserProfile!=='PRE PRODUCTION'">
+                    <a  class="nav-link" routerLink ="/settings">
+                        <i class="nc-icon nc-settings-gear-64"></i>
+                        <p>Settings</p>
+                    </a>
+                </ng-container>
+                  </ng-container>
+                </ng-container>
+                </li>
+                   
+<!--
+                <li>
+                    <a  class="nav-link" routerLink ="/requests">
+                    <i class="nc-icon nc-support-17"></i>
+                    <p>Requests</p>
+                 </a>
+                </li>
+ 
+-->
+
+  </ng-container>
+                    
+                  
+
+
+
+                <li>
+                    <a class="nav-link" >
+                        <i class="nc-icon nc-lock-circle-open"></i>
+                        <p>Log out</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav   class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#0"> Dashboard </a>
+                    <ul class="navbar-nav ml-auto display-mobile">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#0">
+                                <i class="nc-icon nc-circle-09"></i>
+                                <div class="dropdown-mn">
+                                    <a class="dropdown-item" ><span class="no-icon">{{UserFullName}}</span></a>
+                                    <hr>
+
+                                    <a class="dropdown-item"  ></a>
+                                   
+                                    <a class="dropdown-item"  (click) = "OnLogOut()" *ngIf = "userIsAuthenticated">Logout</a>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>                                            
+                <button href="javascript:void(0);" onclick="myFunction()" class="navbar-toggler navbar-toggler-right" type="button">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="dropdown">
+                                <span class="d-lg-none">Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" >
+                                <i class="nc-icon nc-circle-09"></i>
+                                <span class="no-icon">{{UserFullName}}</span>
+                                <div class="dropdown-mn">
+                                    <a class="dropdown-item" >My Profile</a>
+    
+                                    <a class="dropdown-item" (click) = "OnLogOut()" *ngIf = "userIsAuthenticated">Logout</a>
+                                </div>
+                            </a>                         
+                        </li>
+                    </ul>
+
+                    
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+
+                <main><router-outlet></router-outlet></main>       
+                
+                
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

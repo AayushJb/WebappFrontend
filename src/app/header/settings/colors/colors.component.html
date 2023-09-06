@@ -1,0 +1,38 @@
+<form [formGroup] ="form" (submit) = "onSaveColor()"  >
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Color : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "Color" type="text" name="Color">
+    </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <button mat-stroked-button type = "button" (click)="filePicker.click()">Pick Image</button>
+  <input type="file" #filePicker (change)="OnImagePicked($event)">
+
+</div>
+
+<div class="image-preview" *ngIf = "imagePreview!=='' && imagePreview && form.get('Image').valid">
+  <img [src]="imagePreview" [alt]="form.value.Color">
+</div>
+
+
+
+
+
+<div class="col-md-7 form-group row">
+  <button type="submit" class="btn btn-primary btn-sm" >Save Color</button>
+
+</div>
+
+
+<div  *ngIf="form.get('Color').invalid" class="alert alert-primary" role="alert">
+  Please enter a valid Sub System.
+</div>
+
+</form>
+
+<app-colortable></app-colortable>
+

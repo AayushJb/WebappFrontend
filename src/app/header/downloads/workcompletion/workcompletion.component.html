@@ -1,0 +1,184 @@
+
+
+
+
+<button printTitle="{{OrderNumber}}"  styleSheetFile="assets/css/downloads.css,assets/css/presentation.css" printSectionId="pdf" ngxPrint>GET PDF</button>
+&nbsp; &nbsp; 
+<button routerLink ="/downloads">GO TO DOWNLOADS</button>
+<div id="pdf">
+
+<ng-container *ngIf = "SolLen<=4">
+
+<section>
+    <div class="page-8" size="A4" id="waltzslide">
+      <div class="black-band">
+        <div class="width-50">
+          <div class="project">
+            <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+            <p>Order no.: {{OrderNumber}}</p>       
+          </div>
+        </div>
+        <div class="width-50">
+          <div class="logo">
+           <img src="https://i.imgur.com/7A5QggX.jpg">
+         </div>
+        </div>
+      </div>
+    <div class="text-block-page-4" style="padding-bottom: 0.5cm">
+       <div class="border-line">
+          <div>
+            <p class="order-head" style="margin-bottom: 20px;text-align: center">WORK COMPLETION NOTE</p>
+          </div>
+    
+          <div class="width-60">
+            <p>Address:{{AddressOne}},{{AddressTwo}},{{AddressThree}}</p>
+            <p>{{City}},{{State}}</p>        
+          </div>
+          <div class="width-60">
+            <p style="padding-left: 20%">Contact person:{{ContactPerson}} </p>
+            <p style="padding-left: 20%">Contact number:{{ContactPhone}}</p>        
+          </div>
+         </div> 
+      </div> 
+        <div class="project-detail">
+        <p>Please inspect each installed WALTZ system and all material to your satisfaction before accepting hand-over. Tick ( ) the box against the respective system, along with your signature and date of accepting handover. Thank you.</p>    	
+          <table class="full-summary">
+            <tbody>
+                <tr *ngFor = "let os of WorkCompletion">
+              <td><div class="number">{{os.Sno}}</div></td>
+              
+              <td><img src="{{os.ModelImage}}" width="100" height="80"></td>
+            <!--<td> <qr-code [value]="os.LocationID" style="width:'50'; height:'50';"></qr-code></td>--> 
+              <td>            
+                <p style="margin:0px;color:#8a5e3c;font-size: 15px">{{os.System}}</p>
+                <p style="margin:0px">{{os.SubSystem}}</p>
+                <p style="margin:0px">{{os.PrintName}}</p>
+                <p *ngIf = "os.Grid==='YES'" style="margin:0px">{{os.Grid}}</p>
+              </td>
+              <td style="text-align: left">
+                <p style="margin:0px">{{os.Floor}}-{{os.Space}}</p>
+                <p style="margin:0px">{{os.Width}}X{{os.Height}}</p>
+                <p style="margin:0px">{{os.Color}}</p>
+                <p *ngIf = "!os.OuterGlass"style="margin:0px">{{os.InnerGlass}}</p>
+                <p *ngIf = "os.OuterGlass"style="margin:0px">{{os.InnerGlass}}</p>
+                <p *ngIf = "os.OuterGlass"style="margin:0px">{{os.OuterGlass}}</p>
+              </td>
+              <td style="text-align: left;padding-right:0"><div style="padding: 5px 0px 0px 10px;width:180px;border: 2px dotted #ddd;"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px 0 20px 0;width: auto"><p style="margin:0 0px 0 20px">Signature</p><p style="margin:0 0px 0 20px">Date:</p></div></td>
+            </tr> 
+                  
+            <!--html Updated--->                     
+          </tbody></table>
+          <!--html Updated--->  
+          <div>
+            <p style="padding:0.3cm 1cm;font-size: 16px ;text-align: center; color:#000">TOTAL NUMBER OF WALTZ SYSTEMS INSTALLED = {{count}}</p>
+          </div> 
+              <div style="border: 2px solid #ddd;padding: 2% 3%;display: flow-root;margin-top:0.3cm"><ul style="list-style: none;position: relative;padding: 0">
+            <li style="float: left;width: 33.33%"><p>Associate’s Name: {{Associate}}</p></li>
+            <li style="float: left;width: 33.33%"><p>| Contact no.:{{PhoneNo}}</p></li>
+            <li style="float: left;width: 33.33%"><p>| Email ID: {{EmailId}}</p></li>
+          </ul>
+        </div>      
+        </div>
+      </div>
+    <div>
+      <footer class="footer8">
+        <p class="bottom-link">WWW.JBGLASS.IN</p>
+        <p class="pagination">1 of 1</p>
+      </footer> 
+    </div>
+
+</section>
+
+</ng-container>
+
+
+<ng-container *ngIf = "SolLen>4">
+
+  <ng-container *ngFor="let times of QuotientOS; index as k; last as isLast">
+  <section>
+      <div class="page-8" size="A4" id="waltzslide">
+        <div class="black-band">
+          <div class="width-50">
+            <div class="project">
+              <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+              <p>Order no.: {{OrderNumber}}</p>       
+            </div>
+          </div>
+          <div class="width-50">
+            <div class="logo">
+             <img src="https://i.imgur.com/7A5QggX.jpg">
+           </div>
+          </div>
+        </div>
+      <div class="text-block-page-4" style="padding-bottom: 0.5cm">
+         <div class="border-line">
+            <div>
+              <p class="order-head" style="margin-bottom: 20px;text-align: center">WORK COMPLETION NOTE</p>
+            </div>
+      
+            <div class="width-60">
+              <p>Address:{{AddressOne}},{{AddressTwo}},{{AddressThree}}</p>        
+            </div>
+            <div class="width-60">
+              <p style="padding-left: 20%">Contact person:{{ContactPerson}} </p>
+              <p style="padding-left: 20%">Contact number:{{ContactPhone}}</p>        
+            </div>
+           </div> 
+        </div> 
+          <div class="project-detail">
+          <p>Please inspect each installed WALTZ system and all material to your satisfaction before accepting hand-over. Tick ( ) the box against the respective system, along with your signature and date of accepting handover. Thank you.</p>    	
+            <table class="full-summary">
+              <tbody>
+                  <tr *ngFor = "let os of WorkCompletion| slice:4*k:4*(k+1); index as i ">
+                <td><div class="number">{{os.Sno}}</div></td>
+                
+                <td><img src="{{os.ModelImage}}" width="100" height="80"></td>
+                <!--<td><qr-code [value]="'project/locations/{{os.LocationID}}'" style="width:'50'; height:'50';"></qr-code></td>-->
+                <td>            
+                  <p style="margin:0px;color:#8a5e3c;font-size: 15px">{{os.System}}</p>
+                  <p style="margin:0px">{{os.SubSystem}}</p>
+                  <p style="margin:0px">{{os.PrintName}}</p>
+                  <p *ngIf = "os.Grid" style="margin:0px">{{os.Grid}}</p>
+                </td>
+                <td style="text-align: left">
+                  <p style="margin:0px">{{os.Floor}}-{{os.Space}}</p>
+                  <p style="margin:0px">{{os.Width}}X{{os.Height}}</p>
+                  <p style="margin:0px">{{os.Color}}</p>
+                  <p *ngIf = "!os.OuterGlass"style="margin:0px">{{os.InnerGlass}}</p>
+                  <p *ngIf = "os.OuterGlass"style="margin:0px">{{os.InnerGlass}}</p>
+                  <p *ngIf = "os.OuterGlass"style="margin:0px">{{os.OuterGlass}}</p>
+                </td>
+                <td style="text-align: left;padding-right:0"><div style="padding: 5px 0px 0px 10px;width:180px;border: 2px dotted #ddd;"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px 0 20px 0;width: auto"><p style="margin:0 0px 0 20px">Signature</p><p style="margin:0 0px 0 20px">Date:</p></div></td>
+              </tr> 
+                    
+              <!--html Updated--->                     
+            </tbody></table>
+            <!--html Updated--->  
+        <ng-container *ngIf="isLast">
+            <div>
+              <p style="padding:0.3cm 1cm;font-size: 16px ;text-align: center; color:#000">TOTAL NUMBER OF WALTZ SYSTEMS INSTALLED = {{count}}</p>
+            </div> 
+           <div style="border: 2px solid #ddd;padding: 2% 3%;display: flow-root;margin-top:0.3cm">
+            <ul style="list-style: none;position: relative;padding: 0">
+              <li style="float: left;width: 33.33%"><p>Associate’s Name: {{Associate}}</p></li>
+              <li style="float: left;width: 33.33%"><p>| Contact no.:{{PhoneNo}}</p></li>
+              <li style="float: left;width: 33.33%"><p>| Email ID: {{EmailId}}</p></li>
+            </ul>
+          </div>  
+        </ng-container>    
+          </div>
+        </div>
+      <div>
+        <footer class="footer8">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+          <p class="pagination">{{k+1}} of {{testRemOS}}</p>
+        </footer> 
+      </div>
+  
+  </section>
+</ng-container>
+
+</ng-container>
+
+</div>
+  

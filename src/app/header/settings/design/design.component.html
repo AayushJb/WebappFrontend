@@ -1,0 +1,23 @@
+
+<form [formGroup] ="form" (submit) = "onSaveDesign()"  >
+
+    <div class="col-md-7 form-group row">
+      <label class="col-sm-4 col-form-label">Design : </label>
+      <div class="col-sm-4">
+          <input class="form-control" formControlName = "Design" type="text" name="SubSystem">
+      </div>
+  
+  </div>
+  
+  <div class="btn-group">
+  <button type="submit" class="btn btn-primary btn-sm" >Save Design</button>
+  </div>
+  
+  <div  *ngIf="form.get('Design').invalid" class="alert alert-primary" role="alert">
+    Please enter a valid Design Name.
+  </div>
+  
+  </form>
+  
+  
+  <app-designtable></app-designtable>

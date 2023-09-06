@@ -1,0 +1,155 @@
+<form [formGroup] ="form" (submit) = "onSaveGlassfinish()">
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Glass Name: </label>
+    <div class="col-sm-6">
+        <input class="form-control" formControlName = "GlassModel" type="text" name="GlassModel">
+    </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Glass Print Name: </label>
+  <div class="col-sm-6">
+      <input class="form-control" formControlName = "GlassPrintName" type="text" name="GlassPrintName">
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Min Thickness: </label>
+  <div class="col-sm-2">
+      <input class="form-control" formControlName = "MinThick" type="number" name="MinThick">
+  </div>
+
+  <label class="col-sm-2 col-form-label">Max Thickness: </label>
+  <div class="col-sm-2">
+      <input class="form-control" formControlName = "MaxThick" type="number" name="MaxThick">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Matte : </label>
+  <div class="col-sm-2">
+      <div class="box">
+        <select formControlName = "Matte" class="form-control" >
+          <option>NO</option>
+          <option>YES</option>
+        </select>
+      </div>
+  </div>
+
+  <label class="col-sm-2 col-form-label">Matte Cost: </label>
+  <div class="col-sm-2">
+      <input class="form-control" formControlName = "MatteCost" type="number" name="MatteCost">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Max Height: </label>
+  <div class="col-sm-2">
+      <input class="form-control" formControlName = "MaxHeight" type="number" name="MaxHeight">
+  </div>
+
+  <label class="col-sm-2 col-form-label">Max Width: </label>
+  <div class="col-sm-2">
+      <input class="form-control" formControlName = "MaxWidth" type="number" name="MaxWidth">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Price(persqft): </label>
+  <div class="col-sm-2">
+      <input class="form-control" formControlName = "Price" type="number" name="Price">
+  </div>
+
+  <label class="col-sm-2 col-form-label">Label : </label>
+  <div class="col-sm-2">
+      <input class="form-control" formControlName = "Label" type="text" name="Label">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row test">
+  <label class="col-sm-2 col-form-label">Glass Variants: </label>
+  <div class="col-sm-4">
+      <div class="box ">
+
+
+        <mat-form-field appearance="fill" style = "width : 600px">
+          <mat-label>Select Glass Variants </mat-label>
+          <mat-select formControlName = "GlassVariants" multiple>
+            <mat-option *ngFor="let sys of glassvariants" [value]="sys.GlassVariantModel">{{sys.GlassVariantModel}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Temperable : </label>
+  <div class="col-sm-2">
+      <div class="box">
+        <select formControlName = "Temperable" class="form-control" >
+          <option>NO</option>
+          <option>YES</option>
+        </select>
+      </div>
+  </div>
+
+  <label class="col-sm-2 col-form-label">Status : </label>
+  <div class="col-sm-2">
+      <div class="box">
+        <select formControlName = "Status" class="form-control" >
+          <option>ACTIVE</option>
+          <option>INACTIVE</option>
+          <option>OTHER</option>
+        </select>
+      </div>
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Write Up: </label>
+  <div class="col-sm-6">
+      <input class="form-control" formControlName = "WriteUp" type="text" name="WriteUp">
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <button mat-stroked-button type = "button" (click)="filePicker.click()">Pick Image</button>
+  <input type="file" #filePicker (change)="OnImagePicked($event)">
+
+</div>
+
+<div class="image-preview" *ngIf = "imagePreview!=='' && imagePreview && form.get('Image').valid">
+  <img [src]="imagePreview" [alt]="form.value.GlassModel">
+</div>
+
+
+
+
+
+<div class="col-md-7 form-group row">
+<div class="btn-group">
+  <button type="submit" class="btn btn-primary btn-sm" >Save Glass Finish</button>
+  </div>
+</div>
+
+
+
+</form>
+
+
+<app-glassfintable></app-glassfintable>
+
+

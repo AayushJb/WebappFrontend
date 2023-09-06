@@ -1,0 +1,41 @@
+export interface Model {
+
+  _id : string,
+  System  : string,
+  SubSystem  : string,
+  SystemType  : string,
+  SOFlag  : string,
+  PrintName : string,
+  SubOrientation : string,
+  Orientation : string,
+  GlassFinishes : string[],
+  Colors : string[],
+  Handles : string[],
+  Grid : string,
+  DoorCloser : string,
+  DropSeal : string,
+  Temperable : string,
+  Status : string,
+  Code : string,
+  MinThick : string,
+  MaxThick : string,
+  MinWidth : string,
+  MaxWidth : string,
+  MinHeight : string,
+  MaxHeight : string,
+  ProfileCost : string,
+  HardwareCost : string,
+  FCost : string,
+  Dcost : string,
+  Lock : string,
+  imageMRIpath : string,
+  imageSORIpath : string,
+  imageRIpath : string,
+  imagePSEpath : string,
+  imageExpath : string,
+  imageMSpath : string,
+  DateCreated : string
+
+
+
+}

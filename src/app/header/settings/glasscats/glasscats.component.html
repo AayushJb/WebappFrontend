@@ -1,0 +1,43 @@
+<form [formGroup] ="form" (submit) = "onSaveGlasscat()">
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Glass Category : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "GlassCategory" type="text" name="GlassCategory">
+    </div>
+</div>
+
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Glass Sub Category: </label>
+  <div class="col-sm-4">
+      <div class="box">
+
+
+        <mat-form-field appearance="fill" style = "width : 600px">
+          <mat-label>Select Glass Sub Category</mat-label>
+          <mat-select formControlName = "GlassSubCategory" multiple>
+            <mat-option *ngFor="let gls of glasssubcats" [value]="gls.GlassSubCategory">{{gls.GlassSubCategory}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+  </div>
+</div>
+
+
+<div class="col-md-7 form-group row">
+<div class="btn-group">
+  <button type="submit" class="btn btn-primary btn-sm" >Save Glass Category</button>
+  </div>
+</div>
+
+
+
+</form>
+
+<app-glasscattable></app-glasscattable>
+
+

@@ -1,0 +1,36 @@
+
+
+<ngx-charts-bar-horizontal
+  [view]="view"
+  [results]="multip"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [scheme] = "colorScheme"
+  [legend]="showLegend"
+  [xScaleMax] = "100"
+  [showGridLines] = true
+  [showDataLabel] = true
+  [showXAxisLabel] = true
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)"
+  [dataLabelFormatting]="setLabelFormatting" 
+  [yAxisTickFormatting] ="percentTickFormatting"
+  >
+  <ng-template #tooltipTemplate let-model="model">
+    <!-- fields are series/name/value -->
+    <div class="tt">
+       Completed
+      {{ model.series }} &nbsp;
+      {{ model.name }} : &nbsp;
+      {{ model.extra }}
+      
+    </div>
+  </ng-template>
+
+
+
+  
+</ngx-charts-bar-horizontal>
+

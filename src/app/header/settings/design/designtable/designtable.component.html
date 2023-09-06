@@ -1,0 +1,25 @@
+
+<div>
+    <table class="table table-hover" >
+    <thead class="thead-light">
+    <th scope = "col">Sno.</th>
+    <th scope = "col">Design Name</th>
+    <th scope = "col">Date Created</th>
+    <th scope = "col"></th>
+    <th scope = "col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let des of designs; index as i">
+        <td scope = "row">{{i+1}}</td>
+        <td>{{des.Design}}</td>
+        <td>{{des.DateCreated}}</td>
+        <td style="cursor: pointer;" ><a [routerLink] = "['/settings/designs/edit',des._id]">Edit</a></td>
+        <td style="cursor: pointer;"> <a (click)="OnDeleteDesign(des._id)">Delete </a></td>
+      </tr>
+    </tbody>
+  
+    </table>
+  
+  
+  
+    </div>

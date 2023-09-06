@@ -1,0 +1,63 @@
+
+
+
+.loader-container{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  opacity: 1;
+  z-index: 1000;
+  padding-top: 0%;
+}
+
+.plantype {
+  width: 127px !important;
+}
+
+.config{
+  width: 180px !important;
+ }
+  
+.configC{
+    width: 200px !important;
+ }
+
+.configGO{
+  width: 190px !important;
+ }
+
+.configGT{
+      width: 190px !important;
+}  
+  
+
+.form-check-inline {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-left: 0;
+    margin-right: 0.75rem; 
+  }
+
+
+
+
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 90px;
+  color: black;
+  font-weight: bold;
+  background-color : white;
+
+}
+
+
+
+
+

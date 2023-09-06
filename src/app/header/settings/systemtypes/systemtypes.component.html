@@ -1,0 +1,23 @@
+
+<form [formGroup] ="form" (submit) = "onSaveSystemtype()"  >
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">System Type : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "SystemType" type="text" name="SystemType">
+    </div>
+
+</div>
+
+<div class="btn-group">
+<button type="submit" class="btn btn-primary btn-sm" >Save System Type</button>
+</div>
+
+<div  *ngIf="form.get('SystemType').invalid" class="alert alert-primary" role="alert">
+  Please enter a valid System Type.
+</div>
+
+</form>
+
+
+<app-typetable></app-typetable>

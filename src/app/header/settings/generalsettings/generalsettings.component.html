@@ -1,0 +1,72 @@
+<form [formGroup] ="form" (submit) = "onEditGeneralSettings()">
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Counter : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "Counter" type="number" name="Counter">
+    </div>
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Prefix : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Prefix" type="text" name="Prefix">
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Factor : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Factor" type="number" name="Factor">
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Grid Cost: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "GridCost" type="number" name="GridCost">
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Door Closer Cost: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "DoorCloserCost" type="number" name="DoorCloserCost">
+  </div>
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Drop Seal Cost: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "DropSealCost" type="number" name="DropSealCost">
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Glass Factor: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "GlassFactor" type="number" name="GlassFactor">
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Glass Counter: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "GlassCounter" type="number" name="GlassCounter">
+  </div>
+</div>
+
+
+
+
+<div class="col-md-7 form-group row">
+<div class="btn-group">
+  <button type="submit" class="btn btn-primary btn-sm" >Edit General Settings</button>
+  </div>
+</div>
+
+
+
+</form>

@@ -1,0 +1,54 @@
+<form  [formGroup] ="form"> 
+    <div class=" col-md-7 form-group row">
+      <label class="col-sm-4 col-form-label">Select Order Number:</label>
+      <div class="col-sm-6">
+      
+        <div class="ng-autocomplete">
+          <ng-autocomplete 
+            formControlName="Order"
+            [data]="orders"
+            [searchKeyword]="keyword"
+            placeholder="Select Order Number"
+            (selected)='selectEvent($event)'
+            (inputChanged)='onChangeSearch($event)'
+            (inputFocused)='onFocused($event)'
+            [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate">                                 
+          </ng-autocomplete>
+          
+          <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.OrderNo"></a>
+          </ng-template>
+          
+          <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+          </ng-template>
+          </div>
+     </div>
+  
+  
+    <!--  <div class="col-sm-6">
+          <input class="form-control" type="text" placeholder="Enter Order Number" aria-label="Number" matInput formControlName="Order" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let ors of orders" [value]="ors.OrderNo"  #orderid>
+               {{ ors.OrderNo }}
+            </mat-option>
+          </mat-autocomplete>
+          
+      </div>
+      -->
+    </div>
+  
+  
+   
+  
+  </form>
+  
+  
+  
+   <div class="col-md-9">
+ 
+    <a ><p  (click) ="WinCSProject()"  class="text-muted ml-2L">UPDATE CS PROJECT</p></a>
+   
+  
+   </div>

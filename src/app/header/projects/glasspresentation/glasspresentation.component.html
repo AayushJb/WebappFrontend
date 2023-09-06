@@ -1,0 +1,628 @@
+
+<button printTitle="{{OrderNumber}}"  styleSheetFile="assets/css/glasspresentation.css,assets/css/glassstylepre.css" printSectionId="pdf"      ngxPrint>GET PDF</button>
+
+
+<div id = "pdf">
+
+
+<section>
+    <div class="page-1" size="A4">
+      <div class="border-pad"></div>
+      <div class="img-main-block"><img src="https://i.imgur.com/oCJWQQf.png"></div>
+      <div class="text-block-page-1">
+        <p style="font-size: 22px">{{ClientName}}</p>
+        <p>{{GSTProj}}</p>
+        <p>{{Location}}</p>
+        <p>{{OrderCounter}}</p>
+        <p> {{PipeLineDate}}</p>
+      </div>
+    </div>
+    </section>
+    
+    <section>
+    <div class="page-2" size="A4">
+      <div class="border-pad" style="border:2px solid #ddd"></div>
+      <div class="text-block-page-2">
+        <h1>CONGRATULATIONS !</h1>
+        <p class="center-justified">On joining us in our journey of unlocking the potential of glass for exterior and interior space applications. We have been on this fantastic journey for over 30 years, and we are still discovering more.</p>
+        <p class="center-justified">Glass from JB Glass carries a promise and our commitment of delivering uncompromised quality, deft workmanship, and complete customization for our customers. With our unrivalled range, we offer transparent, translucent, and opaque glass types in a broad range of styles and attractive finishes. Our Ultraslim range of 2mm super thin and 5mm thin, shatter-proof glass has been inspiring designs and applications for over a decade.</p>
+        <p class="center-justified">Welcome, once again, as we continue on this journey of exploration and innovation, because there is always more to discover.</p>
+        <div class="btn-type"><a href="#ordersummary" >Let's view your order</a></div>
+      </div>
+    </div>
+    </section>
+    
+
+    <ng-container *ngIf="SolLen<=4">
+    <section>
+    <div class="page-8" size="A4" id="waltzslide">
+      <div class="">
+        <div class="width-25">
+           <img src="https://i.imgur.com/oCJWQQf.png">
+        </div>
+        <div class="width-25" style="float: right;">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+        </div>
+      </div>
+      <div class="text-block-page-3">
+        <p class="order-head" style="margin-bottom: 10px;">ESTIMATE</p>
+        <div class="project-summary-3">
+        <p>ClientName : {{ClientName}}</p>
+        <p>Project : {{ProjectName}}</p>
+        <p>Order no.: {{OrderCounter}}</p>
+        </div>    
+        <div class="project-detail">
+          <table class="full-summary">
+            <tr *ngFor = "let Sols of glassoutput; index as i">
+              <td style="width:20px;"><div class="number">{{i+1}}</div></td>
+              <td style="width:250px;"><img src="{{Sols.GlassThumbnailImage}}" width="100" height="100"></td>
+              <td style="width:250px;">            
+                <p style="margin:0px;color:#188ae2">{{Sols.GlassFinish}} {{Sols.SizesExtra}}</p>
+                <p style="margin:0px">{{Sols.GlassSubCategory}} {{Sols.StandardThickness}}mm</p>
+                <p style="margin:0px">({{Sols.GlassCode}})</p>
+              </td>
+              <td style="text-align: left;width: 200px">
+                <!--><p style="margin:0px">{{Sols.StandardLamination}}</p>-->
+                <p style="margin:0px">{{Sols.TotalPieces}} Pieces {{Sols.TotalSquarefeet}} sqft</p>
+                <p style="margin:0px">@ Rs {{Sols.RatePerSqft}}/sqft</p>
+              </td>
+              <td style="width:200px;text-align: left;">₹ {{Sols.Amount}} </td>
+            </tr> 
+             
+           
+            
+            <!--html Updated--->       
+       
+
+            <tr>
+            <td style="border:none;padding:0cm 12px 0cm"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+            <td  style="border:none;padding:0cm 12px 0cm;text-align: left;">Grand Total *</td>   
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;">₹ {{GrandTotal}}</td>
+            </tr> 
+            <tr *ngIf="TempCharges>0">
+            <td style="border:none;padding:0cm 12px 0cm"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Temp Charges</div></td>     
+           
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{TempCharges}}</div></td>
+            </tr>    
+            <tr *ngIf="DiscountValue>0">
+            <td style="border:none;padding:0cm 12px 0cm"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div  *ngIf="Discount>0">Discount</div></td>     
+           
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div  *ngIf="Discount>0">₹ {{DiscountValue}}</div></td>
+            </tr>  
+            <ng-container *ngIf="Packing>0">
+            <tr *ngIf="Associate==='AMIT PANDEY'">
+            <td style="border:none;padding:0cm 12px 0cm"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Packing</div></td>     
+           
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{Packing}}</div></td>
+            </tr>  
+          </ng-container>
+          <ng-container *ngIf="Freight>0">
+            <tr *ngIf="Associate==='AMIT PANDEY'">
+            <td style="border:none;padding:0cm 12px 0cm"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Freight</div></td>     
+           
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{Freight}}</div></td>
+            </tr> 
+          </ng-container>
+
+          <ng-container *ngIf="OtherCharges>0">
+            <tr *ngIf="Associate==='AMIT PANDEY'">
+              <td style="border:none;padding:0cm 12px 0cm"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Other Charges</div></td>     
+           
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{OtherCharges}}</div></td>
+            </tr> 
+          </ng-container>
+
+          
+
+          <tr *ngIf="InsuranceCost>0">
+            <td style="border:none;padding:0cm 12px 0cm"></td>
+          <td style="border:none;padding:0cm 12px 0cm;"></td>
+          <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+          <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Insurance(2.6%)</div></td>     
+         
+          <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{InsuranceCost}}</div></td>
+          </tr> 
+      
+            <tr>
+              <td style="border:none;padding:0cm 12px 0cm"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>
+            <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>GST(18%)</div></td>     
+           
+            <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{GSTValue}}</div></td>
+            </tr> 
+         
+        
+            <tr>
+              <td style="border:none;padding:0cm 12px 0cm"></td>
+              <td style="border:none;padding:0cm 12px 0cm;"></td>
+              <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+              <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>FinalAmount</div></td>     
+             
+              <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{FinalAmount}}</div></td>
+            </tr>                         
+            <!-------------------->                      
+          </table>
+          <div  *ngIf="Discount<1"style="display: block;width: 100%;margin-top:-15px;">
+           
+            <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderPieces}} Pieces</p>
+            <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderSquarefeet}} Sqft</p>
+           
+          </div>
+          <div  *ngIf="Discount>0"style="display: block;width: 100%;margin-top:-40px;">
+           
+            <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderPieces}} Pieces</p>
+            <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderSquarefeet}} Sqft</p>
+           
+          </div>
+
+          
+<div style="margin:-15px 10px 0;float: right;width:50% ;margin-top: 30px;"><p style="background: #40528a; color: #fff; padding:3px 10px;font-size: 12px;">* ALL INCLUSIVE PRICE. NO HIDDEN CHARGES.</p></div>
+    
+          <!------------------->
+          <div style="display: block;width: 100%;margin-top: 100px;">
+           
+            <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">** Glass thickness may vary by ±0.5mm</p>
+            <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">** Glass size may vary by ±2mm</p>
+            <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">** T&C apply</p>
+          </div>            
+        </div>
+      </div>
+    <footer>
+      <div class="footer8">
+        <p class="pagination">3</p>
+      </div> 
+    </footer>
+    </div>
+    </section>
+    </ng-container>
+
+
+
+    <ng-container *ngIf="SolLen>4">
+
+        <ng-container *ngFor="let times of QuotientEP; index as k; last as isLast">
+         <section>
+
+            <div class="page-8" size="A4" id="waltzslide">
+                <div class="">
+                  <div class="width-25">
+                     <img src="https://i.imgur.com/oCJWQQf.png">
+                  </div>
+                  <div class="width-25" style="float: right;">
+                    <p class="bottom-link">WWW.JBGLASS.IN</p>
+                  </div>
+                </div>
+                <div class="text-block-page-3">
+                  <p class="order-head" style="margin-bottom: 10px;">ESTIMATE</p>
+                  <div class="project-summary-3">
+                    <p>ClientName : {{ClientName}}</p>
+                    <p>Project : {{ProjectName}}</p>
+                    <p>Order no.: {{OrderCounter}}</p>
+                  </div>    
+                  <div class="project-detail">
+                    <table class="full-summary">
+                      <tr *ngFor = "let Sols of glassoutput| slice:4*k:4*(k+1); index as i ">
+                          <td style="width:20px;"><div class="number">{{(4*k + (i+1))}}</div></td>
+                          <td style="width:250px;"><img src="{{Sols.GlassThumbnailImage}}" width="100" height="100"></td>
+                          <td style="width:250px;">            
+                            <p style="margin:0px;color:#188ae2">{{Sols.GlassFinish}} {{Sols.SizesExtra}}</p>
+                            <p style="margin:0px">{{Sols.GlassSubCategory}} {{Sols.StandardThickness}}mm</p>
+                            <p style="margin:0px">({{Sols.GlassCode}})</p>
+                          </td>
+                          <td style="text-align: left;width: 200px">
+                            <!--><p style="margin:0px">{{Sols.StandardLamination}}</p>-->
+                            <p style="margin:0px">{{Sols.TotalPieces}} Pieces {{Sols.TotalSquarefeet}} sqft</p>
+                            <p style="margin:0px">@ Rs {{Sols.RatePerSqft}}/sqft</p>
+                          </td>
+                          <td style="width:200px;text-align: left;">₹ {{Sols.Amount}} </td>
+                        </tr> 
+                         
+                     
+                      
+                      <!--html Updated--->       
+                      <!--html Updated--->   
+                      
+                      <ng-container *ngIf="isLast">
+                        <tr>
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                        <td *ngIf="Discount>0" style="border:none;padding:0cm 12px 0cm;text-align: left;">Grand Total *</td>   
+                        <td *ngIf="Discount<1" style="border:none;padding:0cm 12px 0cm;text-align: left;">Final Amount *</td>     
+                       
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;">₹ {{GrandTotal}}</td>
+                        </tr> 
+                        <tr *ngIf="Profile==='GLASS ADMIN'">
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Temp Charges</div></td>     
+                       
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{TempCharges}}</div></td>
+                        </tr>    
+                        <tr>
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div  *ngIf="Discount>0">Discount</div></td>     
+                       
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div  *ngIf="Discount>0">₹ {{DiscountValue}}</div></td>
+                        </tr>  
+                        <tr *ngIf="Profile==='GLASS ADMIN'">
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Packing</div></td>     
+                       
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{Packing}}</div></td>
+                        </tr>  
+                        <tr *ngIf="Profile==='GLASS ADMIN'">
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Freight</div></td>     
+                       
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{Freight}}</div></td>
+                        </tr> 
+                        <tr *ngIf="Profile==='GLASS ADMIN'">
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Other Charges</div></td>     
+                       
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{OtherCharges}}</div></td>
+                        </tr> 
+                        
+          <tr *ngIf="InsuranceCost>0">
+            <td style="border:none;padding:0cm 12px 0cm"></td>
+          <td style="border:none;padding:0cm 12px 0cm;"></td>
+          <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+          <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>Insurance(2.6%)</div></td>     
+         
+          <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{InsuranceCost}}</div></td>
+          </tr> 
+                        <tr *ngIf="Profile==='GLASS ADMIN'">
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>
+                        <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>GST(18%)</div></td>     
+                       
+                        <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div>₹ {{GSTValue}}</div></td>
+                        </tr> 
+                        <tr>
+                          <td style="border:none;padding:0cm 12px 0cm"></td>
+                          <td style="border:none;padding:0cm 12px 0cm;"></td>
+                          <td style="border:none;padding:0cm 12px 0cm;"></td>                         
+                          <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div *ngIf="Discount>0">FinalAmount</div></td>     
+                         
+                          <td style="border:none;padding:0cm 12px 0cm;text-align: left;"><div *ngIf="Discount>0">₹ {{FinalAmount}}</div></td>
+                        </tr>    
+                      
+                      </ng-container>
+                      <!-------------------->                      
+                    </table>
+
+                    <ng-container  *ngIf="isLast">
+                    <div  *ngIf="Discount<1"style="display: block;width: 100%;margin-top:-15px;">
+           
+                      <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderPieces}} Pieces</p>
+                      <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderSquarefeet}} Sqft</p>
+                     
+                    </div>
+                    <div  *ngIf="Discount>0"style="display: block;width: 100%;margin-top:-40px;">
+                     
+                      <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderPieces}} Pieces</p>
+                      <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">{{OrderSquarefeet}} Sqft</p>
+                     
+                    </div>
+
+                    <div style="margin:-20px 10px 0;float: right;width:50%;margin-top: 5px;"><p style="background: #40528a; color: #fff; padding:3px 10px;font-size: 12px">* ALL INCLUSIVE PRICE. NO HIDDEN CHARGES.</p></div>
+                    
+                  </ng-container>     
+              
+                    <!------------------->
+                    <ng-container>
+                    <div style="display: block;width: 100%;margin-top: 100px;">
+                      <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">** Glass thickness may vary by ±0.5mm</p>
+                      <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">** Glass size may vary by ±2mm</p>
+                      <p style="color:#232323;margin:0px 0px 0px;font-size: 12px;line-height: 15px">** T&C apply</p>
+                    </div> 
+                   </ng-container>           
+                  </div>
+                </div>
+              <footer>
+                <div class="footer9">
+                  <p class="pagination">{{3+ k*1}}</p>
+                </div> 
+              </footer>
+              </div>
+              </section>
+         </ng-container>
+          
+    </ng-container> 
+
+
+<ng-container *ngFor = "let Sols of glassoutput; index as i">
+  <section>
+    <div class="page-8" size="A4" id="waltzslide">
+      <div class="">
+        <div class="width-25">
+           <img src="https://i.imgur.com/oCJWQQf.png">
+        </div>
+        <div class="width-25" style="float: right;">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+        </div>
+      </div>
+      <div class="text-block-page-3">   
+        <div class="project-detail">
+          <table class="full-summary">
+            <tr>
+              <td style="vertical-align: top;border-bottom: none;"><div class="number">{{i+ 1}}</div></td>
+              <td style="text-align: left;width:200px;vertical-align: baseline;border-bottom: none;">            
+               <!-- <p style="margin:0px;color:#188ae2"><strong>{{Sols.GlassSubCategory}}</strong></p>-->
+                <p style="margin:0px 0px 0px">{{Sols.GlassFinish}} {{Sols.SizesExtra}}</p>
+                <p style="margin:0px 0px 0px">{{Sols.GlassSubCategory}} {{Sols.StandardThickness}}mm</p>
+
+                <p style="margin:0px 0px 0px">{{Sols.Matte}}</p>
+                <p style="margin:0px 0px 0px">Temperable :{{Sols.Temperable}} </p>
+                <p style="margin:0px">{{Sols.StandardLamination}}</p>
+                <!--  <p style="margin:5px 0px 5px">{{Sols.GlassCode}}</p>
+                <p style="margin:10px 0px 0px"><strong>Standard size (WxH in mm):</strong></p>
+                <p style="margin:0px">{{Sols.StandardSizes}}</p>
+                <p style="margin:2px 0px 0px"><strong>Standard thickness:</strong></p>
+                <p style="margin:0px">{{Sols.StandardThickness}}mm</p>
+                <p style="margin:2px 0px 0px"><strong>Standard Finish:</strong></p>
+                <p *ngIf="Sols.Matte==='NO'||Sols.Matte===''" style="margin:0px">Gloss only</p>
+                <p style="margin:2px 0px 0px"><strong>Tempered Option:</strong></p>
+                <p style="margin:0px">{{Sols.TemperedOption}}</p>
+                <p style="margin:2px 0px 0px"><strong>Standard Lamination:</strong></p>
+                <p style="margin:0px">{{Sols.StandardLamination}}</p>
+                <p style="margin:2px 0px 0px"><strong>Weight/metre:</strong></p>
+                <p style="margin:0px">{{Sols.WeightPerMetre}} Kg</p>-->
+              </td>
+              <td width="400" style="border-bottom: none;"><img src="{{Sols.GlassPotraitImage}}"> <table style="width: 100%;position: relative;margin-top: -30px">
+                <tr>
+                  <td style="color:red;border:none;padding: 0 5px; text-align: left;">© JBGlass</td>
+                  <td style="color: red;border:none;padding: 0 5px; text-align: right;">For Reference Only</td>
+                </tr>
+              </table></td>
+              <td style="text-align: left;width:130px;vertical-align: baseline;border-bottom: none;"><div *ngIf="Sols.GlassOrientationImage"><p style="font-size: 10px;margin:0">Flute Orientation</p><img src="{{Sols.GlassOrientationImage}}"></div></td>
+            </tr>                       
+          </table>
+        
+<ng-container *ngIf="Sols.Remarks!==''">
+
+          <div class=" col-md-12 comments"  style="margin-bottom:20px;">
+            <p style="margin-bottom: 10px;color:#188ae2"><strong>Remarks / Comments</strong></p>      
+            <div class="text-area"><p style="font-size: 14px; line-height: 18px">{{Sols.Remarks}}</p>
+            </div>
+          </div> 
+ </ng-container>
+          <div class=" col-md-12 comments">
+            <p style="margin-bottom: 10px;color:#188ae2"><strong>Order Details</strong></p>      
+               <table class="child-table">
+                  <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Width</th>
+                      <th>Height</th>
+                      <th>Quantity</th>
+                      <th>Chargeable Sq. Ft</th>
+                      <th>As per drawing</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let sizes of Sols.Sizes| slice:0:15; index as i;last as isLast">
+                      <td><div class="number">{{i+1}}</div></td>
+                      <td>{{sizes.Width}}</td>
+                      <td>{{sizes.Height}}</td>
+                      <td>{{sizes.Quantity}}</td>
+                      <td>{{(((+sizes.Width)+(+chargable))*((+sizes.Height)+(+chargable))*(+sizes.Quantity)*0.00001076391042).toFixed(2)}}</td>
+                      <td>{{sizes.Drawing}}</td>
+                    </tr>
+                           
+                    
+                  </tbody>
+
+                  <thead *ngIf="Sols.Sizes.length<15">
+                    <tr>
+                      <th>Total</th>
+                      <th></th>
+                      <th></th>
+                      <th>{{Sols.TotalPieces}}</th>
+                      <th>{{Sols.TotalSquarefeet}}</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                </table>
+          </div>           
+        </div>
+      </div>
+    <footer>
+      <div class="footer8">
+        <p class="pagination">{{2+ QuotientEP.length+1 + i*1}}</p>
+      </div> 
+    </footer>
+</div>
+  </section>
+
+
+<section *ngIf="Sols.Sizes.length>15">
+    <div class="page-8" size="A4" id="waltzslide">
+      <div class="">
+        <div class="width-25">
+           <img src="https://i.imgur.com/oCJWQQf.png">
+        </div>
+        <div class="width-25" style="float: right;">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+        </div>
+      </div>
+      <div class="text-block-page-3">   
+        <div class="project-detail">
+
+          <table class="full-summary">
+            <tr>
+              <td style="vertical-align: top;border-bottom: none;"><div class="number">{{i+ 1}}</div></td>
+              <td style="text-align: left;width:170px;vertical-align: baseline;border-bottom: none;">            
+               <!-- <p style="margin:0px;color:#188ae2"><strong>{{Sols.GlassSubCategory}}</strong></p>-->
+                <p style="margin:0px 0px 0px">{{Sols.GlassFinish}} {{Sols.SizesExtra}}</p>
+                <p style="margin:0px 0px 0px">{{Sols.GlassSubCategory}} {{Sols.StandardThickness}}mm</p>
+
+        
+            
+              </td>
+              </tr>                       
+          </table>
+        
+
+          <div class=" col-md-12 comments">
+            <p style="margin-bottom: 10px;color:#188ae2"><strong>Order Details (Continued..)</strong></p>      
+               <table class="child-table">
+                  <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Width</th>
+                      <th>Height</th>
+                      <th>Quantity</th>
+                      <th>Chargeable Sq. Ft</th>
+                      <th>As per drawing</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let sizes of Sols.Sizes| slice:15:Sols.length; index as i;last as isLast">
+                      <td><div class="number">{{i+16}}</div></td>
+                      <td>{{sizes.Width}}</td>
+                      <td>{{sizes.Height}}</td>
+                      <td>{{sizes.Quantity}}</td>
+                      <td>{{(((+sizes.Width)+(+chargable))*((+sizes.Height)+(+chargable))*(+sizes.Quantity)*0.00001076391042).toFixed(2)}}</td>
+                      <td>{{sizes.Drawing}}</td>
+                    </tr>
+                           
+                    
+                  </tbody>
+
+                  <thead>
+                    <tr>
+                      <th>Total</th>
+                      <th></th>
+                      <th></th>
+                      <th>{{Sols.TotalPieces}}</th>
+                      <th>{{Sols.TotalSquarefeet}}</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                </table>
+          </div>           
+        </div>
+      </div>
+    <footer>
+      <div class="footer8">
+        <p class="pagination">{{2+ QuotientEP.length+1 + i*1}}</p>
+      </div> 
+    </footer>
+</div>
+</section>
+
+
+
+</ng-container> 
+
+
+
+ 
+
+ 
+    
+    <section>
+    <div class="page-9" size="A4">
+      <div class="">
+        <div class="width-25">
+           <img src="https://i.imgur.com/oCJWQQf.png">
+        </div>
+        <div class="width-25" style="float: right;">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+        </div>
+      </div>
+      <div class="text-block-page-9">
+        <h1>ANNEXURE</h1>
+        <p style="color:#232323;text-decoration: underline;">TERMS AND CONDITIONS</p>
+        <ul style="margin-left: -23px;" class="text-list">
+          <li>DIMENSIONS AS PER CLIENT.</li>
+          <li>PHYSICAL SAMPLES NEED TO BE APPROVED BEFORE PRODUCTION.</li>
+          <li>TEMPLATES MAY BE REQUIRED.</li>
+          <li>BEING A CUSTOMIZED ARTICLE ORDER ONCE PLACED CAN'T BE CANCELLED OR MODIFIED.</li>
+          <li>LEAD TIME: 3-4 WEEKS AFTER ORDER CONFIRMATION AND ADVANCE PAYMENT.</li>
+          <li>LACQUER COLOR MAY VARY LOT TO LOT. IF REQUIRED, WE CAN SEND A FRESH COLOR SWATCH FOR YOUR READY REFERENCE.</li>
+          <li>PLEASE MAKE SURE TO DOUBLE CHECK THE PROFORMA IN TERMS OF SPECIFICATION, S IZE, QTY, RATES & TAXES.</li>
+          <li>NO DISPUTE ON THE PROFORMA WILL BE ENTERTAINED AFTER ORDER IS ISSUED FOR PRODUCTION PERTAINING TO ITEMS AGREED IN THE PROFORMA.</li>
+          <li>+- 2 MM IS STANDARD TOLERANCE IN GLASS SIZE AS PER ORDER SHEET.</li>
+          <li>+- 0.5 MM IS STANDARD TOLERANCE IN GLASS THICKNESS AS PER ORDER SHEET.</li>
+          <li>ANY DAMAGE OR MISSING ITEM MUST BE REPORTED WITHIN 24 HRS AFTER DELIVERY O F GOODS AT YOUR PREMISES TO CLAIM INSURANCE ALONG WITH VIDEOS AND PHOTOGRAPHS FOR UNLOADING AND OPENING OF PACKAGES.</li>
+        </ul>
+       
+        <p style="color:#232323;text-decoration: underline;">PAYMENT TERMS</p>
+        <ul style="margin-left: -23px;" class="text-list">
+          <li>100% of order amount as advance.</li>
+         
+        </ul>
+
+        <p style="color:#232323;text-decoration: underline;">BANK DETAILS</p>
+        <ul style="margin-left: -23px;" class="text-list">
+          <li>BENEFICIARY'S NAME : {{BeneficiaryName}}</li>
+          <li>BANK NAME : {{Swift}}</li>
+          <li>BRANCH NAME : RPC DELHI</li>
+          <li>ACCOUNT NO : {{AccountNo}}</li>
+          <li>RTGS/NEFT CODE : {{IfscCode}}</li>
+        </ul>
+
+        <p style="color:#232323;text-decoration: underline;">SUPPORT</p>
+        <p style="font-size: 14px;line-height: 20px !important; font-family: 'Helvetica Neue Light' !important"> For any other queries, you may call our customer support helpline at +91 8800 99 4444 or
+          email us at <a href="mailto:info@jbglass.in" style="text-decoration: underline;color:#0551b1">support@jbglass.in</a></p>
+
+       
+      </div>
+      <footer>
+      <div class="footer9">
+        <p class="pagination">{{2+ QuotientEP.length+1 + glassoutput.length}}</p>
+      </div> 
+    </footer>
+    </div>
+    </section>
+    
+    <section>
+    <div class="page-11" size="A4">
+      <div class="border-pad"></div>
+      <div class="img-main-block"><img src="https://i.imgur.com/oCJWQQf.png"></div>
+      <div class="text-block-page-10">
+        <p style="font-family: 'Helvetica Neue Light' !important">{{Associate}}</p>
+        <p>{{GST}}</p>
+        <p>{{Address}}</p>
+        <p>{{PhoneNo}} | {{EmailId}}</p>
+      </div>
+      <div class="text-block-page-11">
+        <p><a style="text-decoration: underline;color:#fff" href="http://www.waltz.jbglass.in/">WWW.JBGLASS.IN</a></p>
+        <p>Instagram: @jbglass_</p>
+        <p>facebook: <a style="text-decoration: underline;color:#fff" href="#">@jbglass.in</a></p>
+      </div>  
+    </div>
+    </section>
+
+</div>

@@ -1,0 +1,76 @@
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-body table-full-width table-responsive margin-30px-top">
+
+
+<table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Width(Max: {{maxwidth}})</th>
+        <th>Height(Max: {{maxheight}})</th>
+        <th>Quantity</th>
+        <th>Drawing</th>
+       
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows; let i = index" [formGroup]="row">
+        <td>{{ i+1 }}</td>
+        <td>
+          <input formControlName="Width" type="number" placeholder="Enter Width" (input)=" onInputWidthEvent(row, i, 'input1')" (keydown.enter)="onEnter($event)"/>
+        </td>
+        <td>
+          <input formControlName="Height" type="number" placeholder="Enter Height" (input)="onInputHeightEvent(row, i, 'input1')" (keydown.enter)="onEnter($event)"/>
+        </td>
+        <td>
+          <input formControlName="Quantity" type="number" placeholder="Enter Quantity" (keydown.enter)="onEnter($event)" />
+          &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+
+       </td>
+        <td>
+           <select formControlName="Drawing" (keydown.enter)="onEnter($event)" >
+            <option value="NONE">NONE</option>
+            <option value="CUSTOM">CUSTOM</option>
+            <option value="D-1">D-1</option>
+            <option value="D-2">D-2</option>
+            <option value="D-3">D-3</option>
+            <option value="D-4">D-4</option>
+            <option value="D-5">D-5</option>
+            <option value="D-6">D-6</option>
+            <option value="D-7">D-7</option>
+            <option value="D-8">D-8</option>
+            <option value="D-9">D-9</option>
+            <option value="D-10">D-10</option>
+            <option value="D-11">D-11</option>
+            <option value="D-12">D-12</option>
+            <option value="D-13">D-13</option>
+            <option value="D-14">D-14</option>
+
+            </select>
+           &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+
+           <button type="button" (click)="deleteRow(i)" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Remove">
+            <i class="pe-7s-trash"></i>
+        </button>
+
+
+        </td>
+       
+      </tr>
+    </tbody>
+  </table>
+  
+  <button type = "button" (click)="addRow()">Add Row</button>
+
+</div>
+</div>
+</div>
+
+  
+
+  
+  

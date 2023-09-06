@@ -1,0 +1,140 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card logo-dashboard">
+            <div class="card-holder card-bx">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-info">
+                            <form [formGroup] ="form">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">User:</label>
+                                <div class="col-sm-9 col-form-input">
+                                  <mat-select  class="form-control mb-2" formControlName = "User" style="border:1px solid #ddd">
+                                    <mat-option *ngFor="let us of userList"  value = "{{us}}">{{us}}</mat-option>
+                                  </mat-select>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Request Status:</label>
+                                <div class="col-sm-9 col-form-input">
+                                  <mat-select formControlName = "Status" class="form-control mb-2" style="border:1px solid #ddd">
+                                    <mat-option value = "Open">Open</mat-option>
+                                    <mat-option value = "Closed">Closed</mat-option>
+                                    <mat-option value = "Rejected">Rejected</mat-option>
+                                  </mat-select>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-3 col-form-label">Search:</label>
+                                <div class="col-sm-9 col-form-input">
+                                  <input  class="form-control" placeholder="Search" autocomplete="off" formControlName = "Search" name="Search" (keyup)="applyFilter()" style="border:1px solid #ddd">
+                                </div>
+                              </div>                                      
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+
+<div  class ="mat-elevation-z8">
+    <mat-spinner *ngIf="!notloaded" style="position:relative;top :40%;left: 47%;"></mat-spinner>
+  
+    
+    <ng-container *ngIf="notloaded">
+    <mat-table  [dataSource]="DisplayedRows" matSort>
+      
+     
+      <ng-container matColumnDef="Order Number">
+        <mat-header-cell mat-sort-header *matHeaderCellDef >Order Number</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.OrderNo}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Project Name">
+        <mat-header-cell mat-sort-header *matHeaderCellDef >Project Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.ProjectName}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="RequestType">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>Request Type</mat-header-cell>
+        <mat-cell *matCellDef="let element" >{{element.RequestType}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="NewValue">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>New Value</mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+         <ng-container *ngIf="element.NewClientDiscount">{{element.NewClientDiscount}}</ng-container>
+         <ng-container *ngIf="element.NewDealerDiscount">{{element.NewDealerDiscount}}</ng-container>
+         <ng-container *ngIf="element.NewSource">{{element.NewSource}}</ng-container>
+         <ng-container *ngIf="element.NewProjectName">{{element.NewProjectName}}</ng-container>
+         <ng-container *ngIf="element.NewArchitectName">{{element.NewArchitectName}}</ng-container>
+
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Status">
+        <mat-header-cell mat-sort-header *matHeaderCellDef  >Status</mat-header-cell>
+        <mat-cell *matCellDef="let element" >{{element.Status}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Associate" >
+        <mat-header-cell mat-sort-header *matHeaderCellDef >Associate</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.Associate}}</mat-cell>
+      </ng-container>
+  
+      
+  
+      <ng-container matColumnDef="Request Date"  >
+        <mat-header-cell  mat-sort-header *matHeaderCellDef >Request Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.RequestDate}}</mat-cell>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="Actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <ng-container *ngIf="Profile==='ACCOUNTS'||Profile==='ADMIN'">
+          <button  mat-icon-button matTooltip="Approve Request" (click)="OnApproveRequest(row)"><mat-icon>done_outline</mat-icon></button>
+          <button  mat-icon-button matTooltip="Reject Request" (click) = "OnRejectRequest(row)"><mat-icon>highlight_off</mat-icon></button>
+          </ng-container>
+  
+
+          <ng-container *ngIf="Profile==='USER'">
+            <button  mat-icon-button matTooltip="Delete Request" (click)="OnDeleteRequest(row)"><mat-icon>delete_outline</mat-icon></button>
+          </ng-container>
+  
+  
+        </mat-cell>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan ="6">
+          Loading Data.....
+        </mat-footer-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="noData">
+        <mat-footer-cell *matFooterCellDef colspan ="6">
+          No Data to Display.
+        </mat-footer-cell>
+      </ng-container>
+  
+   
+  
+    
+  
+      <mat-header-row *matHeaderRowDef="DisplayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns : DisplayedColumns;"></mat-row>
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':DisplayedRows!=null}"></mat-footer-row>
+      <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(DisplayedRows!=null && DisplayedRows.data.length==0) }"></mat-footer-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[25]" showFirstLastButtons></mat-paginator>
+   </ng-container>
+  
+  
+  </div>

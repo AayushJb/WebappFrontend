@@ -1,0 +1,762 @@
+<div *ngIf = "this.wqgformService.spinnerStatus" class="loader-container">
+  <mat-spinner style="top: 30%; left: 40%;"></mat-spinner>
+</div>  
+
+
+<form  [formGroup] ="formOr" (submit) = "onSaveOrder()">
+
+   
+
+                    <div *ngIf ="TablesForm">
+  
+                      <div class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card logo-dashboard">
+                                        <div class="card-holder card-bx">
+                                            <div class="card-info">
+                                                <h4 class="card-title">{{ProjectName}}<!--<a  class="pull-right font-weight-800"><i class="pe-7s-note"></i></a>--></h4>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                      <p class="card-category">Order Number: {{OrderNumber}}</p>
+                                                    </div>                                    
+                                                </div>
+                                                <div class="row">
+                                                  <div class="col-md-12">
+                                                    <p class="card-category">Client Name: {{ClientName}}</p>
+                                                  </div>                                  
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                      <p class="card-category">Location: {{Location}}</p>
+                                                    </div>                                   
+                                                </div>
+
+                                                <div class="row">
+                                                  <div class="col-md-12">
+                                                    <p class="card-category">Architect Name: {{Architect}}</p>
+                                                  </div>                                  
+                                                </div>
+                                               
+                                                                                                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                       
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                      <div class="form-row align-items-center">
+                                        <div class="col-auto">
+                                          <button type="button" (click)="onAddSpace()"class="btn btn-info btn-fill">Add Solution <i class="nc-icon nc-simple-add"></i></button>
+                                        </div>
+                                      </div>
+                                </div>                       
+                            </div>                    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-body table-full-width table-responsive margin-30px-top">
+                                            <table class="table table-hover table-striped">
+                                                <thead>
+                                                    <tr><th>Solution Id</th>
+                                                    <th>Floor</th>
+                                                    <th>Space</th>
+                                                    <th>Solution Name</th>
+                                                    <th>Total Cost</th>
+                                                    <th>Total Sq. Ft.</th>                                                   
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr></thead>
+                                                <tbody>
+                                                  <tr   *ngFor = "let sols of Solutions; index as i">
+                                                    <td scope = "row">{{i+1}}</td>
+                                                    <td>{{sols.Floor}}</td>
+                                                    <td>{{sols.Space}}</td>
+                                                    <td>{{sols.System}}</td>
+                                                    <td>{{sols.Amount}}</td>
+                                                    <td>{{sols.SquareFeet}}</td>
+                                                    
+                                                        <td class="td-actions text-right">
+                                                            <button type="button" (click)="onEditSolution(i,sols.ProcoreLocationID,sols.ProcorePunchItemID)"rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Edit Task">
+                                                              <i class="pe-7s-note"></i>
+                                                            </button>
+                                                            &nbsp; &nbsp;
+                                                            <button *ngIf="!winstatus" type="button" (click)="onDeleteSolution(i,sols.ProcoreLocationID,sols.ProcorePunchItemID)" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Remove">
+                                                                <i class="pe-7s-trash"></i>
+                                                            </button>
+                                                        </td>                                                
+                                             </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                             
+                              <div class="col-md-7 form-group row">
+                                <label class="col-sm-2 col-form-label">Discount:</label>
+                                <div class="col-sm-4">
+                                  <input class="form-control"  type="number" formControlName ="Discount" min="0" [readonly]="disablediscount">
+                               </div>
+                               
+                              </div>
+                    
+                              <div class="col-md-7 form-group row">
+                                <label class="col-sm-2 col-form-label">Advance:</label>
+                                <div class="col-sm-5 col-form-input">
+                                    <mat-select class="form-control" formControlName = "Advance">
+                                    <mat-option *ngFor ="let adv of AdvanceArray" [value]="100-adv">{{100-adv}}</mat-option>
+                                   </mat-select>
+                                </div>
+                              </div>
+                              
+                                <div class="col-md-12">
+                                    <button  *ngIf = "formMode==='newOrder'" type="submit" class="btn btn-info btn-fill">Generate order <i class="pe-7s-like2"></i></button>
+                                </div>
+                               
+                                <div class="col-md-12">
+                                  <button  *ngIf = "formMode==='editOrder'"  type="submit" class="btn btn-info btn-fill">Edit order <i class="pe-7s-like2"></i></button>
+                                </div>
+
+                                
+                    
+                            </div>                    
+                        </div>
+                    </div>
+                    </div> 
+  
+</form>
+  
+
+
+
+
+<div *ngIf = "SolutionForm" class="content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+          
+
+
+               <form [formGroup] ="form" (submit) = "onSaveSolution()">
+  
+
+          
+            
+                <div class="col-md-12">
+                  <h4 class="section-title"  style="text-transform:uppercase" >WALTZ</h4>
+                </div>
+            
+            
+            
+            
+                     <div class="col-md-7 form-group row">
+                         <label class="col-sm-2 col-form-label">Floor:</label>
+                         <div class="col-sm-4">
+                             <input class="form-control" type="text" formControlName ="Floor" id = "floor"  maxlength="12" style="text-transform:uppercase" >
+                         </div>
+                     </div>
+            
+            
+            
+                     <div class=" col-md-7 form-group row">
+                         <label class="col-sm-2 col-form-label">Space/Room:</label>
+                         <div class="col-sm-4">
+                             <input class="form-control" type="text" name="space"  formControlName = "Space" maxlength="17" style="text-transform:uppercase">
+                         </div>
+                     </div>
+            
+            
+                     <div class="col-md-7 form-group row">
+                         <label class="col-sm-2 col-form-label">System:</label>
+                         <div class="col-sm-4">
+                             <div class="box">
+                          
+                               <mat-select  formControlName = "System"  class="form-control">
+                                 <mat-option *ngFor = "let sys of selectedSystems" value="{{sys}}">{{sys}}</mat-option>
+                               </mat-select>
+                             </div>
+                         </div>
+                     </div>
+            
+                     <div class="col-md-7 form-group row">
+                         <label class="col-sm-2 col-form-label">Sub-System:</label>
+                         <div class="col-sm-4">
+                             <div class="box">
+                               <mat-select formControlName = "SubSystem"  class="form-control">
+                                 <mat-option  *ngFor = "let subs of selectedSubsystems" value="{{subs}}">{{subs}}</mat-option>
+                               </mat-select>
+                             </div>
+                         </div>
+                     </div>
+            
+            
+            
+            
+            
+                     <div class="col-md-7 form-group row">
+                         <label class="col-sm-2 col-form-label">System-Type:</label>
+                         <div class="col-sm-4">
+                             <div class="box">
+                          
+                               <mat-select formControlName = "SystemType"  class="form-control">
+                                 <mat-option *ngFor = "let typs of selectedSystemTypes" value="{{typs}}" >{{typs}}</mat-option>
+                               </mat-select>
+                             </div>
+                         </div>
+                     </div>
+            
+            
+            
+            
+            
+            
+                   <div class="col-md-10 form-group row">
+            
+                       <label class="col-sm-2 col-form-label" (click)="uncollapseConfig()">Configuration:</label>
+                         <div class="col-sm-10" id = "plans">
+            
+                              <div class="radio form-check-inline" *ngFor = "let ori of selectedModels"  >
+                              <input (click)="orientationChanges(ori.Orientation)" class = "plantype" type="radio" formControlName = "Orientation" value="{{ori.Orientation}}" >
+                              <label for="radioInline24">
+                              <img class ="config blownup"  src="{{ori.imageMRIpath}}" alt="Super User" /><div class="bottom-left">{{ori.Orientation}}</div></label>
+                              </div>
+            
+            
+                          </div>
+            
+            
+            
+                   </div>
+            
+            
+            
+                   <div class="col-md-10 form-group row" *ngIf = "selectedSuborients.length>0">
+            
+                     <label class="col-sm-2 col-form-label"  (click) ="uncollapseSubConfig()">Sub Configuration:</label>
+                       <div class="col-sm-10" id = "plans">
+            
+                            <div class="radio form-check-inline" *ngFor = "let sori of selectedSuborients"  >
+                            <input (click)="suborientationChanges(sori.SubOrientation)" class = "plantype" type="radio" formControlName = "SubOrientation" value="{{sori.SubOrientation}}" >
+                            <label for="radioInline24">
+                            <img class ="config blownup"  src="{{sori.imageSORIpath}}" alt="Super User" /><div class="bottom-left">{{sori.SubOrientation}}</div></label>
+                            </div>
+            
+            
+                        </div>
+            
+            
+            
+                 </div>
+            
+            
+            
+            
+                 <div class="col-md-7 form-group row" *ngIf="grid">
+                   <label class="col-sm-2 col-form-label">Grid:</label>
+                   <div class="col-sm-4">
+                       <div class="box">
+                         <mat-select class="form-control" formControlName = "Grid" >
+                          <mat-option value="NO">NO</mat-option>
+                          <mat-option value= "YES">YES</mat-option>
+                          <mat-option *ngFor = "let gris of selectedgrids" value= "{{gris}}">{{gris}}</mat-option>
+                         </mat-select>
+                       </div>
+                   </div>
+                 </div>
+
+
+                 <div class="col-md-10 form-group row"   *ngIf="grid&&designflag">
+            
+                  <label class="col-sm-2 col-form-label" (click) ="uncollapseDesign()">Designs:</label>
+                    <div class="col-sm-10" id = "plans">
+               
+                         <div class="radio form-check-inline" *ngFor = "let des of selecteddesign"  >
+                         <input (click)="designChanges(des.Design)" class = "plantype" type="radio" formControlName = "Design" value="{{des.Design}}" >
+                         <label for="radioInline24">
+                         <img class ="configC blownup"  src="{{des.imagePath}}" alt="Super User" /><div class="bottom-left">{{des.Design}}</div></label>
+                         </div>
+               
+               
+                     </div>
+               
+               
+               
+                 </div>
+            
+            
+            
+            
+                 <div class=" col-md-7 form-group row">
+                   <label class="col-sm-2 col-form-label">Width(mm):</label>
+                   <div class="col-sm-4">
+                       <input class="form-control"  type="number" formControlName = "Width" min="0">
+                       <!--<span class="help-block"><small>Enter width less than {{maxWidth}}mm</small></span>-->
+                   </div>
+                 </div>
+            
+            
+            
+            
+               <div class=" col-md-7 form-group row">
+                   <label class="col-sm-2 col-form-label">Height(mm):</label>
+                   <div class="col-sm-4">
+                       <input class="form-control" (input)="OnHeightChanges()" type="number" formControlName ="Height" min="0">
+                       <span class="help-block"><small>Enter height less than {{maxHeight}}mm</small></span>
+                   </div>
+               </div>
+            
+            
+            
+               <div class=" col-md-7 form-group row">
+                 <label class="col-sm-2 col-form-label">Quantity:</label>
+                 <div class="col-sm-4">
+                     <input  class="form-control" type="number" formControlName = "Quantity" min="0">
+                     <button *ngIf="winstatus && modeButtons==='UpdateSpace'" type="button" (click)="DeleteQuantity()" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Remove">
+                      <i class="pe-7s-trash"></i>
+                     </button>
+                 
+                    </div>
+               </div>
+             
+            
+            
+            
+             <div class="col-md-10 form-group row" >
+            
+               <label class="col-sm-2 col-form-label" (click) ="uncollapseColor()">Frame Finishes:</label>
+                 <div class="col-sm-10" id = "plans">
+            
+                      <div class="radio form-check-inline" *ngFor = "let cols of selectedColor"  >
+                      <input (click)="colorChanges(cols.Color)" class = "plantype" type="radio" formControlName = "Color" value="{{cols.Color}}" >
+                      <label for="radioInline24">
+                      <img class ="configC blownup"  src="{{cols.imagePath}}" alt="Super User" /><div class="bottom-left">{{cols.Color}}</div></label>
+                      </div>
+            
+            
+                  </div>
+            
+            
+            
+            </div>
+            
+            
+            
+            
+            
+             <div class="col-md-7 form-group row">
+                <label  *ngIf = " !GLFlag"class="col-sm-2 col-form-label">Finish Type:</label>
+                <label *ngIf = "GLFlag" class="col-sm-2 col-form-label">Glass One Type:</label>
+                <div class="col-sm-4">
+                    <div class="box">
+                      <mat-select class="form-control"  formControlName = "GlassCategory">
+                       <mat-option *ngFor = "let gls of selectedGlasscats" value="{{gls}}">{{gls}}</mat-option>
+                      </mat-select>
+            
+                    </div>
+                </div>
+             </div>
+            
+            
+            
+            
+            
+             <div class="col-md-7 form-group row">
+                <label  *ngIf = "!GLFlag"class="col-sm-2 col-form-label">Finish Category:</label>
+                <label  *ngIf = "GLFlag"class="col-sm-2 col-form-label">Finish One Category:</label>
+                <div class="col-sm-4">
+                    <div class="box">
+                      <mat-select class="form-control" formControlName = "GlassSubCategory">
+                       <mat-option *ngFor = "let gls of  selectedGlasssubcats" value="{{gls}}">{{gls}}</mat-option>
+                      </mat-select>
+                    </div>
+                </div>
+             </div>
+            
+            
+            
+            
+            
+            <div class="col-md-10 form-group row" >
+            
+             <label  *ngIf = "!GLFlag" class="col-sm-2 col-form-label" (click) ="uncollapseGlassFinish()" > Finish:</label>
+             <label *ngIf = "GLFlag" class="col-sm-2 col-form-label" (click) ="uncollapseGlassFinish()" > One Finish:</label>
+               <div class="col-sm-10" id = "plans">
+            
+                    <div class="radio form-check-inline" *ngFor = "let gls of selectedGlassFinish"  >
+                    <input (click)="OnGlassFinishChanges(gls.GlassModel)" class = "plantype" type="radio" formControlName = "GlassFinish" value="{{gls.GlassModel}}" >
+                    <label for="radioInline24">
+                    <img class ="configGO blownup"  src="{{gls.imagePath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassModel}}</div></label>
+                    </div>
+            
+            
+                </div>
+            
+            
+            </div>
+            
+            
+            
+            <div class="col-md-10 form-group row" *ngIf="GlassVariant" >
+            
+              <label *ngIf = "!GLFlag" class="col-sm-2 col-form-label" (click) ="uncollapseGlassVariant()">Finish Variant:</label>
+              <label *ngIf = "GLFlag" class="col-sm-2 col-form-label" (click) ="uncollapseGlassVariant()">Finish One Variant:</label>
+               <div class="col-sm-10" id = "plans">
+            
+                    <div class="radio form-check-inline" *ngFor = "let gls of selectedGlassVariant">
+                    <input (click)="OnGlassVariantChanges(gls.GlassVariantModel)" class = "plantype" type="radio" formControlName = "GlassVariant" value="{{gls.GlassVariantModel}}" >
+                    <label for="radioInline24">
+                    <img class ="configGT blownup"  src="{{gls.imagePath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassVariantModel}}</div></label>
+                    </div>
+            
+            
+                </div>
+            
+            
+            </div>
+            
+            <div class="col-md-7 form-group row" *ngIf="Matte">
+             <label *ngIf = "!GLFlag" class="col-sm-2 col-form-label">Matte:</label>
+             <label *ngIf = "GLFlag" class="col-sm-2 col-form-label">Matte One:</label>
+             <div class="col-sm-4">
+                 <div class="box">
+                   <mat-select class="form-control" formControlName = "Matte">
+                    <mat-option value = "NO">NO</mat-option>
+                    <mat-option value = "YES">YES</mat-option>
+                   </mat-select>
+                 </div>
+             </div>
+            </div>
+            
+            
+            
+
+             <!-----------GL TWO Start------>
+            
+             <div *ngIf ="GLFlag" class="col-md-7 form-group row">
+               <label class="col-sm-2 col-form-label">Finish Two Type:</label>
+                <div class="col-sm-4">
+               <div class="box">
+               <mat-select class="form-control"  formControlName = "OuterGlassCategory">
+               <mat-option *ngFor = "let gls of outerselectedGlasscats" value="{{gls}}">{{gls}}</mat-option>
+              </mat-select>
+              
+              </div>
+              </div>
+              </div>
+              
+              
+              
+              
+              
+              <div  *ngIf ="GLFlag" class="col-md-7 form-group row">
+              <label class="col-sm-2 col-form-label">Finish Two Category:</label>
+              <div class="col-sm-4">
+              <div class="box">
+              <mat-select class="form-control" formControlName = "OuterGlassSubCategory">
+              <mat-option *ngFor = "let gls of  outerselectedGlasssubcats" value="{{gls}}">{{gls}}</mat-option>
+              </mat-select>
+              </div>
+              </div>
+              </div>
+              
+              
+              
+              
+              
+              <div  *ngIf ="GLFlag" class="col-md-10 form-group row" >
+              
+              <label class="col-sm-2 col-form-label" (click) ="uncollapseOuterGlassFinish()" >  Two Finish:</label>
+              <div class="col-sm-10" id = "plans">
+              
+              <div class="radio form-check-inline" *ngFor = "let gls of outerselectedGlassFinish"  >
+              <input (click)="OnOuterGlassFinishChanges(gls.GlassModel)" class = "plantype" type="radio" formControlName = "OuterGlassFinish" value="{{gls.GlassModel}}" >
+              <label for="radioInline24">
+              <img class ="configGO blownup"  src="{{gls.imagePath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassModel}}<div *ngIf ="gls.Label">({{gls.Label}})</div></div></label>
+              </div>
+              
+              
+              </div>
+              
+              
+              </div>
+              
+              
+              
+              
+              
+              <div  *ngIf ="GLFlag&&OuterGlassVariant " class="col-md-10 form-group row" >
+              
+              <label class="col-sm-2 col-form-label" (click) ="uncollapseOuterGlassVariant()"> Finish Two Variant:</label>
+              <div class="col-sm-10" id = "plans">
+              
+              <div class="radio form-check-inline" *ngFor = "let gls of outerselectedGlassVariant"  >
+              <input (click)="OnOuterGlassVariantChanges(gls.GlassVariantModel)" class = "plantype" type="radio" formControlName = "OuterGlassVariant" value="{{gls.GlassVariantModel}}" >
+              <label for="radioInline24">
+              <img class ="configGT blownup"  src="{{gls.imagePath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassVariantModel}}<div *ngIf ="gls.Label">({{gls.Label}})</div></div></label>
+              </div>
+              
+              
+              </div>
+              
+              
+              </div>
+              
+              
+              <div class="col-md-7 form-group row" *ngIf="GLFlag&&OuterMatte">
+              <label class="col-sm-2 col-form-label">Finish Two Matte:</label>
+              <div class="col-sm-4">
+              <div class="box">
+              <mat-select class="form-control" formControlName = "OuterMatte">
+              <mat-option value = "NO">NO</mat-option>
+              <mat-option value = "YES">YES</mat-option>
+              </mat-select>
+              </div>
+              </div>
+              </div>
+              
+              
+              
+              
+              
+            <!-----------------GL TWO End----->
+            
+            
+            <!-----------Outer Glass Start---->
+            
+            <div *ngIf ="flushFlag" class="col-md-7 form-group row">
+            <label class="col-sm-2 col-form-label">Outer Finish Type:</label>
+            <div class="col-sm-4">
+            <div class="box">
+            <mat-select class="form-control"  formControlName = "OuterGlassCategory">
+            <mat-option *ngFor = "let gls of outerselectedGlasscats" value="{{gls}}">{{gls}}</mat-option>
+            </mat-select>
+            
+            </div>
+            </div>
+            </div>
+            
+            
+            
+            
+            
+            <div  *ngIf ="flushFlag" class="col-md-7 form-group row">
+            <label class="col-sm-2 col-form-label">Outer Finish Category:</label>
+            <div class="col-sm-4">
+            <div class="box">
+            <mat-select class="form-control" formControlName = "OuterGlassSubCategory">
+            <mat-option *ngFor = "let gls of  outerselectedGlasssubcats" value="{{gls}}">{{gls}}</mat-option>
+            </mat-select>
+            </div>
+            </div>
+            </div>
+            
+            
+            
+            
+            
+            <div  *ngIf ="flushFlag" class="col-md-10 form-group row" >
+            
+            <label class="col-sm-2 col-form-label" (click) ="uncollapseOuterGlassFinish()" >Outer Finish Finish:</label>
+            <div class="col-sm-10" id = "plans">
+            
+            <div class="radio form-check-inline" *ngFor = "let gls of outerselectedGlassFinish"  >
+            <input (click)="OnOuterGlassFinishChanges(gls.GlassModel)" class = "plantype" type="radio" formControlName = "OuterGlassFinish" value="{{gls.GlassModel}}" >
+            <label for="radioInline24">
+            <img class ="configGO blownup"  src="{{gls.imagePath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassModel}}<div *ngIf ="gls.Label">({{gls.Label}})</div></div></label>
+            </div>
+            
+            
+            </div>
+            
+            
+            </div>
+            
+            
+            
+            
+            
+            <div  *ngIf ="flushFlag&&OuterGlassVariant " class="col-md-10 form-group row" >
+            
+            <label class="col-sm-2 col-form-label" (click) ="uncollapseOuterGlassVariant()">Outer Finish Variant:</label>
+            <div class="col-sm-10" id = "plans">
+            
+            <div class="radio form-check-inline" *ngFor = "let gls of outerselectedGlassVariant"  >
+            <input (click)="OnOuterGlassVariantChanges(gls.GlassVariantModel)" class = "plantype" type="radio" formControlName = "OuterGlassVariant" value="{{gls.GlassVariantModel}}" >
+            <label for="radioInline24">
+            <img class ="configGT blownup"  src="{{gls.imagePath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassVariantModel}}<div *ngIf ="gls.Label">({{gls.Label}})</div></div></label>
+            </div>
+            
+            
+            </div>
+            
+            
+            </div>
+            
+            
+            <div class="col-md-7 form-group row" *ngIf="flushFlag&&OuterMatte">
+            <label class="col-sm-2 col-form-label">Outter Matte:</label>
+            <div class="col-sm-4">
+            <div class="box">
+            <mat-select class="form-control" formControlName = "OuterMatte">
+            <mat-option value = "NO">NO</mat-option>
+            <mat-option value = "YES">YES</mat-option>
+            </mat-select>
+            </div>
+            </div>
+            </div>
+            
+            
+            
+            
+            
+            <!------------Outer Glass End----->
+            
+            
+            
+            <div class="col-md-7 form-group row" *ngIf="handle">
+             <label class="col-sm-2 col-form-label">Handle:</label>
+             <div class="col-sm-4">
+                 <div class="box">
+                   <mat-select class="form-control"  formControlName = "Handle">
+            
+                     <mat-option *ngFor = "let hls of  selectedHandle" value="{{hls}}">{{hls}}</mat-option>
+                     <mat-option *ngIf="StandardFlag"  value="STANDARD">STANDARD</mat-option>
+
+                   </mat-select>
+                 </div>
+             </div>
+            </div>
+            
+            
+            
+            <div class="col-md-7 form-group row" *ngIf="handleVarients">
+             <label class="col-sm-2 col-form-label">Handle Variant:</label>
+             <div class="col-sm-4">
+                 <div class="box">
+                   <mat-select class="form-control">
+            
+                     <mat-option *ngFor = "let hls of  selectedHandleVariant" value="{{hls}}">{{hls}}</mat-option>
+            
+                   </mat-select>
+                 </div>
+             </div>
+            </div>
+            
+            
+            
+            <div class="col-md-7 form-group row" *ngIf="doorCloser">
+             <label class="col-sm-2 col-form-label">Door Closer:</label>
+             <div class="col-sm-4">
+                 <div class="box">
+                   <mat-select class="form-control" formControlName = "DoorCloser">
+                    <mat-option value="NO">NO</mat-option>
+                    <mat-option value = "YES">YES</mat-option>
+                   </mat-select>
+                 </div>
+             </div>
+            </div>
+            
+            
+            <div class="col-md-7 form-group row" *ngIf="dropSeal">
+             <label class="col-sm-2 col-form-label">Drop Seal:</label>
+             <div class="col-sm-4">
+                 <div class="box">
+                   <mat-select class="form-control" formControlName = "DropSeal">
+                    <mat-option value = "NO">NO</mat-option>
+                    <mat-option value = "YES">YES</mat-option>
+                   </mat-select>
+                 </div>
+             </div>
+            </div>
+            
+
+            <div class="col-md-7 form-group row" *ngIf="Lock">
+              <label class="col-sm-2 col-form-label">Lock :</label>
+              <div class="col-sm-4">
+                  <div class="box">
+                    <mat-select class="form-control" formControlName = "Lock">
+                      <mat-option *ngIf ="LockFlag" value = "KEY KNOB">KEY KNOB</mat-option>
+                      <mat-option *ngIf ="LockFlag" value = "COIN KNOB">COIN KNOB</mat-option>
+                     <mat-option value = "NO">NO</mat-option>
+                     <mat-option  *ngIf ="LockFlagYes" value = "YES">YES</mat-option>     
+                   
+                    </mat-select>
+                  </div>
+              </div>
+             </div>
+            
+            
+            <div class="col-md-7 form-group row">
+             <label class="col-sm-2 col-form-label">Remarks:</label>
+             <div class="col-sm-8">
+                 <input class="form-control" type="text" formControlName ="Remarks"  style="text-transform:uppercase">
+             </div>
+            </div>
+            
+            
+            
+            <div class="col-md-12">
+
+            <div (click)="onAddNewButton()" *ngIf="modeButtons!=='UpdateSpace'">
+            
+             <button type="submit"  class="btn btn-info btn-fill" >Save Space <i class="pe-7s-like2"></i></button>
+            
+            </div>
+            
+            <div *ngIf="modeButtons==='UpdateSpace'">
+            
+               <button type="submit" class="btn btn-info btn-fill" >Update Space <i class="pe-7s-like2"></i></button>
+             
+             </div>
+            
+             <div  *ngIf="modeButtons!=='UpdateSpace'">
+              
+                <button type="submit" class="btn btn-info btn-fill" (click)="onSaveAndAddNewButton()" >Save & Add New Space <i class="pe-7s-like2"></i></button>
+                
+             </div>
+            
+             </div>
+               
+            
+                          
+              
+              
+               </form>
+          
+
+
+          </div>                       
+      </div> <br>
+   
+</div>
+</div>
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

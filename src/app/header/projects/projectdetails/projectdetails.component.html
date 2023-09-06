@@ -1,0 +1,77 @@
+
+<div  *ngIf="!spinner" class="loader-container">
+    <mat-spinner style="position:absolute;top :40%;left: 47%;"></mat-spinner>
+  </div> 
+  
+  
+  
+  <ng-container *ngIf="spinner">
+  
+  <div class="row">
+      <div class="col-md-12" style="text-align: center;">
+        <h3 class="section-title">PROJECT DETAILS</h3>
+      </div>
+  </div>
+  
+  <div>
+  
+  <p>Order Number : {{OrderNumber}}</p>
+  <p>Project Name : {{ProjectName}}</p>
+  <p>GrandValue : {{Webappvalue}}</p>
+  <p>Discount ({{ClientDiscount}})% : {{ClientDiscountValue}}</p>
+  <p>Final Value : {{FinalValue}}</p>
+  <p>CS Value : {{CSValue}}</p>
+  <p>Billed : {{Billed}} </p>
+  <p>Special Discount : {{SpecialDiscount}}</p>
+  <p>Receipt Advance : {{ReceiptAdvance}}</p>
+  <p>Total Outstanding : {{TotalOutstanding}}</p>
+  <p>Cheque Required : {{ChequeRequired}}</p>
+  
+
+
+
+  <table class="table table-hover table-striped">
+    <thead>
+       <tr><th>SOLUTION ID</th>
+        <th>FLOOR</th>
+        <th>SPACE</th>
+        <th>TYPE</th>
+        <th>BIC</th>
+        <th>STATUS</th>                                                   
+        <th>AMOUNT</th>
+  
+    </tr></thead>
+    <tbody>
+      <tr   *ngFor = "let sols of SolutionDetailsTable; index as i">
+        <td>{{sols.SolutionNumber}}</td>
+        <td>{{sols.Floor}}</td>
+        <td>{{sols.Space}}</td>
+        <td>{{sols.Type}}</td>
+        <td>{{sols.BIC}}</td>
+        <td>{{sols.status}}</td>
+        <td>{{sols.SolutionAmount}}</td>
+        
+                                                      
+ </tr>
+    </tbody>
+</table>
+  
+  
+  
+  <div class="btn-group">
+      <button (click)="OnCloseDialog()" type="button" class="btn btn-info">CANCEL</button>
+  
+  </div>
+  
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <div class="btn-group">
+    <button (click)="OnGetExel()" type="button" class="btn btn-info">GET EXCEL</button>
+
+</div>
+  
+  
+  </div>
+  
+  </ng-container>
+  
+  

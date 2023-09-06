@@ -1,0 +1,130 @@
+<div class="wrapper">
+        <div id="myLinks" class="sidebar" data-image="assets/img/sidebar-5.jpg">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="index.html" class="simple-text">
+                        <img src="assets/img/jb-glass-logo.png">
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="index.html">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="open-orders.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>Open Orders</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="lifetime-orders.html">
+                            <i class="nc-icon nc-tv-2"></i>
+                            <p>Lifetime Orders</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="general-settings.html">
+                            <i class="nc-icon nc-settings-gear-64"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#0">
+                            <i class="nc-icon nc-lock-circle-open"></i>
+                            <p>Log out</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#0"> Dashboard </a>
+                        <ul class="navbar-nav ml-auto display-mobile">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#0">
+                                    <i class="nc-icon nc-circle-09"></i>
+                                    <div class="dropdown-mn">
+                                        <a class="dropdown-item" href="#"><span class="no-icon">Partner Name</span></a>
+                                        <hr>
+                                        <a class="dropdown-item" href="#">My Profile</a>
+                                        <a class="dropdown-item" href="#">Settings</a>
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>                                            
+                    <button href="javascript:void(0);" onclick="myFunction()" class="navbar-toggler navbar-toggler-right" type="button">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                    <span class="d-lg-none">Dashboard</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#0">
+                                    <i class="nc-icon nc-circle-09"></i>
+                                    <span class="no-icon">Sales Partner Name</span>
+                                    <div class="dropdown-mn">
+                                        <a class="dropdown-item" href="#">My Profile</a>
+                                        <a class="dropdown-item" href="#">Settings</a>
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="card-title">Enter order details</h4>
+                                <form>
+                                  <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Order Number:</label>
+                                    <div class="col-sm-5 col-form-input">
+                                      <input type="text" readonly style="width: 100%;border:none;background:transparent;" class="form-control-plaintext" id="orderno" value="{ AUTO GENERATED NUMBER }">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Order Name:</label>
+                                    <div class="col-sm-5 col-form-input">
+                                      <input type="text" class="form-control" id="inputPassword" placeholder="">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Location:</label>
+                                    <div class="col-sm-5 col-form-input">
+                                      <input type="text" class="form-control" id="inputPassword" placeholder="">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Any Other Info:</label>
+                                    <div class="col-sm-5 col-form-input">
+                                      <input type="text" class="form-control" id="inputPassword" placeholder="">
+                                    </div>
+                                  </div>                                   
+                                  <button onclick="location.href='add-new-order.html';" type="submit" class="btn btn-info btn-fill">Save details <i class="pe-7s-like2"></i></button>                                                                                         
+                                </form>
+                        </div>                        
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   -->

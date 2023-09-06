@@ -1,0 +1,39 @@
+
+<div>
+
+  <table class="table table-hover" >
+  <thead class="thead-light">
+  <th scope = "col">Sno.</th>
+  <th scope = "col">System</th>
+  <th scope = "col">Sub System</th>
+  <th scope = "col">System Type</th>
+  <th scope = "col">Orientation Name</th>
+  <th scope = "col">Sub Orientation Name</th>
+  <th scope = "col">Image</th>
+  <th scope = "col">Status</th>
+  <th scope = "col">Date Created</th>
+  <th scope = "col"></th>
+  <th scope = "col"></th>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let ors of models; index as i">
+      <td scope = "row">{{i+1}}</td>
+      <td>{{ ors.System }}</td>
+      <td>{{ ors.SubSystem }}</td>
+      <td>{{ ors.SystemType }}</td>
+      <td>{{ ors.Orientation }}</td>
+      <td>{{ ors.SubOrientation }}</td>
+      <td><div class="color-image"><img [src]="ors.imageMRIpath" [alt]="ors.SubOrientation"></div></td>
+      <td>{{ ors.Status }}</td>
+      <td>{{ ors.DateCreated }}</td>
+      <td style="cursor: pointer;" ><a [routerLink] = "['/settings/models/edit',ors._id]">Edit</a></td>
+      <td style="cursor: pointer;"> <a (click)="OnDeleteModel(ors._id)">Delete </a></td>
+    </tr>
+  </tbody>
+
+  </table>
+
+
+  </div>
+
+

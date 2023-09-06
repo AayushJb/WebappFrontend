@@ -1,0 +1,24 @@
+<div>
+  <table class="table table-hover" >
+  <thead class="thead-light">
+  <th scope = "col">Sno.</th>
+  <th scope = "col">System Type Name</th>
+  <th scope = "col">Date Created</th>
+  <th scope = "col"></th>
+  <th scope = "col"></th>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let sys of systemtypes; index as i">
+      <td scope = "row">{{i+1}}</td>
+      <td>{{sys.SystemType}}</td>
+      <td>{{sys.DateCreated}}</td>
+      <td style="cursor: pointer;" ><a [routerLink] = "['/settings/systemtypes/edit',sys._id]">Edit</a></td>
+      <td style="cursor: pointer;"> <a (click)="OnDeleteSystemtype(sys._id)">Delete </a></td>
+    </tr>
+  </tbody>
+
+  </table>
+
+
+
+  </div>

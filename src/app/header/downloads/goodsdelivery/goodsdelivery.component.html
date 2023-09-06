@@ -1,0 +1,116 @@
+<button printTitle="{{OrderNumber}}"  styleSheetFile="assets/css/downloads.css,assets/css/presentation.css" printSectionId="pdf" ngxPrint>GET PDF</button>
+
+&nbsp; &nbsp; 
+<button routerLink ="/downloads">GO TO DOWNLOADS</button>
+<div id="pdf">
+
+<section>
+  <div class="page-3" size="A4">
+    <div class="black-band">
+      <div class="width-50">
+        <div class="project">
+          <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+          <p>Order no.: {{OrderNumber}}</p>        
+        </div>
+      </div>
+      <div class="width-50">
+        <div class="logo">
+         <img src="https://i.imgur.com/7A5QggX.jpg">
+       </div>
+      </div>
+    </div>
+  <div class="text-block-page-4" style="padding-bottom: 0.5cm">
+     <div class="border-line">
+        <div>
+          <p class="order-head" style="margin-bottom: 20px;text-align: center">GOODS RECEIVED NOTE</p>
+        </div>
+  
+        <div class="width-60">
+          <p>Client name: {{ClientName}}</p>
+          <p>Address: {{AddressOne}},{{AddressTwo}},{{AddressThree}}</p> 
+          <p>{{City}},{{State}}</p>       
+        </div>
+        <div class="width-60">
+          <p style="padding-left: 20%">Date sent: {{InvoiceDate}} </p>
+          <p style="padding-left: 20%">Per invoice number: {{InvoiceNumber}}</p>
+          <p style="padding-left: 20%">Contact person: {{ContactPerson}} </p>
+          <p style="padding-left: 20%">Contact number: {{ContactPhone}}</p>        
+        </div>
+       </div> 
+    </div>
+      <div style="padding: 0.5cm 1.5cm 0">
+        <p>Thank you for choosing WALTZ by JB Glass - our signature range of premium doors and partition systems. Our expert installers will visit you soon to unbox the material and reveal the true magic of WALTZ.</p>
+      <p>Our customer support information is provided at the bottom of this document, so that you can contact us for any further information.</p>
+    <table class="table table-striped tb-2">
+      <thead style="color:#000;">
+        <tr>
+          <th><strong>Material</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Quantity</strong></th>
+          <th><strong>Received</strong></th>         
+        </tr>
+      </thead>
+      <tbody style="outline:2px solid #ddd">
+        <tr>
+          <td>Panels</td>
+          <td></td>
+          <td>{{Panels}}</td>
+          <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px;"></td>       
+        </tr>   
+        <tr>
+          <td>Boxes</td>
+          <td></td>
+          <td>{{Boxes}}</td>
+          <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px;"></td>       
+        </tr>
+        <tr>
+          <td>Glass Pieces</td>
+          <td></td>
+          <td>{{Glasses}}</td>
+          <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px;"></td>       
+        </tr>        
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px;"></td>        
+        </tr>                      
+      </tbody>
+    </table>
+        <div class="width-60" style="margin-top: 0.7cm">
+          <p style="padding-left: 0.5cm">For Client Name {{ClientName}}</p>
+          <br>
+          <br>
+          <br>
+          <hr class="dotted" style="width:87%">
+          <p style="padding-left: 0.5cm;">(signature)</p>    
+          <p style="padding-left: 0.5cm">Name: </p>
+          <p style="padding-left: 0.5cm">Contact no.:</p>      
+          <p style="padding-left: 0.5cm">Date:</p>           
+        </div>    
+
+        <div class="width-60"  style="border: 2px solid #ddd;padding: 2% 2%;margin-top:1.5cm">
+          <p style="padding-left: 0%">Vehicle No.: </p>
+          <p style="padding-left: 0%">Driver Name: </p>
+          <p style="padding-left: 0%">Driver Mobile: </p>
+          <p style="padding-left: 0%">Team Person:</p>  
+          <p style="padding-left: 0%">TP Mobile:</p>
+        </div>
+
+
+      <div style="border: 2px solid #ddd;padding: 2% 3%;display: flow-root;margin-top:1.5cm"><ul style="list-style: none;position: relative;padding: 0">
+          <li style="float: left;width: 33.33%"><p>Associate’s Name: {{Associate}}</p></li>
+          <li style="float: left;width: 33.33%"><p>| Contact no.: {{PhoneNo}}</p></li>
+          <li style="float: left;width: 33.33%"><p>| Email ID: {{EmailId}}</p></li>
+        </ul>
+      </div>        
+  </div>
+  <div>
+      <div class="footer">     	
+        <p class="bottom-link">WWW.JBGLASS.IN</p>
+      </div>  
+    </div> 
+  </div> 
+  </section>
+
+</div>

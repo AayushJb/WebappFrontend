@@ -1,0 +1,48 @@
+
+<div  *ngIf="!spinner" class="loader-container">
+  <mat-spinner style="position:absolute;top :40%;left: 47%;"></mat-spinner>
+</div> 
+
+
+
+<ng-container *ngIf="spinner">
+
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <h3 class="section-title">GET JB</h3>
+    </div>
+</div>
+
+<div>
+
+<p>Order Number : {{OrderNumber}}</p>
+<p>Project Name : {{ProjectName}}</p>
+<p>Party : {{Party}}</p>
+<p>Sales Head : {{SalesHead}} </p>
+<p>WinDate : {{WinDate}}</p>
+<p>WebappcGrandValue : {{Webappvalue}}</p>
+<p>Client Discount ({{ClientDiscount}})% : {{ClientDiscountValue}}</p>
+<p>Dealer Discount ({{Dealerdiscount}})% : {{DealerDiscountValue}}</p>
+<p>Final Value : {{FinalValue}}</p>
+<p>CS Value : {{CSValue}}</p>
+
+<p>Billed : {{Billed}} </p>
+<p>Special Discount : {{SpecialDiscount}}</p>
+<p>Receipt Advance : {{ReceiptAdvance}}</p>
+<p>Total Outstanding : {{TotalOutstanding}}</p>
+<p>Cheque Required : {{ChequeRequired}}</p>
+
+
+
+
+<div class="btn-group">
+    <button (click)="OnCloseDialog()" type="button" class="btn btn-info">CANCEL</button>
+
+</div>
+
+
+
+</div>
+
+</ng-container>
+

@@ -1,0 +1,44 @@
+<form [formGroup] ="form" (submit) = "onSaveFramefinish()">
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Frame Finish : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "FrameFinish" type="text" name="FrameFinish">
+    </div>
+</div>
+
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Colors : </label>
+  <div class="col-sm-4">
+      <div class="box">
+
+
+        <mat-form-field appearance="fill" style = "width : 600px">
+          <mat-label>Select Colors</mat-label>
+          <mat-select formControlName = "Color" multiple>
+            <mat-option *ngFor="let ff of colors" [value]="ff.Color">{{ff.Color}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+  </div>
+</div>
+
+
+<div class="col-md-7 form-group row">
+<div class="btn-group">
+  <button type="submit" class="btn btn-primary btn-sm" >Save Frame Finish</button>
+  </div>
+</div>
+
+
+
+</form>
+
+<app-fftable></app-fftable>
+
+
+

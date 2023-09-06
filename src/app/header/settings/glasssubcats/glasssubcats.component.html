@@ -1,0 +1,51 @@
+<form [formGroup] ="form" (submit) = "onSaveGlasssubcat()"  >
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Glass Sub Category: </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "GlassSubCategory" type="text" name="GlassSubCategory">
+    </div>
+
+</div>
+
+<div class="col-md-7 form-group row test">
+  <label class="col-sm-4 col-form-label">Glass Finishes: </label>
+  <div class="col-sm-4">
+      <div class="box ">
+
+
+        <mat-form-field appearance="fill" style = "width : 600px">
+          <mat-label>Select Glass Finishes </mat-label>
+          <mat-select formControlName = "GlassFinish" multiple>
+            <mat-option *ngFor="let sys of glassfinishes" [value]="sys.GlassModel">{{sys.GlassModel}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Glass Sub Category Cost: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "GlassSubCategoryCost" type="number" name="GlassSubCategoryCost">
+  </div>
+
+</div>
+
+
+
+<div class="btn-group">
+<button type="submit" class="btn btn-primary btn-sm" >Save Glass Sub-Category</button>
+</div>
+
+<div  *ngIf="form.get('GlassSubCategory').invalid" class="alert alert-primary" role="alert">
+  Please enter a valid Sub System.
+</div>
+
+</form>
+
+
+<app-glasssbtable></app-glasssbtable>
+

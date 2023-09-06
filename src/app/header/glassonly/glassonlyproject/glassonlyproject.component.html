@@ -1,0 +1,118 @@
+<div *ngIf = "showSpinner" class="loader-container">
+    <mat-spinner style="top: 30%; left: 40%;"></mat-spinner>
+</div>    
+
+
+<form  [formGroup] ="formOr" (submit) = "onSaveOrder()">
+
+
+                      <div class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="card-title">Enter order details</h4>
+   
+                                    <div class="form-group row">
+                                    
+                                      <label class="col-sm-2 col-form-label">Select Waltz Number:</label>
+                                      <div class="col-sm-5 col-form-input">
+                                      
+                                        <div >
+                                          <ng-autocomplete 
+                                            formControlName="WaltzOrderNo"
+                                            [data]="orders"
+                                            [searchKeyword]="keyword"
+                                            placeholder="Select Order Number"
+                                            (selected)='selectEvent($event)'
+                                            (inputChanged)='onChangeSearch($event)'
+                                            (inputFocused)='onFocused($event)'
+                                            [itemTemplate]="itemTemplate"
+                                            [notFoundTemplate]="notFoundTemplate">                                 
+                                          </ng-autocomplete>
+                                          
+                                          <ng-template #itemTemplate let-item>
+                                          <a [innerHTML]="item.OrderNo"></a>
+                                          </ng-template>
+                                          
+                                          <ng-template #notFoundTemplate let-notFound>
+                                          <div [innerHTML]="notFound"></div>
+                                          </ng-template>
+                                          </div>
+                                    
+                                  
+                                  
+                                  
+                                    </div>
+                                   </div>
+                                     
+                                         
+                                          <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Project Name:</label>
+                                            <div class="col-sm-5 col-form-input">
+                                              <input type="text" name="project name" formControlName = "ProjectName" maxlength="25" style="text-transform:uppercase" class="form-control"  placeholder="">
+                                            </div>
+                                          </div>
+                                          <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Client Name:</label>
+                                            <div class="col-sm-5 col-form-input">
+                                              <input type="text" name="client name" maxlength="100" formControlName = "ClientName" style="text-transform:uppercase" class="form-control"  placeholder="">
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Location:</label>
+                                            <div class="col-sm-5 col-form-input">
+                                              <input type="text" name="client name" maxlength="100" formControlName = "Location" style="text-transform:uppercase" class="form-control"  placeholder="">
+                                            </div>
+                                          </div>
+
+
+                                          
+                                          <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Architect:</label>
+                                            <div class="col-sm-5 col-form-input">
+                                              <input type="text" name="Architect"  formControlName = "Architect" style="text-transform:uppercase" class="form-control"  placeholder="">
+                                             </div>
+                                          </div>
+
+                                          <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">GST Number:</label>
+                                            <div class="col-sm-5 col-form-input">
+                                              <input type="text" name="GST"  formControlName = "GST" style="text-transform:uppercase" class="form-control"  placeholder="">
+                                             </div>
+                                          </div>
+                                          
+                                          
+
+                           
+
+                                          <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Source:</label>
+                                            <div class="col-sm-5 col-form-input">
+                                                <mat-select class="form-control" formControlName = "Source">
+                                                <mat-option value = "ARCHITECT EXISTING">ARCHITECT EXISTING</mat-option>
+                                                <mat-option value = "SOCIAL">SOCIAL</mat-option>
+                                                <mat-option value = "CLIENT EXISTING">CLIENT EXISTING </mat-option>
+                                                <mat-option value = "WALK IN">WALK IN</mat-option>
+                                                <mat-option value = "EXIHIBITION">EXIHIBITION</mat-option>
+                                                <mat-option value = "OHTERS">OTHERS</mat-option>
+                 
+                                               
+                                               </mat-select>
+                                            </div>
+                                          </div>
+                                 
+                                          <button  type="submit" class="btn btn-info btn-fill">Save details <i class="pe-7s-like2"></i></button>                                                                                         
+                                       
+                                </div>                        
+                            </div>                    
+                        </div>
+                    </div>                   
+                      
+
+                     
+</form>
+
+
+
+

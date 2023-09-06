@@ -1,0 +1,60 @@
+  
+<form  [formGroup] ="form" (submit) = "onProplusReport()">
+
+
+    <div class="content">
+      <div class="container-fluid">
+          <div>
+            
+                  <h4 class="card-title">Proplus Report</h4>
+                   
+                       
+                 
+                  
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">TO DATE :</label>
+                    <div class="col-sm-4 col-form-input">
+                      <input type="date"  formControlName = "ToDate" class="form-control"  placeholder="Select To Date">
+                    </div>
+                  </div>
+
+
+        
+
+
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Select User:</label>
+                          <div class="col-sm-4 col-form-input">
+                              <mat-select  class="form-control" formControlName = "User" multiple>
+                                <mat-option *ngFor = "let use of users" value="{{use.UserFullName}}" >{{use.UserFullName}}</mat-option>
+                                <mat-option *ngIf="Profile!=='USER'" value="ALL" >ALL</mat-option>
+                              
+                        
+                             
+                             </mat-select>
+                          </div>
+                        </div>
+
+                        
+                       
+               
+                
+                                   
+          </div> 
+
+
+     
+
+
+      </div>
+  </div>                   
+    
+  <button type="submit" class="btn btn-info btn-fill" >ProPlus Report<i class="pe-7s-like2"></i></button> 
+
+
+  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+
+  <button type="button" (click)="GetArchitectsLifeTime()" class="btn btn-info btn-fill" >Architects Lifetime Report<i class="pe-7s-like2"></i></button> 
+                          
+   
+</form>

@@ -1,0 +1,23 @@
+
+<form [formGroup] ="form" (submit) = "onSaveSubsystem()"  >
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Sub System : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "SubSystem" type="text" name="SubSystem">
+    </div>
+
+</div>
+
+<div class="btn-group">
+<button type="submit" class="btn btn-primary btn-sm" >Save Sub System</button>
+</div>
+
+<div  *ngIf="form.get('SubSystem').invalid" class="alert alert-primary" role="alert">
+  Please enter a valid Sub System.
+</div>
+
+</form>
+
+
+<app-substable></app-substable>

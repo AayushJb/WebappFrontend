@@ -1,0 +1,317 @@
+<button printTitle="{{OrderNumber}}"  styleSheetFile="assets/css/downloads.css,assets/css/presentation.css" printSectionId="pdf" ngxPrint>GET PDF</button>
+&nbsp; &nbsp; 
+<button routerLink ="/downloads">GO TO DOWNLOADS</button>
+<div id="pdf">
+
+<section>
+  <div class="page-1" size="A4">
+    <div class="img-main-block"><img src="https://i.imgur.com/0FU0kop.jpg"></div>
+    <h4 class="h4-text">PROJECT MEASUREMENT BOOK</h4>
+    <div style="text-align: center"><img src="https://i.imgur.com/h8Y5Ez8.jpg"></div>
+    <div class="text-block-page-1">
+      <p>{{ProjectName}}</p>
+      <hr class="dotted">
+      <p>{{OrderNumber}}</p>
+      <hr class="dotted">    
+      <p>Date</p>
+      <hr class="dotted">
+      <br>
+      <p>{{ContactPerson}}</p>
+      <hr class="dotted">
+      <p>{{ContactPhone}}</p>
+      <hr class="dotted">
+      <p>{{AddressOne}},{{AddressTwo}},{{AddressThree}}</p>
+      <p>{{City}},{{State}}</p>
+      <hr class="dotted">    
+    </div>
+  </div>
+</section>
+  
+ <ng-container *ngIf="SolLen<=12">
+  <section>
+    <div class="page-3" size="A4" id="ordersummary">
+      <div class="black-band">
+        <div class="width-50">
+          <div class="project">
+            <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+            <p>Order no.: {{OrderNumber}}</p>        
+          </div>
+        </div>
+        <div class="width-50">
+          <div class="logo">
+           <img src="https://i.imgur.com/7A5QggX.jpg">
+         </div>
+        </div>
+      </div>
+      <div class="text-block-page-3">
+        <p class="order-head" style="margin-bottom: 10px;">MEASUREMENT CHECKLIST</p>
+      
+        <div style="padding: 0 1.5cm">
+      <table class="table table-striped">
+        <thead style="color:#fff; background: #000; ">
+          <tr>
+            <th>S.No.</th>
+            <th>Floor</th>
+            <th>Space/Room</th>
+            <th>WALTZ System</th>        
+            <th>Configuration</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="number2" style="visibility: hidden">0</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>       
+          </tr>      
+          <tr *ngFor = "let os of MeasureOutput ; index as i">
+            <td><div class="number2">{{os.Sno}}</div></td>
+            <td>{{os.Floor}}</td>
+            <td style="text-align: left">{{os.Space}}</td>
+            <td style="color:#8a5e3c;text-align: left">{{os.System}}-{{os.SubSystem}}</td>        
+            <td>{{os.PrintName}}</td> 
+            <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px;"></td>         
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align: left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>        
+          </tr>                      
+        </tbody>
+      </table>
+    
+        </div>
+    <div>
+        <footer class="footer">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+          <p class="pagination">2 of {{SolLen + testRemOS + 2}}</p>
+        </footer>
+      </div> 
+     </div> 
+    </div> 
+  </section>
+</ng-container>
+
+
+
+<ng-container *ngIf="SolLen>12">
+<ng-container *ngFor="let times of QuotientOS; index as k; last as isLast">
+
+  <section>
+    <div class="page-3" size="A4" id="ordersummary">
+      <div class="black-band">
+        <div class="width-50">
+          <div class="project">
+            <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+            <p>Order no.: {{OrderNumber}}</p>        
+          </div>
+        </div>
+        <div class="width-50">
+          <div class="logo">
+           <img src="https://i.imgur.com/7A5QggX.jpg">
+         </div>
+        </div>
+      </div>
+      <div class="text-block-page-3">
+        <p class="order-head" style="margin-bottom: 10px;">MEASUREMENT CHECKLIST</p>
+      
+        <div style="padding: 0 1.5cm">
+      <table class="table table-striped">
+        <thead style="color:#fff; background: #000; ">
+          <tr>
+            <th>S.No.</th>
+            <th>Floor</th>
+            <th>Space/Room</th>
+            <th>WALTZ System</th>        
+            <th>Configuration</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="number2" style="visibility: hidden">0</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>       
+          </tr>      
+          <tr *ngFor = "let os of MeasureOutput| slice:12*k:12*(k+1); index as i ">
+            <td><div class="number2">{{os.Sno}}</div></td>
+            <td>{{os.Floor}}</td>
+            <td style="text-align: left">{{os.Space}}</td>
+            <td style="color:#8a5e3c;text-align: left">{{os.System}}-{{os.SubSystem}}</td>        
+            <td>{{os.PrintName}}</td> 
+            <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="margin: 0px;"></td>         
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align: left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>        
+          </tr>                      
+        </tbody>
+      </table>
+    
+        </div>
+    <div>
+        <footer class="footer">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+          <p class="pagination">{{testRemOS + 1*k}} of {{SolLen + testRemOS + 2}}</p>
+        </footer>
+      </div> 
+     </div> 
+    </div> 
+  </section>
+
+</ng-container> 
+</ng-container>
+
+
+
+
+
+<ng-container *ngFor = "let os of MeasureOutput;index as k">
+  <section>
+    <div class="page-4" size="A4" id="waltzglide">
+      <div class="black-band">
+        <div class="width-50">
+          <div class="project">
+            <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+            <p>Order no.: {{OrderNumber}}</p>       
+          </div>
+        </div>
+        <div class="width-50">
+          <div class="logo">
+           <img src="https://i.imgur.com/7A5QggX.jpg">
+         </div>
+        </div>
+      </div>
+      <div class="text-block-page-4">
+       <div class="border-line">
+          <div>
+            <p class="order-head" style="margin-bottom: 10px">{{os.HeadingString}}</p>
+          </div>
+    
+          <div class="width-60">
+            <p>{{os.SubHeadingString}}</p>
+            <p>Width : {{os.Width}}</p>
+            <p>Height : {{os.Height}}</p>     
+          </div>
+          <div class="width-60">
+            <p style="padding-left: 20%">Frame: {{os.Color}} </p>
+            <p *ngIf = "!os.OuterGlass" style="padding-left: 20%">Glass: {{os.InnerGlass}}</p>
+            <p *ngIf = "os.OuterGlass" style="padding-left: 20%">Inner Glass: {{os.InnerGlass}}</p>
+            <p *ngIf = "os.OuterGlass" style="padding-left: 20%">Outer Glass: {{os.OuterGlass}}</p>
+            <p style="padding-left: 20%">Code: {{os.Code}}</p>
+            <p *ngIf = "os.Handle" style="padding-left: 20%">Handle: {{os.Handle}}</p>
+            <p *ngIf = "os.DoorCloser==='YES'" style="padding-left: 20%">Door Closer: YES</p>
+            <p *ngIf = "os.DropSeal==='YES'" style="padding-left: 20%">Drop Seal: YES</p>
+            <p *ngIf = "os.Grid==='YES'" style="padding-left: 20%">Grid: YES</p>
+            <p *ngIf = "os.Lock==='YES'" style="padding-left: 20%">Lock: YES</p>
+          </div>
+         </div> 
+      </div>
+      <div class="img-block">
+        <div class="width-img" style="width:60% !important">
+          <img style="width:100% !important" src="{{os.MeasurementImage}}">
+        </div>
+        <div class="width-img-2" >
+          <img  style="width: 27% !important" src="https://i.imgur.com/DDma0mT.jpg">
+          <img style="width: 27% !important" src="https://i.imgur.com/lIQTzEC.jpg">
+        </div> 
+        <div class="width-img-2" style="width: 100% !important">
+          <p style="margin-bottom: 10px;color:#232323;margin-left:35%;text-align:center">Track Exposed:&emsp; <input type="checkbox" id="photographs" name="photographs" value="Photographs Taken" style="width: 18px; height: 18px;margin:0px 0 20;vertical-align: sub;"> <label for="photographs"> Yes</label>&emsp; <input type="checkbox" id="photographs" name="photographs" value="Photographs Taken" style="width: 18px; height: 18px;margin:0px 0 20;vertical-align: sub;"><label for="photographs"> No</label></p>
+        </div>     
+      </div> 
+     
+      <div class=" col-md-12 comments" style="padding-top:0cm !important">
+        <p style="margin-bottom: 10px;color:#232323">Remarks / Comments</p>      
+         
+      </div>
+      <div>
+        <footer class="footer">
+          <p class="bottom-link">WWW.JBGLASS.IN</p>
+          <p class="pagination">{{testRemOS + 2 + 1*k }} of {{SolLen + testRemOS + 2}}</p>
+        </footer>
+      </div> 
+
+  </div>
+    </section>
+  </ng-container>
+
+
+
+
+
+    <section>
+      <div class="page-9" size="A4">
+
+        
+        <div class="black-band">
+          <div class="width-50">
+            <div class="project">
+              <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+              <p>Order no.: {{OrderNumber}}</p>       
+            </div>
+          </div>
+          <div class="width-50">
+            <div class="logo">
+             <img src="https://i.imgur.com/7A5QggX.jpg">
+           </div>
+          </div>
+        </div>
+
+        <div class="text-block-page-9">
+          <h1>NOTES</h1>
+          <p style="font-size: 14px;line-height: 20px !important; font-family: 'Helvetica Neue Light' !important"></p>
+        </div>
+        
+        
+        <footer class="footer9">
+      
+            <ul style="list-style: none;position: relative;padding: 0">
+            <li style="float: left;width: 33.33%"><hr class="dotted" style="width:80%"><p style="text-align: center;">Signature</p></li>
+            <li style="float: left;width: 33.33%"><hr class="dotted" style="width:80%"><p style="text-align: center;">Name</p></li>
+            <li style="float: left;width: 33.33%"><hr class="dotted" style="width:80%"><p style="text-align: center;">Date</p></li>
+            </ul>
+        <p class="bottom-link">WWW.JBGLASS.IN</p>
+        <p class="pagination">{{SolLen + testRemOS + 2}} of {{SolLen + testRemOS + 2}}</p>
+          </footer>
+
+
+      
+      </div>
+      
+      </section>
+
+
+      <section>
+        <div class="page-11" size="A4">
+          <div class="img-main-block-11"><img src="https://i.imgur.com/0FU0kop.jpg"></div>
+          <div class="text-block-page-10">
+            <p>{{Associate}}</p>
+            <hr class="dotted">
+            <p>{{Address}}</p>
+            <hr class="dotted">
+            <p>{{PhoneNo}} | {{EmailId}}</p>
+            <hr class="dotted">
+          </div>
+          <div class="text-block-page-11">
+            <p><a style="color:#000" href="http://www.jbglass.in/">WWW.JBGLASS.IN</a></p>
+            <p>Instagram: @jbglass_</p>
+            <p>facebook: <a style="color:#000" href="#">@jbglass.in</a></p>
+          </div>  
+        </div>
+        </section>
+
+
+      </div>

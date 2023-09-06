@@ -1,0 +1,353 @@
+<form [formGroup] ="form" (submit) = "onSaveDesignPattern()">
+
+    <div class="col-md-7 form-group row">
+      <label class="col-sm-4 col-form-label">System : </label>
+      <div class="col-sm-4">
+          <div class="box">
+            <mat-select formControlName = "System" class="form-control" >
+              <mat-option *ngFor = "let sys of selectedsystems" value="{{sys}}">{{sys}}</mat-option>
+            </mat-select>
+          </div>
+      </div>
+  
+    </div>
+  
+    <div class="col-md-7 form-group row">
+      <label class="col-sm-4 col-form-label">Sub System : </label>
+      <div class="col-sm-4">
+          <div class="box">
+            <mat-select formControlName = "SubSystem" class="form-control" >
+              <mat-option  *ngFor = "let subs of selectedsubsystems" value="{{subs}}">{{subs}}</mat-option>
+            </mat-select>
+          </div>
+      </div>
+  
+    </div>
+  
+    <div class="col-md-7 form-group row">
+      <label class="col-sm-4 col-form-label">System Type : </label>
+      <div class="col-sm-4">
+          <div class="box">
+            <mat-select formControlName = "SystemType" class="form-control" >
+              <mat-option *ngFor = "let typs of selectedsystemtypes" value="{{typs}}" >{{typs}}</mat-option>
+  
+            </mat-select>
+          </div>
+      </div>
+  
+    </div>
+  
+  
+  
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Orientation : </label>
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select formControlName = "Orientation" class="form-control" >
+                <mat-option *ngFor = "let typs of selectedorientation " value="{{typs}}" >{{typs}}</mat-option>
+    
+              </mat-select>
+            </div>
+        </div>
+    
+      </div>
+
+
+
+  
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Sub Orientation : </label>
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select formControlName = "SubOrientation" class="form-control" >
+                <mat-option *ngFor = "let typs of selectedsuborientation" value="{{typs}}" >{{typs}}</mat-option>
+    
+              </mat-select>
+            </div>
+        </div>
+    
+      </div>
+
+
+  
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Grid Type : </label>
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select formControlName = "SystemType" class="form-control" >
+                <mat-option *ngFor = "let gri of systems" value="{{gri}}" >{{gri}}</mat-option>
+    
+              </mat-select>
+            </div>
+        </div>
+    
+      </div>
+
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Design : </label>
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select formControlName = "SystemType" class="form-control" >
+                <mat-option *ngFor = "let typs of systems" value="{{typs}}" >{{typs}}</mat-option>
+    
+              </mat-select>
+            </div>
+        </div>
+    
+      </div>
+
+
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Design Pattern Name : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "DesignPatternName" type="text" name="DesignPatternName">
+        </div>
+    
+    </div>
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Design Pattern Code : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "DesignPatternCode" type="text" name="DesignPatternName">
+        </div>
+    
+    </div>
+
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Color : </label>
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select formControlName = "Color" class="form-control" >
+                <mat-option *ngFor = "let cols of colors" value="{{cols.Color}}" >{{cols.Color}}</mat-option>
+    
+              </mat-select>
+            </div>
+        </div>
+    
+      </div>
+
+
+            
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Glass Count : </label>
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select formControlName = "GlassFinishCount" class="form-control" >
+                <mat-option value="ONE">ONE</mat-option>
+                <mat-option value="TWO">TWO</mat-option>
+              </mat-select>
+            </div>
+        </div>
+    
+      </div>
+
+
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">GL One Percent : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "GLOnePercent" type="number" name="DesignPatternName">
+        </div>
+    
+    </div>
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">GL Two Percent : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "GLTwoPercent" type="number" name="DesignPatternName">
+        </div>
+    
+    </div>
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">DesignPatternCost : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "DesignPatternCost" type="number" name="DesignPatternCost">
+        </div>
+    
+    </div>
+
+
+            
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Status : </label>
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select formControlName = "Status" class="form-control" >
+                <mat-option value="ACTIVE">ACTIVE</mat-option>
+                <mat-option value="INACTIVE">INACTIVE</mat-option>
+              </mat-select>
+            </div>
+        </div>
+    
+      </div>
+
+
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Min Glass Height : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "MinGlassHeight" type="number" name="MinGlassHeight">
+        </div>
+    
+    </div>
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Max Glass Height : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "MinGlassWidth" type="number" name="MinGlassWidth">
+        </div>
+    
+    </div>
+
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Param One : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "ParamOne" type="number" name="ParamOne">
+        </div>
+    
+    </div>
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Param Two : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "ParamTwo" type="number" name="ParamTwo">
+        </div>
+    
+    </div>
+
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Param Three : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "ParamThree" type="number" name="ParamThree">
+        </div>
+    
+    </div>
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Param Four : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "ParamFour" type="number" name="ParamFour">
+        </div>
+    
+    </div>
+
+    <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">Param Five : </label>
+        <div class="col-sm-4">
+            <input class="form-control" formControlName = "ParamFive" type="number" name="ParamFive">
+        </div>
+    
+    </div>
+
+
+
+ 
+
+
+
+     
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+
+  <!--
+  
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerMRI.click()">Pick Master Ref Image</button>
+    <input type="file" #filePickerMRI (change)="OnImagePickedMRI($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagePreviewMRI!=='' && imagePreviewMRI && form.get('ImageMRI').valid">
+    <img [src]="imagePreviewMRI" [alt]="form.value.Orientation">
+  </div>
+  
+  
+  
+  
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerSORI.click()">Pick Sub Orientation Ref Image</button>
+    <input type="file" #filePickerSORI (change)="OnImagePickedSORI($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagePreviewSORI!=='' && imagePreviewSORI && form.get('ImageSORI').valid">
+    <img [src]="imagePreviewSORI" [alt]="form.value.Orientation">
+  </div>
+  
+  
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerRI.click()">Pick Ref Image</button>
+    <input type="file" #filePickerRI (change)="OnImagePickedRI($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagePreviewRI!=='' && imagePreviewRI && form.get('ImageRI').valid">
+    <img [src]="imagePreviewRI" [alt]="form.value.Orientation">
+  </div>
+  
+  
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerPSE.click()">Pick PSE Image</button>
+    <input type="file" #filePickerPSE (change)="OnImagePickedPSE($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagePreviewPSE!=='' && imagePreviewPSE && form.get('ImagePSE').valid">
+    <img [src]="imagePreviewPSE" [alt]="form.value.Orientation">
+  </div>
+  
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePicker.click()">Pick Extra Image</button>
+    <input type="file" #filePicker (change)="OnImagePickedEx($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagePreviewEx!=='' && imagePreviewEx && form.get('ImageEx').valid">
+    <img [src]="imagePreviewEx" [alt]="form.value.Orientation">
+  </div>
+  
+  
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerMS.click()">Pick Measurement Sheet Image</button>
+    <input type="file" #filePickerMS (change)="OnImagePickedMS($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagePreviewMS!=='' && imagePreviewMS && form.get('ImageMS').valid">
+    <img [src]="imagePreviewMS" [alt]="form.value.Orientation">
+  </div>
+  
+  -->
+  
+  
+  <div class="col-md-7 form-group row">
+    <div class="btn-group">
+      <button type="submit" class="btn btn-primary btn-sm" >Save Design Pattern</button>
+      </div>
+    </div>
+  
+  
+  </form>
+  
+  
+
+  

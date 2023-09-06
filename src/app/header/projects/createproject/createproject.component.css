@@ -1,0 +1,29 @@
+.loader-container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: white;
+    opacity: 1;
+    z-index: 1000;
+    padding-top: 0%;
+}
+
+
+.mat-select-panel{
+    overflow: hidden !important;
+  }
+
+
+
+footer{
+    border-top:2px solid rgba(0,0,0,0.09); 
+    height: 54px;
+    padding-top: 10px;
+    text-align:right;
+  }
+  
+  .custom-panel-auto {
+    max-height: 200px; 
+    overflow: auto;
+  }
+  

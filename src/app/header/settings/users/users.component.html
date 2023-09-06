@@ -1,0 +1,276 @@
+
+<form [formGroup] ="form" (submit) = "onSaveUser()"  >
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">User Name : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "UserName" type="text" name="UserName">
+    </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Password : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Password" type="text" name="Password">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">User Full Name : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "UserFullName" type="text" name="UserFullName">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Profile : </label>
+  <div class="col-sm-4">
+      <div class="box">
+        <select formControlName = "Profile" class="form-control" >
+          <option>ADMIN</option>
+          <option>BACKEND</option>
+          <option>USER</option>
+          <option>ACCOUNTS</option>
+          <option>PRE PRODUCTION</option>
+          <option>PROJECT MANAGER</option>
+          <option>GLASS ADMIN</option>
+        </select>
+      </div>
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Add Glass App : </label>
+  <div class="col-sm-4">
+      <div class="box">
+        <select formControlName = "GlassOnly" class="form-control" >
+          <option>YES</option>
+          <option>NO</option>
+          <option>GLASS ONLY</option>
+       
+        </select>
+      </div>
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Chargeable : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Chargeable" type="number" name="Chargeable">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Temp Charge :</label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "TempCharge" type="number" name="TempCharge">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Packing :</label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Packing" type="number" name="Packing">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Freight Glass :</label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "FreightGlass" type="number" name="FreightGlass">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Other Charges :</label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "OtherCharge" type="number" name="OtherCharge">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">GST :</label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "GST" type="text" name="GST">
+  </div>
+
+</div>
+
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Associate : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Associate" type="text" name="Associate">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Code : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Code" type="text" name="Code">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Associated Since : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "AssociatedSince" type="text" name="AssociatedSince">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Address : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Address" type="text" name="Address">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Phone Number : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "PhoneNo" type="text" name="PhoneNo">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Email Id : </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "EmailId" type="text" name="EmailId">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Beneficiary Name: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "BeneficiaryName" type="text" name="BeneficiaryName">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Account Number: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "AccountNo" type="text" name="AccountNo">
+  </div>
+
+</div>
+
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">IIFC Code: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "IfscCode" type="text" name="IfscCode">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">SWIFT Code: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "Swift" type="text" name="Swift">
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Maximum Discount: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "MaxDiscount" type="number" name="MaxDiscount">
+  </div>
+
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Status : </label>
+  <div class="col-sm-4">
+      <div class="box">
+        <select formControlName = "Status" class="form-control" >
+          <option>ACTIVE</option>
+          <option>INACTIVE</option>
+        </select>
+      </div>
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Project Manager : </label>
+  <div class="col-sm-4">
+      <div class="box">
+        <select formControlName = "ProjectManager" class="form-control" >
+          <option>NONE</option>
+          <option>SANJAY AGGARWAL</option>
+        </select>
+      </div>
+  </div>
+
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Freight Charges : </label>
+  <div class="col-sm-4">
+      <div class="box">
+        <select formControlName = "Freight" class="form-control" >
+          <option>NO</option>
+          <option>YES</option>
+        </select>
+      </div>
+  </div>
+</div>
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Dealer Discount: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "DealerDiscount" type="number" name="DealerDiscount">
+  </div>
+
+</div> 
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-4 col-form-label">Procore Office ID: </label>
+  <div class="col-sm-4">
+      <input class="form-control" formControlName = "ProcoreOfficeID" type="number">
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="btn-group">
+<button type="submit" class="btn btn-primary btn-sm" >Save User</button>
+</div>
+
+</form>
+
+<app-usertable></app-usertable>
+
+

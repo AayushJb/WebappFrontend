@@ -1,0 +1,96 @@
+<div  *ngIf="!spinner" class="loader-container">
+  <mat-spinner style="position:absolute;top :40%;left: 47%;"></mat-spinner>
+</div> 
+
+
+<ng-container *ngIf="spinner">
+
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <h3 class="section-title">Commercial Win</h3>
+  
+    </div>
+
+    <div class="col-md-12" style="text-align: center;">
+      <h5 class="section-title">Order : {{OrderNumber}}_{{ProjectName}}</h5>
+      <h5 class="section-title">WA Sales Person : {{Associate}}</h5>
+    </div>
+
+  </div>
+
+
+
+
+<form [formGroup] ="form" (submit) = "onSaveCommericialDetails()">
+
+   
+    
+                    <div class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Ledger Name</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" formControlName = "Invoice" [readonly]="true">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Advance*</label>
+                        <div class="col-sm-6">
+                            <input class="form-control"  type="number" formControlName = "Amount" [readonly]="true">
+                        </div>
+                        
+                        <label class="col-sm-2 col-form-label">{{Percent}}%</label>
+                        
+                    </div>
+
+                    
+                    <div class="form-group row">
+
+
+                     <label class="col-sm-4 col-form-label">Type*</label>
+                      <div class="col-sm-6" *ngIf = "AdvanceZero">
+                         <mat-select class="form-control noscroll" type="text" formControlName = "Type" >
+                           <mat-option value="FOC">FOC</mat-option>
+                           <mat-option value="Special Request">Special Request</mat-option>
+                           
+                      </mat-select>
+                    </div>
+
+                    <div class="col-sm-6" *ngIf = "!AdvanceZero">
+                      <input class="form-control noscroll" type="select" formControlName = "Type" [readonly]="true" >
+                   </div>
+
+                    </div>
+
+                    <div class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Remark</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" formControlName = "Remark">
+                        </div>
+                    </div>
+    
+    
+
+    
+    
+            <div class="btn-group">
+                            <button  type="submit" class="btn btn-info">COMMERCIAL WIN</button>
+    
+                        </div>
+    
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                     <div class="btn-group">
+                          <button (click)="OnCloseDialog()" type="button" class="btn btn-info">CANCEL</button>
+    
+                        </div>
+    
+    </form>
+
+
+
+</ng-container>    
+
+
+  

@@ -1,0 +1,19 @@
+.color-image
+{
+  width : 10%;
+  height: 10%;
+}
+
+.color-image img
+{
+  width : 100%;
+  height: 100%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+th,
+td {
+
+  width: 90px;
+  overflow: hidden;
+}

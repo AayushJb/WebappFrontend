@@ -1,0 +1,108 @@
+<button printTitle="{{OrderNumber}}"  styleSheetFile="assets/css/downloads.css,assets/css/presentation.css" printSectionId="pdf" ngxPrint>GET PDF</button>
+<div id = "pdf">
+
+<section>
+    <div class="page-8" size="A4" id="waltzslide">
+      <div class="black-band">
+        <div class="width-50">
+          <div class="project">
+            <p>Project : <span style="text-transform: uppercase;">{{ProjectName}}</span></p>
+            <p>Order no.: {{OrderNumber}}</p>       
+          </div>
+        </div>
+        <div class="width-50">
+          <div class="logo">
+           <img src="https://i.imgur.com/7A5QggX.jpg">
+         </div>
+        </div>
+      </div>
+    <div class="text-block-page-4" style="padding-bottom: 0.5cm">
+       <div class="border-line">
+          <div>
+            <p class="order-head" style="margin-bottom: 20px;text-align: center">CUSTOMER FEEDBACK FORM</p>
+          </div>
+         </div> 
+      </div> 
+        <div class="project-detail">
+        <p>Dear Valued Customer,</p>
+    <p>Thank you for choosing WALTZ by JB Glass. Our promise and commitment is to provide best
+    quality products and services to our customers. Your honest feedback is important to us and we
+    truly appreciate your assistance in completing this form.</p>
+    <p>Thank you.</p>    	
+     
+    <table class="no-border">
+    <thead>
+        <th></th>
+        <th><img src="https://i.imgur.com/tMZ5Iz6.jpg"><br>Excellent</th>
+        <th><img src="https://i.imgur.com/bQ4f4W4.jpg"><br>Good</th>
+        <th><img src="https://i.imgur.com/OhijxWz.jpg"><br>Fair</th>
+        <th><img src="https://i.imgur.com/sT3oAn9.jpg"><br>Poor</th>
+    </thead>
+    <tbody>
+        <tr>
+        <td style="text-align: left;font-size: 14px;border:none">1. How would you rate the quality of our product</td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        </tr>
+        <tr>
+        <td style="text-align: left;font-size: 14px">2. Was the material delivered as per schedule</td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>  	
+        </tr>
+        <tr>
+        <td style="text-align: left;font-size: 14px">3. Quality of Installation service</td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>  	
+        </tr>
+        <tr>
+        <td style="text-align: left;font-size: 14px">4. Behaviour and professionalism of the team</td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td> 	
+        </tr>  
+        <tr>
+        <td style="text-align: left">5. How will you rate your overall experience of this purchase?</td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>
+        <td><div class="feedback"></div></td>  	
+        </tr>          
+    </tbody>
+    </table>
+    <div style="padding: 1.5cm 0.1cm">
+         Comments: <hr class="dotted" style="width:100%">
+        <hr class="dotted" style="width:100%" >
+        <hr class="dotted" style="width:100%" >
+     </div>
+    <div class="width-60" style="margin-left: -0.5cm">
+            <hr class="dotted" style="width:87%">
+            <p style="padding-left: 0.5cm;">(signature)</p>    
+            <p style="padding-left: 0.5cm">Name: </p>
+            <p style="padding-left: 0.5cm">Contact no.:</p>      
+            <p style="padding-left: 0.5cm">Date:</p>       
+    
+          </div>
+              <div style="border: 2px solid #ddd;padding: 2% 3%;display: flow-root;margin-top:0.5cm"><ul style="list-style: none;position: relative;padding: 0">
+            <li style="float: left;width: 33.33%"><p>Associate’s Name:{{Associate}}</p></li>
+            <li style="float: left;width: 33.33%"><p>| Contact no.: {{PhoneNo}}</p></li>
+            <li style="float: left;width: 33.33%"><p>| Email ID:{{EmailId}}</p></li>
+          </ul>
+        </div>  
+        </div>
+      </div>
+    <div>
+      <div class="footer8">
+        <p class="bottom-link">WWW.JBGLASS.IN</p>
+      </div> 
+    </div>
+
+    </section>
+
+  </div>

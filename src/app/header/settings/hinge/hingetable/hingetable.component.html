@@ -1,0 +1,29 @@
+<div>
+
+    <table class="table table-hover" >
+    <thead class="thead-light">
+    <th scope = "col">Sno.</th>
+    <th scope = "col">Hinge Position</th>
+    <th scope = "col">Image</th>
+    <th scope = "col">Date Created</th>
+    <th scope = "col"></th>
+    <th scope = "col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let hins of hinges; index as i">
+        <td scope = "row">{{i+1}}</td>
+        <td>{{ hins.HingeName }}</td>
+        <td><div class="color-image"><img [src]="hins.imagePath" [alt]="hins.HingeName"></div></td>
+  
+        <td>{{ hins.DateCreated }}</td>
+        <td style="cursor: pointer;" ><a [routerLink] = "['/settings/hinges/edit',hins._id]">Edit</a></td>
+        <td style="cursor: pointer;"> <a (click)="OnDeleteHinges(hins._id)">Delete </a></td>
+      </tr>
+    </tbody>
+  
+    </table>
+  
+  
+    </div>
+  
+  

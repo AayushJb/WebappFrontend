@@ -1,0 +1,99 @@
+<form [formGroup] ="form" (submit) = "onSaveGrid()">
+
+    <div class="col-md-7 form-group row">
+      <label class="col-sm-4 col-form-label">Grid Name : </label>
+      <div class="col-sm-4">
+          <input class="form-control" formControlName = "GridName" type="text" name="GridName">
+      </div>
+  </div>
+  
+
+   <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Price : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "Price" type="number" name="Price">
+    </div>
+</div>
+
+
+  
+
+
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Design: </label>
+    <div class="col-sm-4">
+        <div class="box">
+          <mat-select formControlName = "Design" class="form-control" >
+            <mat-option *ngFor="let des of designs" [value]="des.Design" >{{des.Design}}</mat-option>
+
+          </mat-select>
+        </div>
+    </div>
+
+  </div>
+
+
+  
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Status: </label>
+    <div class="col-sm-4">
+        <div class="box">
+          <mat-select formControlName = "Status" class="form-control" >
+            <mat-option value="ACTIVE" >ACTIVE</mat-option>
+            <mat-option value="INACTIVE" >INACTIVE</mat-option>
+
+          </mat-select>
+        </div>
+    </div>
+
+  </div>
+
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Number Of Glasses: </label>
+    <div class="col-sm-4">
+        <div class="box">
+          <mat-select formControlName = "GlassNumber" class="form-control" >
+            <mat-option value="NO" >ONE</mat-option>
+            <mat-option value="YES" >TWO</mat-option>
+
+          </mat-select>
+        </div>
+    </div>
+
+  </div>
+
+
+  
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">GL One Percent : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "GLOnePercent" type="number" name="GLOnePercent">
+    </div>
+</div>
+
+
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePicker.click()">Pick Image</button>
+    <input type="file" #filePicker (change)="OnImagePicked($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagePreview!=='' && imagePreview && form.get('Image').valid">
+    <img [src]="imagePreview" [alt]="form.value.Color">
+  </div>
+  
+  
+  
+  <div class="col-md-7 form-group row">
+  <div class="btn-group">
+    <button type="submit" class="btn btn-primary btn-sm" >Save Grid</button>
+    </div>
+  </div>
+  
+  
+  
+  </form>
+  
+  <app-gridtable></app-gridtable>

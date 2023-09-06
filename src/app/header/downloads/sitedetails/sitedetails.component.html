@@ -1,0 +1,149 @@
+      
+                   <div class="col-md-12">
+                     <h4 class="section-title">ENTER SITE DETAILS</h4>
+                     <h5 class="section-title"></h5>
+                   </div>
+
+                    <form  [formGroup] ="form" (submit) = "onSiteDetails()">
+    
+                               <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Contact Person</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text"  formControlName="ContactPerson"   style="text-transform:uppercase">
+                                     </div>
+                                 </div>
+ 
+
+
+                                 <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Phone Number</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control noscroll"  type="number"  max="9999999999" oninput="(validity.valid)||(value='');" name="Phone" formControlName="Phone" >
+                                     <span class="help-block"><small>*Enter exactly 10 digits</small></span>
+                                     </div>                          
+                                 </div>
+ 
+
+                                <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Address Line 1</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text" name="Add1" formControlName="AddressLineOne" style="text-transform:uppercase" required>
+                                     </div>
+                                 </div> 
+                                
+
+                                <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Address Line 2</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text" name="Add2" formControlName="AddressLineTwo" style="text-transform:uppercase">
+                                     </div>
+                                 </div> 
+                                 
+
+
+                                <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Address Line 3</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text" name="Add3" formControlName="AddressLineThree" style="text-transform:uppercase">
+                                     </div>
+                                 </div>  
+                                
+
+
+                                <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">City</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text"  name="city" formControlName="City" style="text-transform:uppercase" required>
+                                     </div>
+                                 </div> 
+                                 
+
+
+                                 <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">State</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text" name="state" formControlName="State" style="text-transform:uppercase" required>
+                                     </div>
+                                 </div>  
+                                 
+
+                                 
+                                  <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Pin Code</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="number" max="999999" oninput="(validity.valid)||(value='');" formControlName="Pincode" style="text-transform:uppercase">
+                                         <span class="help-block"><small>*Enter exactly 6 digits</small></span>
+                                    </div>
+                                 </div> 
+                                 
+                                
+                                 
+                
+                               
+                                <div *ngIf = "mode==='GoodsDelivery'" class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Delivery Date</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="date" formControlName="DeliveryDate" >
+                                     </div>
+                                 </div> 
+                                 
+                                 
+                              
+                                 
+                                 
+                      
+                             <div  *ngIf = "mode==='GoodsDelivery'" class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Invoice Number</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text" formControlName="InvoiceNumber">
+                                     </div>
+                                 </div> 
+                            
+                      
+                      
+                                  <div  *ngIf = "mode==='GoodsDelivery'"class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Panels</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="number" formControlName="Panels">
+                                     </div>
+                                 </div> 
+                               
+                                 <div  *ngIf = "mode==='GoodsDelivery'" class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Boxes</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="number" formControlName="Boxes">
+                                     </div>
+                                 </div> 
+                                 
+                                 <div  *ngIf = "mode==='GoodsDelivery'" class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Glasses</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="number" name="remarks" formControlName="Glasses">
+                                     </div>
+                                 </div> 
+                               
+                
+                          
+                                  <div class="form-group row">
+                                     <label class="col-sm-2 col-form-label">Remarks</label>
+                                     <div class="col-sm-4">
+                                         <input class="form-control" type="text" name="remarks" formControlName="Remarks" style="text-transform:uppercase">
+                                     </div>
+                                 </div> 
+                                 
+
+                                 <div class="form-group row">
+                                         <button  type="submit" class="btn btn-info margin-top-5">Submit</button>
+                                 </div>
+                                 <div class="form-group row">
+                                    <button  (click)="OnCancel()" type="button" class="btn btn-info margin-top-5">Cancel</button>
+                                </div>
+                         
+    </form>              
+
+
+
+ 
+
+ 
+ 

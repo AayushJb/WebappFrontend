@@ -1,0 +1,236 @@
+<div *ngIf = "spinnerStatus" class="loader-container">
+  <mat-spinner style="top: 30%; left: 40%;"></mat-spinner>
+</div>  
+
+
+
+<ng-container *ngIf="Profile!=='PROJECT MANAGER'">
+
+<div  class="row">
+  <ng-container >
+  <div class="col-md-6">
+      <div class="card logo-dashboard">
+          <div class="card-holder card-bx">
+            
+
+           
+
+            <app-performance [parentSubject]="parentSubject"></app-performance>
+ 
+            
+        
+          </div>
+      </div>
+  </div> 
+ </ng-container>
+  <div class="col-md-6">
+      <div class="card logo-dashboard">
+          <div class="card-holder card-bx">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="card-info">
+                          <form [formGroup] ="form">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">User:</label>
+                              <div class="col-sm-9 col-form-input">
+                                <mat-select  class="form-control mb-2" formControlName = "User" style="border:1px solid #ddd">
+                                  <mat-option *ngFor="let us of userList"  value = "{{us}}">{{us}}</mat-option>
+                                </mat-select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputPassword" class="col-sm-3 col-form-label">Status:</label>
+                              <div class="col-sm-9 col-form-input">
+                                <mat-select formControlName = "Status" class="form-control mb-2" style="border:1px solid #ddd">
+                                  <mat-option *ngIf="Profile==='USER'||Profile==='ADMIN'" value = "Pipeline">Pipeline</mat-option>
+                                  <mat-option value = "Win">Win</mat-option>
+                                  <mat-option value = "Commercial Hold">Commercial Hold</mat-option>
+                                  <mat-option value = "Old Win">Old Win</mat-option>
+                                  <mat-option value = "Handover">Handover</mat-option>     
+                                  <mat-option  *ngIf="Profile==='USER'||Profile==='ADMIN'" value = "All">All</mat-option>           
+                                  <mat-option *ngIf="Profile==='USER'||Profile==='ADMIN'" value = "Edited">Edited</mat-option>
+                                </mat-select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputPassword" class="col-sm-3 col-form-label">Search:</label>
+                              <div class="col-sm-9 col-form-input">
+                                <input  class="form-control" placeholder="Search" autocomplete="off" formControlName = "Search" name="Search" (keyup)="applyFilter()" style="border:1px solid #ddd">
+                              </div>
+                            </div>                                      
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>                                              
+</div>
+
+
+
+
+<div  class ="mat-elevation-z8">
+  <mat-spinner *ngIf="!notloaded" style="position:relative;top :40%;left: 47%;"></mat-spinner>
+
+  
+  <ng-container *ngIf="notloaded">
+  <mat-table  [dataSource]="DisplayedRows" matSort>
+    
+   
+    <ng-container matColumnDef="Order Number">
+      <mat-header-cell mat-sort-header *matHeaderCellDef >Order Number</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.OrderNo}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Project Name">
+      <mat-header-cell mat-sort-header *matHeaderCellDef >Project Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.ProjectName}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <mat-header-cell mat-sort-header *matHeaderCellDef  >Status</mat-header-cell>
+      <mat-cell *matCellDef="let element" >{{element.Status}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Discount" >
+      <mat-header-cell mat-sort-header *matHeaderCellDef >Discount</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.Discount}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Final Amount">
+      <mat-header-cell mat-sort-header *matHeaderCellDef >Final Amount</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.FinalAmount}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Win Date">
+      <mat-header-cell mat-sort-header *matHeaderCellDef >Win Date</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.CommercialWinDate}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit Date"  >
+      <mat-header-cell  mat-sort-header *matHeaderCellDef >Edit Date</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.EditDate}}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <ng-container *ngIf="Profile==='USER'||Profile==='ADMIN'">
+        <button  *ngIf="row.Status!=='Edited'&&row.Status!=='Handover'" mat-icon-button [routerLink] = "['/project/',row._id]" matTooltip="Edit Order"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button (click)="OnPreviewOrder(row)" matTooltip="Preview Order"><mat-icon>preview</mat-icon></button>
+        <button *ngIf="row.Status==='Pipeline'" mat-icon-button (click)="OpenLedgerForm(row)" matTooltip="Win Order"><mat-icon>Win</mat-icon></button>
+        
+        <ng-container *ngIf="Profile==='ADMIN'||Profile==='USER'">
+        <button mat-icon-button *ngIf="row.Status==='Win'||row.Status==='Old Win'||row.Status==='Commercial Hold'" (click)="OnProjectDetails(row)" matTooltip="Project Details"><mat-icon>Project Details</mat-icon></button>
+        </ng-container>
+
+      <!-- <button  *ngIf="row.Status!=='Edited'&&row.Status!=='Pipeline'" mat-icon-button  (click)="OpenSpecialRequest(row)" matTooltip="Special Requests"><mat-icon>find_replace</mat-icon></button>-->
+        </ng-container>
+
+        <ng-container *ngIf="Profile==='BACKEND'">
+          <button mat-icon-button (click)="OnPreviewOrder(row)" matTooltip="Preview Order"><mat-icon>preview</mat-icon></button>
+        </ng-container>
+
+        <ng-container *ngIf="Profile==='PRE PRODUCTION'">
+          <button  *ngIf="row.Status!=='Edited'" mat-icon-button [routerLink] = "['/project/',row._id]" matTooltip="Edit Order"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button (click)="OnPreviewOrder(row)" matTooltip="Preview Order"><mat-icon>preview</mat-icon></button>
+        </ng-container>
+
+   
+        <ng-container *ngIf="Profile==='ACCOUNTS'">
+          <button mat-icon-button (click)="OnPreviewOrder(row)" matTooltip="Preview Order"><mat-icon>preview</mat-icon></button>
+          <button mat-icon-button *ngIf="row.Status==='Commercial Hold'" (click)="OnAdvanceReceived(row)" matTooltip="Commercial Win"><mat-icon>credit_card</mat-icon></button>
+          <button mat-icon-button (click)="OnGetJB(row)" matTooltip="Get JB"><mat-icon>euro_symbol</mat-icon></button>
+          <button mat-icon-button *ngIf="row.Status==='Win'||row.Status==='Old Win'" (click)="OnHandOverOrder(row)" matTooltip="Handover Order"><mat-icon>done_outline</mat-icon></button>
+
+        </ng-container>
+
+
+      </mat-cell>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan ="6">
+        Loading Data.....
+      </mat-footer-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan ="6">
+        No Data to Display.
+      </mat-footer-cell>
+    </ng-container>
+
+ 
+
+  
+
+    <mat-header-row *matHeaderRowDef="DisplayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns : DisplayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':DisplayedRows!=null}"></mat-footer-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(DisplayedRows!=null && DisplayedRows.data.length==0) }"></mat-footer-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[25]" showFirstLastButtons></mat-paginator>
+ </ng-container>
+
+
+</div>
+
+
+
+
+</ng-container>
+
+
+<ng-container *ngIf="Profile==='PROJECT MANAGER'">
+
+<form [formGroup] ="formpro" (submit) = "OnGetProManJB()">
+
+  <div class=" col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Select Order Number:</label>
+    <div class="col-sm-6">
+    
+      <div class="ng-autocomplete">
+        <ng-autocomplete 
+          formControlName="GetJBOrders"
+          [data]="ProjectManagerOrders"
+          [searchKeyword]="keyword"
+          placeholder="Select Order Number"
+          (selected)='selectEvent($event)'
+          (inputChanged)='onChangeSearch($event)'
+          (inputFocused)='onFocused($event)'
+          [itemTemplate]="itemTemplate"
+          [notFoundTemplate]="notFoundTemplate">                                 
+        </ng-autocomplete>
+        
+        <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.OrderNo"></a>
+        </ng-template>
+        
+        <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+        </ng-template>
+        </div>
+   </div>
+
+  </div>
+
+  <div class=" col-md-7 form-group row">
+
+  <button  type="submit" class="btn btn-info btn-fill"> Get JB <i class="pe-7s-like2"></i></button>  
+
+ </div>
+
+
+
+
+
+</form>
+
+</ng-container>
+
+
+

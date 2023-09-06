@@ -1,0 +1,747 @@
+
+<button printTitle="{{OrderNumber}}"  styleSheetFile="assets/css/presentation.css,assets/css/stylepre.css" printSectionId="pdf"      ngxPrint>GET PDF</button>
+
+
+<div id = "pdf">
+
+ 
+
+<section class="page-1" size="A4" >
+  <div class="img-main-block"><img src="https://i.imgur.com/CpQ1nSO.jpg"></div>
+  <div class="text-block-page-1">
+    <p style="font-size: 22px" id = "outputproject" style="text-transform: uppercase;">{{ ProjectName }}</p>
+    <p id = "outputloc" style="text-transform: uppercase;">{{ Location }}</p>
+    <p id = "outputdate" style="text-transform: uppercase;" >{{PipeLineDate}}</p>
+    <p *ngIf = "WinDate" style="text-transform: uppercase;" >Win Date: {{WinDate}}</p>
+  </div>
+</section>
+
+
+<!------------------------------------------------PAGE 2--------------------------------------------------------------------------------->
+
+
+<section class="page-2" size="A4" style="height:29.7cm ;width:21cm;">
+  <div class="text-block-page-2">
+    <h1>CONGRATULATIONS !</h1>
+    <p>On choosing WALTZ by JB Glass, our signature range of premium door & partition systems.</p>
+    <p>Slim Aluminum profiles, hidden structural mechanism and wide selection of clear and
+     opaque materials ensure perfect integration of walls and door, guaranteeing utmost freedom of design to enhance your space aesthetics.</p>
+    <p>From Hinge to Sliding doors, and Pivot doors to Shower Enclosures, WALTZ has a perfect solution for all your interior spaces.</p>
+    <div class="btn-type"><a href="#ordersummary" >Let's view your order</a></div>
+  </div>
+</section>
+
+<!------------------------------------------------PAGE 3--------------------------------------------------------------------------------->
+<!--------Less than 9--------->
+
+
+<ng-container *ngIf="SolLen<=9">
+<section  class="page-3" size="A4" id="ordersummary">
+  <div class="black-band">
+    <div class="width-25">
+       <p>WALTZ . SWING</p>
+       <img src="https://i.imgur.com/SfTUQf5.jpg">
+    </div>
+    <div class="width-25">
+       <p>WALTZ . SLIDE</p>
+       <img src="https://i.imgur.com/QowZ41k.jpg">
+    </div>
+    <div class="width-25">
+       <p>WALTZ . GLIDE</p>
+       <img src="https://i.imgur.com/xnPun40.jpg">
+    </div>
+    <div class="width-25">
+       <p>WALTZ . CLOSE</p>
+       <img src="https://i.imgur.com/9x7QfCm.jpg">
+    </div>
+  </div>
+  <div class="text-block-page-3">
+    <p class="order-head" style="margin-bottom: 10px;">ORDER SUMMARY</p>
+    <div class="project-summary">
+    <p>Project : {{ProjectName}}</p>
+    <p>Architect : {{Architect}}</p>
+    <p>Order no.: {{OrderNumber}}</p>
+    </div>
+    <div style="padding: 0 1.5cm">
+  <table class="table table-striped">
+    <thead style="color:#fff; background: #000; ">
+      <tr>
+        <th>S.No.</th>
+        <th>WALTZ System</th>
+        <th>Floor</th>
+        <th>Space/Room</th>
+        <th>Width (in mm)</th>
+        <th>Height (in mm)</th>
+        <th>Qty.</th>
+        <th>Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="number2" style="visibility: hidden">0</div></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor = "let Sols of output; index as i ">
+        <td><div class="number2">{{i+1}}</div></td>
+        <td style="color:#8a5e3c">{{Sols.System}}</td>
+        <td>{{Sols.Floor}}</td>
+        <td>{{Sols.Space}}</td>
+        <td>{{Sols.Width}}</td>
+        <td>{{Sols.Height}}</td>
+        <td>{{Sols.Quantity}}</td>
+        <td>Sets</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+    </div>
+
+    <footer class="footer">
+      <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+      <p class="pagination">3</p>
+    </footer>
+  </div>
+</section>
+</ng-container>
+
+
+
+
+
+<!--------Greater  than 9--------->
+
+<ng-container *ngIf="SolLen>9">
+  <ng-container>
+  <ng-container *ngFor="let times of QuotientOS; index as k; ">
+    
+  <section  class="page-3" size="A4" id="ordersummary">
+    <div class="black-band">
+      <div class="width-25">
+         <p>WALTZ . SWING</p>
+         <img src="https://i.imgur.com/SfTUQf5.jpg">
+      </div>
+      <div class="width-25">
+         <p>WALTZ . SLIDE</p>
+         <img src="https://i.imgur.com/QowZ41k.jpg">
+      </div>
+      <div class="width-25">
+         <p>WALTZ . GLIDE</p>
+         <img src="https://i.imgur.com/xnPun40.jpg">
+      </div>
+      <div class="width-25">
+         <p>WALTZ . CLOSE</p>
+         <img src="https://i.imgur.com/9x7QfCm.jpg">
+      </div>
+    </div>
+    <div class="text-block-page-3">
+      <p class="order-head" style="margin-bottom: 10px;">ORDER SUMMARY</p>
+      <div class="project-summary">
+      <p>Project : {{ProjectName}}</p>
+      <p>Architect : {{Architect}}</p>
+      <p>Order no.: {{OrderNumber}}</p>
+      </div>
+      <div style="padding: 0 1.5cm">
+    <table class="table table-striped">
+      <thead style="color:#fff; background: #000; ">
+        <tr>
+          <th>S.No.</th>
+          <th>WALTZ System</th>
+          <th>Floor</th>
+          <th>Space/Room</th>
+          <th>Width (in mm)</th>
+          <th>Height (in mm)</th>
+          <th>Qty.</th>
+          <th>Units</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="number2" style="visibility: hidden">0</div></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr *ngFor = "let Sols of output| slice:9*k:9*(k+1); index as j ">
+          <td><div class="number2">{{(9*k + (j+1))}}</div></td>
+          <td style="color:#8a5e3c">{{Sols.System}}</td>
+          <td>{{Sols.Floor}}</td>
+          <td>{{Sols.Space}}</td>
+          <td>{{Sols.Width}}</td>
+          <td>{{Sols.Height}}</td>
+          <td>{{Sols.Quantity}}</td>
+          <td>Sets</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+      </div>
+
+      <footer class="footer">
+        <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+        <p class="pagination">{{3+k}}</p>
+      </footer>
+    </div>
+  </section>
+ </ng-container>
+</ng-container>
+
+<!--------Greater  than 9 and has remainder>0--------->
+<ng-container *ngIf="RemainderOS>0">
+  <section  class="page-3" size="A4" id="ordersummary">
+    <div class="black-band">
+      <div class="width-25">
+         <p>WALTZ . SWING</p>
+         <img src="https://i.imgur.com/SfTUQf5.jpg">
+      </div>
+      <div class="width-25">
+         <p>WALTZ . SLIDE</p>
+         <img src="https://i.imgur.com/QowZ41k.jpg">
+      </div>
+      <div class="width-25">
+         <p>WALTZ . GLIDE</p>
+         <img src="https://i.imgur.com/xnPun40.jpg">
+      </div>
+      <div class="width-25">
+         <p>WALTZ . CLOSE</p>
+         <img src="https://i.imgur.com/9x7QfCm.jpg">
+      </div>
+    </div>
+    <div class="text-block-page-3">
+      <p class="order-head" style="margin-bottom: 10px;">ORDER SUMMARY</p>
+      <div class="project-summary">
+      <p>Project : {{ProjectName}}</p>
+      <p>Architect : {{Architect}}</p>
+      <p>Order no.: {{OrderNumber}}</p>
+      </div>
+      <div style="padding: 0 1.5cm">
+    <table class="table table-striped">
+      <thead style="color:#fff; background: #000; ">
+        <tr>
+          <th>S.No.</th>
+          <th>WALTZ System</th>
+          <th>Floor</th>
+          <th>Space/Room</th>
+          <th>Width (in mm)</th>
+          <th>Height (in mm)</th>
+          <th>Qty.</th>
+          <th>Units</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="number2" style="visibility: hidden">0</div></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+         
+        <tr *ngFor = "let Sols of output| slice:9*testRemOS:9*(testRemOS+1); index as j">
+          <td><div class="number2">{{9*(testRemOS)+j+1}}</div></td>
+          <td style="color:#8a5e3c">{{Sols.System}}</td>
+          <td>{{Sols.Floor}}</td>
+          <td>{{Sols.Space}}</td>
+          <td>{{Sols.Width}}</td>
+          <td>{{Sols.Height}}</td>
+          <td>{{Sols.Quantity}}</td>
+          <td>Sets</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+      </div>
+
+      <footer class="footer">
+        <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+        <p class="pagination">{{testRemOS+3}}</p>
+      </footer>
+    </div>
+  </section>
+
+
+
+
+</ng-container>
+
+
+  </ng-container>
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------PAGE 4-5 STARTS--------------------------------------------------------------------------------->
+
+
+
+<!------------------------------------------------PAGE 4--------------------------------------------------------------------------------->
+<ng-container *ngFor="let sols of OutputTemp;index as i" >
+
+<section><section class="page-4" size="A4" id="waltzglide"><div class="black-band">
+<div class="width-50"><div class="project">
+<p class = "RepProjectName" style="text-transform: uppercase;">Project : {{ProjectName}}</p>
+<p class = "RepArchitect" style="text-transform: uppercase;">Architect : {{Architect}}</p>
+<p class = "RepOrder" style="text-transform: uppercase;">Order no.: {{OrderNumber}}</p></div></div>
+<div class="width-50"><div class="logo">
+<img src="https://i.imgur.com/7A5QggX.jpg">
+</div></div></div>
+<div class="text-block-page-4">
+<div class="border-line">
+<div style="padding-top: 10px;">
+
+
+<p class="order-head" style="margin-bottom: 10px" style="text-transform: uppercase;">{{sols.System}}</p></div>
+
+
+
+
+<div class="width-60">
+<p>Quantity : {{sols.Quantity}}</p>
+<div *ngIf="sols.SubSystem!=='NONE'"><p>Sub-system: {{sols.SubSystem}}</p></div>
+<div *ngIf="sols.SystemType!=='NONE'"><p>System Type: {{sols.SystemType}}</p></div>
+<p *ngIf="!sols.SubOrientation">Configuration: {{sols.Orientation}}</p>
+<p *ngIf="sols.SubOrientation">Configuration: {{sols.SubOrientation}}</p>
+</div> <div class="width-60">
+<p style="padding-left: 20%">Frame: {{sols.Color}} </p>
+<p *ngIf = "!sols.OuterGlassFinish"style="padding-left: 20%">Glass: {{sols.GlassFinish}}</p>
+<p *ngIf = "sols.OuterGlassFinish"style="padding-left: 20%"><span *ngIf="!sols.GridNumberFlag">Glass In: {{sols.GlassFinish}}</span>
+  <span *ngIf="sols.GridNumberFlag">Glass One: {{sols.GlassFinish}}</span>
+</p>
+<p *ngIf = "sols.OuterGlassFinish"style="padding-left: 20%"><span *ngIf="!sols.GridNumberFlag">Glass Out: {{sols.OuterGlassFinish}}</span>
+  <span *ngIf="sols.GridNumberFlag">Glass Two: {{sols.OuterGlassFinish}}</span>
+</p>
+
+<p *ngIf = "sols.Grid" style="padding-left: 20%">Grid: {{sols.Grid}} </p>
+<p *ngIf = "sols.Lock!==''" style="padding-left: 20%">Lock: {{sols.Lock}} </p>
+<p *ngIf ="sols.DropSeal&&sols.DropSeal!=='NO'" style="padding-left: 20%">Drop Seal: YES</p> 
+
+
+<p *ngIf = "sols.Handle" style="padding-left: 20%">Handle: {{sols.Handle}} </p>
+
+<p *ngIf = "sols.DoorCloser&&sols.DoorCloser!=='NO'" style="padding-left: 20%">Door Closer: YES</p>
+
+
+
+</div></div></div>
+<div class="img-block"><div class="width-img">
+<img src="{{sols.RefImage}}">
+<p>Reference image: {{sols.System}}</p></div>
+<div class="width-img-2">
+<img src="{{sols.ColorImage}}">
+<p style="margin:0">Frame Finish</p>
+<p style="margin:0 0 15px">{{sols.Color}}</p>
+
+<img  *ngIf="!sols.GlassVariant" src="{{sols.GlassFinishImage}}">
+<img  *ngIf="sols.GlassVariant" src="{{sols.GlassVariantImage}}">
+<p *ngIf = "!sols.OuterGlassFinish" style="margin:0"><span *ngIf="!sols.GridNumberFlag">Glass Finish</span> </p>
+<p *ngIf = "sols.OuterGlassFinish" style="margin:0"><span *ngIf="!sols.GridNumberFlag">Glass In</span><span *ngIf="sols.GridNumberFlag">Glass One</span></p>
+<p style="margin:0 0 15px">{{sols.GlassFinish}}</p>
+
+
+
+
+<div *ngIf = "sols.OuterGlassFinish">
+<img *ngIf="!sols.OuterGlassVariant" src="{{sols.OuterGlassFinishImage}}">
+<img *ngIf="sols.OuterGlassVariant" src="{{sols.OuterGlassVariantImage}}">
+<p *ngIf="!sols.GridNumberFlag" style="margin:0">Glass Out</p>
+<p *ngIf="sols.GridNumberFlag" style="margin:0">Glass Two</p>
+<p style="margin:0 0 15px">{{sols.OuterGlassFinish}}</p>
+</div>
+
+
+</div></div>
+
+
+
+
+<div class="col-md-12 comments">
+<p class = "RemarksBottom" style="margin-bottom:10px!important;color:#232323">Remarks / Comments</p>
+
+
+<div class="text-area">
+  <p *ngFor = "let rems of sols.Remarks">{{rems}}</p>
+ 
+</div>
+</div>
+<footer><div class="footer2">
+  <p  class="bottom-link">WWW.JBGLASS.IN</p><p class="pagination">{{testRemOS + i +4 + i*1}}</p>
+</div></footer></section></section>
+
+<!------------------------------------------------PAGE 5--------------------------------------------------------------------------------->
+
+<section class="page-5" size="A4" id="waltzslide">
+  <div class="black-band">
+    <div class="width-50">
+      <div class="project">
+        <p>Project : {{ProjectName}}</p>
+        <p>Architect : {{Architect}}</p>
+        <p>Order no.: {{OrderNumber}}</p>
+      </div>
+    </div>
+    <div class="width-50">
+      <div class="logo">
+       <img src="https://i.imgur.com/7A5QggX.jpg">
+     </div>
+    </div>
+  </div>
+  <div class="text-block-page-4">
+   <div class="border-line">
+      <div style="padding-top: 10px;">
+        <p class="order-head" style="margin-bottom: 10px">{{sols.System}}</p>
+      </div>
+
+      <div class="width-60">
+        <p>Quantity : {{sols.Quantity}}</p>
+        <div *ngIf="sols.SubSystem!=='NONE'"><p>Sub-system: {{sols.SubSystem}}</p></div>
+        <div *ngIf="sols.SystemType!=='NONE'"><p>System Type: {{sols.SystemType}}</p></div>
+        <p *ngIf ="!sols.SubOrientation">Configuration: {{sols.Orientation}}</p>
+        <p *ngIf ="sols.SubOrientation">Configuration: {{sols.SubOrientation}}</p>
+      </div>
+      <div class="width-60">
+        <p style="padding-left: 20%">Frame: {{sols.Color}} </p>
+        <p *ngIf ="!sols.OuterGlassFinish" style="padding-left: 20%">Glass: {{sols.GlassFinish}}</p>
+        <p *ngIf ="sols.OuterGlassFinish" style="padding-left: 20%"> <span *ngIf="!sols.GridNumberFlag">Glass In: {{sols.GlassFinish}}</span> <span *ngIf="sols.GridNumberFlag">Glass One: {{sols.GlassFinish}}</span></p>
+        <p *ngIf ="sols.OuterGlassFinish"style="padding-left: 20%"> <span *ngIf="!sols.GridNumberFlag">Glass Out: {{sols.OuterGlassFinish}}</span> <span *ngIf="sols.GridNumberFlag">Glass Two: {{sols.OuterGlassFinish}}</span></p>
+        <p *ngIf ="sols.Handle"style="padding-left: 20%">Handle : {{sols.Handle}}</p>
+        <p *ngIf ="sols.Grid"style="padding-left: 20%">Grid: {{sols.Grid}}</p>
+        <p *ngIf ="sols.Lock!==''" style="padding-left: 20%">Lock: {{sols.Lock}}</p>
+        <p *ngIf ="sols.DoorCloser==='YES'"style="padding-left: 20%">Door Closer: YES</p>
+        <p *ngIf ="sols.DropSeal==='YES'" style="padding-left: 20%">Drop Seal: YES</p>
+      </div>
+     </div>
+  </div>
+  <div class="img-block">
+    <img src="{{sols.PSEImage}}">
+  </div>
+  <div class="view-images">
+    <p>Plan, Elevation and Section</p>
+  </div>
+
+  <footer class="footer3">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+    <p class="pagination">{{testRemOS + i +5 +i*1}}</p>
+  </footer>
+</section>
+
+
+
+<!--------------------------------------------------Page 4-5 ENDS-------------------------------------------------------------------------->
+
+
+</ng-container>
+<!--------------------------------------------------Estimate Page-------------------------------------------------------------------------->
+
+
+<!------Sol Length < 4------->
+
+<ng-container *ngIf="SolLen<=4" >
+
+<section><section class="page-8" size="A4" id="waltzslide">
+<div class="black-band">
+<div class="width-25">
+<p>WALTZ . SWING</p>
+<img src="https://i.imgur.com/SfTUQf5.jpg"></div>
+<div class="width-25">
+ <p>WALTZ . SLIDE</p>
+<img src="https://i.imgur.com/QowZ41k.jpg"></div>
+<div class="width-25">
+<p>WALTZ . GLIDE</p>
+<img src="https://i.imgur.com/xnPun40.jpg"></div>
+<div class="width-25"><p>WALTZ . CLOSE</p>
+<img src="https://i.imgur.com/9x7QfCm.jpg"></div></div>
+<div class="text-block-page-3">
+<p class="order-head" style="margin-bottom: 10px;">ESTIMATE</p>
+<div class="project-summary-3">
+<p class = "RepProjectName" style="text-transform: uppercase;">Project : {{ProjectName}}</p>
+<p class = "RepArchitect" style="text-transform: uppercase;">Architect : {{Architect}}</p>
+<p class = "RepOrder" style="text-transform: uppercase;">Order no.: {{OrderNumber}}</p>
+</div><div class="project-detail"><table class="full-summary">
+
+
+        <tr *ngFor = "let Sols of output; index as i "><td><div class="number">{{i+1}}</div></td>
+        <td><img src="{{Sols.RefImage}}" width="100" height="100"></td><td>
+        <p style="margin:0px;color:#8a5e3c">{{Sols.System}}</p>
+        <div *ngIf="Sols.SubSystem!=='NONE'"><p style="margin:0px">{{Sols.SubSystem}}</p></div>
+
+        <div *ngIf="Sols.SystemType!=='NONE'"><p style="margin:0px">{{Sols.SystemType}}</p></div>
+
+        <p *ngIf="!Sols.SubOrientation" style="margin:0px">{{Sols.Orientation}}</p>
+        <p *ngIf="Sols.SubOrientation" style="margin:0px">{{Sols.SubOrientation}}</p>
+        <p style="margin:0px">Code: {{Sols.Code}}</p>
+
+
+        <p *ngIf="Sols.Grid" style="margin:0px">Grid: {{Sols.Grid}}</p>
+        <p *ngIf="Sols.DropSeal==='YES'" style="margin:0px">Drop Seal: YES</p>
+        <p *ngIf="Sols.Handle" style="margin:0px">Handle: {{Sols.Handle}}</p>
+        <p *ngIf="Sols.DoorCloser==='YES'" style="margin:0px">Door Closer: YES</p>
+        <p *ngIf="Sols.Lock!==''" style="margin:0px">Lock : {{Sols.Lock}}</p>
+
+
+        </td><td style="text-align: left">
+        <p style="margin:0px">{{Sols.Floor}}</p>
+        <p style="margin:0px">{{Sols.Space}}</p>
+
+        <p style="margin:0px">{{Sols.Width}} x {{Sols.Height}}</p>
+
+        <p style="margin:0px">{{Sols.Quantity}} @ {{Sols.SystemRemarks}}</p>
+
+        <p style="margin:0px">Frame: {{Sols.Color}}</p>
+        <p *ngIf = "!Sols.OuterGlassFinish" style="margin:0px">Glass : {{Sols.GlassFinish}} <span *ngIf="Sols.Matte==='YES'">(Matte)</span></p>
+         <p *ngIf = "Sols.OuterGlassFinish" style="margin:0px">
+         <span *ngIf="!Sols.GridNumberFlag">Glass In: {{Sols.GlassFinish}}</span> 
+         <span *ngIf="Sols.GridNumberFlag">Glass One: {{Sols.GlassFinish}}</span>
+         <span *ngIf="Sols.Matte==='YES'">(Matte)</span></p>
+         <p *ngIf = "Sols.OuterGlassFinish" style="margin:0px">
+         <span *ngIf="!Sols.GridNumberFlag">Glass Out: {{Sols.OuterGlassFinish}}</span> 
+         <span *ngIf="Sols.GridNumberFlag">Glass Two: {{Sols.OuterGlassFinish}}</span> 
+         <span *ngIf="Sols.OuterMatte==='YES'">(Matte)</span></p></td>
+
+        <td>₹ {{Sols.Amount}} </td></tr>
+
+
+       <tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td>
+       <td *ngIf = "Discount!=='0'" style="border:none;text-align: left; padding:0.5cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">GRAND TOTAL</p></td>
+       <td *ngIf = "Discount!=='0'" style="border:none;padding:0.5cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">₹ {{GrandTotal}}</p></td></tr>
+
+
+
+ <tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td>
+ <td *ngIf = "Discount!=='0'" style="border:none;text-align: left;padding:0.1cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">DISCOUNT</p>
+ </td><td  *ngIf = "Discount!=='0'" style="border:none;padding:0.1cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">₹ {{DiscountValue}}</p></td></tr>
+
+ <tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;text-align: left;padding:0.1cm 12px 0.4cm">
+ <p style="font-size: 15px">FINAL AMOUNT</p></td><td style="border:none;padding:0.1cm 12px 0.4cm">
+ <p style="font-size: 15px">₹ {{FinalAmount}}</p></td></tr>
+
+ </table>
+
+
+
+
+
+
+<div style="margin:-20px 10px 0;float: right;width:50%"><p style="background: #40528a; color: #fff; padding:3px 10px;font-size: 12px">* ALL INCLUSIVE PRICE. NO HIDDEN CHARGES.</p></div>
+
+<div style="display: flex;width: 100%"><p style="color:#232323">** T&C apply</p></div></div></div><footer><div class="footer8"><p class="bottom-link">WALTZ.JBGLASS.IN</p><p class="pagination">{{testRemEP + 4}}</p></div></footer></section></section>
+
+
+
+
+</ng-container>
+
+<!------Sol Length > 4---------->
+
+
+<ng-container *ngIf="SolLen>4">
+  <ng-container>
+  <ng-container *ngFor="let times of QuotientEP; index as k; last as isLast ">
+    <section><section class="page-8" size="A4" id="waltzslide">
+      <div class="black-band">
+      <div class="width-25">
+      <p>WALTZ . SWING</p>
+      <img src="https://i.imgur.com/SfTUQf5.jpg"></div>
+      <div class="width-25">
+       <p>WALTZ . SLIDE</p>
+      <img src="https://i.imgur.com/QowZ41k.jpg"></div>
+      <div class="width-25">
+      <p>WALTZ . GLIDE</p>
+      <img src="https://i.imgur.com/xnPun40.jpg"></div>
+      <div class="width-25"><p>WALTZ . CLOSE</p>
+      <img src="https://i.imgur.com/9x7QfCm.jpg"></div></div>
+      <div class="text-block-page-3">
+      <p class="order-head" style="margin-bottom: 10px;">ESTIMATE</p>
+      <div class="project-summary-3">
+      <p class = "RepProjectName" style="text-transform: uppercase;">Project : {{ProjectName}}</p>
+      <p class = "RepArchitect" style="text-transform: uppercase;">Architect : {{Architect}}</p>
+      <p class = "RepOrder" style="text-transform: uppercase;">Order no.: {{OrderNumber}}</p>
+      </div><div class="project-detail"><table class="full-summary">
+      
+      
+         
+      
+              <tr *ngFor = "let Sols of output| slice:4*k:4*(k+1); index as i "><td><div class="number">{{(4*k + (i+1))}}</div></td>
+              <td><img src="{{Sols.RefImage}}" width="100" height="100"></td><td>
+              <p style="margin:0px;color:#8a5e3c">{{Sols.System}}</p>
+              <div *ngIf="Sols.SubSystem!=='NONE'"><p style="margin:0px">{{Sols.SubSystem}}</p></div>
+      
+              <div *ngIf="Sols.SystemType!=='NONE'"><p style="margin:0px">{{Sols.SystemType}}</p></div>
+      
+              <p *ngIf="!Sols.SubOrientation" style="margin:0px">{{Sols.Orientation}}</p>
+              <p *ngIf="Sols.SubOrientation" style="margin:0px">{{Sols.SubOrientation}}</p>
+              <p style="margin:0px">Code: {{Sols.Code}}</p>
+      
+      
+              <p *ngIf="Sols.Grid" style="margin:0px">Grid: {{Sols.Grid}}</p>
+              <p *ngIf="Sols.DropSeal==='YES'" style="margin:0px">Drop Seal: YES</p>
+              <p *ngIf="Sols.Handle" style="margin:0px">Handle: {{Sols.Handle}}</p>
+              <p *ngIf="Sols.DoorCloser==='YES'" style="margin:0px">Door Closer: YES</p>
+              <p *ngIf="Sols.Lock!==''" style="margin:0px">Lock : {{Sols.Lock}}</p>
+              </td><td style="text-align: left">
+                <p style="margin:0px">{{Sols.Floor}}</p>
+                <p style="margin:0px">{{Sols.Space}}</p>
+        
+                <p style="margin:0px">{{Sols.Width}} x {{Sols.Height}}</p>
+        
+                <p style="margin:0px"> {{Sols.Quantity}} @ {{Sols.SystemRemarks}} </p>
+        
+                <p style="margin:0px">Frame: {{Sols.Color}}</p>
+                <p *ngIf = "!Sols.OuterGlassFinish" style="margin:0px">Glass : {{Sols.GlassFinish}} <span *ngIf="Sols.Matte==='YES'">(Matte)</span></p>
+                 <p *ngIf = "Sols.OuterGlassFinish" style="margin:0px">
+                  <span *ngIf="!Sols.GridNumberFlag">Glass In: {{Sols.GlassFinish}} </span>
+                  <span *ngIf="Sols.GridNumberFlag">Glass One: {{Sols.GlassFinish}} </span>
+                  <span *ngIf="Sols.Matte==='YES'">(Matte)</span></p>
+                 <p *ngIf = "Sols.OuterGlassFinish" style="margin:0px">
+                 
+                  <span *ngIf="!Sols.GridNumberFlag">Glass Out: {{Sols.OuterGlassFinish}}</span>
+                  <span *ngIf="Sols.GridNumberFlag">Glass Two: {{Sols.OuterGlassFinish}}</span>
+                  
+                  <span *ngIf="Sols.OuterMatte==='YES'">(Matte)</span></p></td>
+        
+              <td>₹ {{Sols.Amount}} </td></tr>
+      
+          <ng-container *ngIf="isLast">
+
+
+             <tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td>
+             <td *ngIf = "Discount!=='0'" style="border:none;text-align: left; padding:0.5cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">GRAND TOTAL</p></td>
+             <td *ngIf = "Discount!=='0'" style="border:none;padding:0.5cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">₹ {{GrandTotal}}</p></td></tr>
+      
+      
+     
+             <tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td>
+             <td *ngIf = "Discount!=='0'" style="border:none;text-align: left;padding:0.1cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">DISCOUNT</p>
+             </td><td  *ngIf = "Discount!=='0'" style="border:none;padding:0.1cm 12px 0.1cm"><p style="margin:0px;font-size: 15px">₹ {{DiscountValue}}</p></td></tr>
+      
+             <tr><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;"></td><td style="border:none;text-align: left;padding:0.1cm 12px 0.4cm">
+             <p style="font-size: 15px">FINAL AMOUNT</p></td><td style="border:none;padding:0.1cm 12px 0.4cm">
+             <p style="font-size: 15px">₹ {{FinalAmount}}</p></td></tr>
+
+            </ng-container>
+      
+       </table>
+      
+
+       <ng-container *ngIf="isLast">
+         <div style="margin:-20px 10px 0;float: right;width:50%"><p style="background: #000; color: #fff; padding:3px 10px;font-size: 12px">* ALL INCLUSIVE PRICE. NO HIDDEN CHARGES.</p></div>
+         <div style="display: flex;width: 100%">
+          <p style="color:#232323">** T&C apply</p>
+        </div>
+       
+        </ng-container> 
+
+     
+    </div>
+  </div>
+      <footer><div class="footer8"><p class="bottom-link">WALTZ.JBGLASS.IN</p><p class="pagination">{{testRemEP +4 + k*1}}</p></div></footer></section></section>
+      
+      
+
+
+  </ng-container>
+  </ng-container>
+
+  </ng-container>
+
+<!------------------------------------------------Terms and Condition-------------------------------------------------------------------------------->
+
+<section class="page-9" size="A4">
+  <div class="black-band">
+    <div class="width-25">
+      <p>WALTZ . SWING</p>
+      <img src="https://i.imgur.com/SfTUQf5.jpg">
+   </div>
+   <div class="width-25">
+      <p>WALTZ . SLIDE</p>
+      <img src="https://i.imgur.com/QowZ41k.jpg">
+   </div>
+   <div class="width-25">
+      <p>WALTZ . GLIDE</p>
+      <img src="https://i.imgur.com/xnPun40.jpg">
+   </div>
+   <div class="width-25">
+      <p>WALTZ . CLOSE</p>
+      <img src="https://i.imgur.com/9x7QfCm.jpg">
+   </div>
+  </div>
+  <div class="text-block-page-9">
+    <h1>ANNEXURE</h1>
+    <p style="color:#232323;text-decoration: underline;">TERMS AND CONDITIONS</p>
+    <ul style="margin-left: -23px;" class="text-list">
+      <li>All quantities are tentative only</li>
+      <li>Shop Drawing(s) need to be approved before production.</li>
+      <li>Approved shop drawings will be generated after order placement.</li>
+      <li>Lead time is 6-8 Weeks</li>
+      <li>Our scope does not include Civil Work / Scaffolding / MS work</li>
+      <li>Waltz is a customized system. Therefore, an order once placed, cannot be modified or cancelled. </li>
+    </ul>
+    <p style="color:#232323;text-decoration: underline;">PAYMENT TERMS</p>
+    <ul style="margin-left: -23px;" class="text-list">
+      <li>{{Advance}}% of Order amount as advance</li> 
+    </ul>
+    <p style="color:#232323;text-decoration: underline;">BANK DETAILS</p>
+    <li>Beneficiary name: {{BeneficiaryName}}</li>
+    <li> Account number: {{AccountNo}}</li>
+    <li>RTGS/NEFT IFSC: {{IfscCode}}</li>
+    <li>SWIFT CODE: {{Swift}}</li>
+  <!-- <li>In case you are transferring funds from ICICI bank, register our company's bank account
+      details as other bank under NEFT option only.</li>--> 
+
+
+
+    <!------
+    <p style="color:#232323;text-decoration: underline;">ESTIMATE REVISIONS</p>
+    <ul style="margin-left: -23px;" class="text-list">
+      <li><a href="#" style="text-decoration: underline;color:#0551b1">Estimate revision JB/WALTZ/01052020-R02</a></li>
+      <li><a href="#" style="text-decoration: underline;color:#0551b1">Estimate revision JB/WALTZ/01052020-R01</a></li>
+    </ul>-->
+    <p style="color:#232323;text-decoration: underline;">FAQs</p>
+    <p style="font-size: 14px;line-height: 20px !important; font-family: 'Helvetica Neue Light' !important">You will find answers to most of your queries in the Frequenty Asked Questions (FAQs) section on our website @ <a href="#" style="text-decoration: underline;color:#0551b1">waltz.jbglass.in/faqs</a>. For any other queries, you may call our customer support helpline at <strong>+91 1234 5678</strong> or email us at <a href="#" style="text-decoration: underline;color:#0551b1">support@jbglass.in</a></p>
+  </div>
+  <div class="footer9">
+    <p class="bottom-link">WALTZ.JBGLASS.IN</p>
+  </div>
+</section>
+
+
+<!------------------------------------------------Last page--------------------------------------------------------------------------------->
+
+
+<section class="page-11" size="A4">
+  <div class="img-main-block"><img src="https://i.imgur.com/CpQ1nSO.jpg"></div>
+  <div class="text-block-page-10">
+    <p style="font-family: 'Helvetica Neue Light' !important">{{Associate}}</p>
+    <p>{{Address}}</p>
+    <p>{{PhoneNo}} | {{EmailId}}</p>
+  </div>
+  <div class="text-block-page-11">
+    <p><a style="text-decoration: underline;color:#c1c1c1" href="http://www.jbglass.in/">www.jbglass.in</a></p>
+    <p>Instagram: @jbglass_</p>
+    <p>facebook: <a style="text-decoration: underline;color:#c1c1c1" href="#">@jbglass.in</a></p>
+  </div>
+</section>
+
+
+
+
+</div>

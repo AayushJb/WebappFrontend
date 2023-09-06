@@ -1,0 +1,566 @@
+
+
+<div *ngIf = "this.wqgformService.spinnerStatus" class="loader-container">
+    <mat-spinner style="top: 30%; left: 40%;"></mat-spinner>
+  </div>  
+  
+  
+  <form  [formGroup] ="formOr" (submit) = "onSaveOrder()">
+  
+     
+  
+                      <div *ngIf ="TablesForm">
+    
+                        <div class="content">
+                          <div class="container-fluid">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="card logo-dashboard">
+                                          <div class="card-holder card-bx">
+                                              <div class="card-info">
+                                                  <h4 class="card-title">{{ProjectName}}</h4>
+                                                  <div class="row">
+                                                      <div class="col-md-12">
+                                                        <p class="card-category">Order Number: {{OrderNumber}}</p>
+                                                      </div>                                    
+                                                  </div>
+                                                  <div class="row">
+                                                    <div class="col-md-12">
+                                                      <p class="card-category">Client Name: {{ClientName}}</p>
+                                                    </div>                                  
+                                                  </div>
+  
+                                                  <div class="row">
+                                                      <div class="col-md-12">
+                                                        <p class="card-category">Location: {{Location}}</p>
+                                                      </div>                                   
+                                                  </div>
+  
+                                                  <div class="row">
+                                                    <div class="col-md-12">
+                                                      <p class="card-category">Architect Name: {{Architect}}</p>
+                                                    </div>                                  
+                                                  </div>
+                                                 
+                                                                                                                                 
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>                       
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                        <div class="form-row align-items-center">
+                                          <div class="col-auto">
+                                            <button type="button" (click)="onAddSpace()"class="btn btn-info btn-fill">Add Solution <i class="nc-icon nc-simple-add"></i></button>
+                                          </div>
+                                        </div>
+                                  </div>                       
+                              </div>                    
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="card-body table-full-width table-responsive margin-30px-top">
+                                              <table class="table table-hover table-striped">
+                                                  <thead>
+                                                      <tr><th>Solution Id</th>
+                                                      <th>Glass SubCategory</th>
+                                                      <th>Glass Finish</th>
+                                                      <th>Total Cost</th>
+                                                      <th>Total Sq. Ft.</th> 
+                                                      <th>Total Pieces</th> 
+                                                      <th></th>
+                                                      <th></th>
+                                                  </tr></thead>
+                                                  <tbody>
+                                                    <tr   *ngFor = "let sols of GlassSolutions; index as i">
+                                                      <td scope = "row">{{i+1}}</td>
+                                                      <td>{{sols.GlassSubCategory}}</td>
+                                                      <td>{{sols.GlassVariant}}</td>
+                                                      <td>{{sols.Amount}}</td>
+                                                      <td>{{sols.Squarefeet}}</td>
+                                                      <td>{{sols.Pieces}}</td>
+                                                      
+                                                          <td class="td-actions text-right">
+                                                              <button type="button" (click)="onEditSolution(i)"rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Edit Task">
+                                                                <i class="pe-7s-note"></i>
+                                                              </button>
+                                                              &nbsp; &nbsp;
+                                                              <button *ngIf="!winstatus" type="button" (click)="onDeleteSolution(i)" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Remove">
+                                                                  <i class="pe-7s-trash"></i>
+                                                              </button>
+                                                          </td>                                                
+                                               </tr>
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+
+
+                                <div class="col-md-7 form-group row">
+
+                                  <label class="col-sm-2 col-form-label">Discount:</label>
+                                  <div class="col-sm-2">
+                                    <mat-select class="form-control" formControlName = "DiscountPercent">
+                                      <mat-option value="Percent">Percent</mat-option>
+                                      <mat-option value="Value">Value</mat-option>
+                                     </mat-select>
+                                  </div>
+                                 
+                                 
+
+                                 
+                                  <div class="col-sm-4" *ngIf="Dispercent">
+                                    <input class="form-control"  type="number" formControlName ="Discount" min="0" >
+                                 </div>
+                                  <div class="col-sm-4" *ngIf="DisValue">
+                                  <input class="form-control"  type="number" formControlName ="Discount" min="0" >
+                                 </div>
+                                 
+                                </div>
+
+                                <div class="col-md-7 form-group row" *ngIf="UserFullName==='AMIT PANDEY'">
+
+                                  <label class="col-sm-2 col-form-label">Freight:</label>
+                                  <div class="col-sm-2">
+                                    <mat-select class="form-control" formControlName = "FreightPercent">
+                                      <mat-option value="Percent">Percent</mat-option>
+                                      <mat-option value="Value">Value</mat-option>
+                                     </mat-select>
+                                  </div>
+                                 
+                                 
+
+                                 
+                                  <div class="col-sm-4" *ngIf="Frepercent">
+                                    <input class="form-control"  type="number" formControlName ="Freight" min="0" >
+                                 </div>
+                                  <div class="col-sm-4" *ngIf="FreValue">
+                                  <input class="form-control"  type="number" formControlName ="Freight" min="0" >
+                                 </div>
+                                 
+                                </div>
+
+                                <div class="col-md-7 form-group row" *ngIf="UserFullName==='AMIT PANDEY'">
+
+                                  <label class="col-sm-2 col-form-label">Packing:</label>
+                                  <div class="col-sm-2">
+                                    <mat-select class="form-control" formControlName = "PackingPercent">
+                                      <mat-option value="Percent">Percent</mat-option>
+                                      <mat-option value="Value">Value</mat-option>
+                                     </mat-select>
+                                  </div>
+                                 
+                                 
+
+                                 
+                                  <div class="col-sm-4" *ngIf="Pacpercent">
+                                    <input class="form-control"  type="number" formControlName ="Packing" min="0" >
+                                 </div>
+                                  <div class="col-sm-4" *ngIf="PacValue">
+                                  <input class="form-control"  type="number" formControlName ="Packing" min="0" >
+                                 </div>
+                                 
+                                </div>
+
+                                <div class="col-md-7 form-group row" *ngIf="UserFullName==='AMIT PANDEY'">
+
+                                  <label class="col-sm-2 col-form-label">Other Charges:</label>
+                                  <div class="col-sm-2">
+                                    <mat-select class="form-control" formControlName = "OtherChargesPercent">
+                                      <mat-option value="Percent">Percent</mat-option>
+                                      <mat-option value="Value">Value</mat-option>
+                                     </mat-select>
+                                  </div>
+                                 
+                                 
+
+                                 
+                                  <div class="col-sm-4" *ngIf="Othpercent">
+                                    <input class="form-control"  type="number" formControlName ="OtherCharges" min="0" >
+                                 </div>
+                                  <div class="col-sm-4" *ngIf="OthValue">
+                                  <input class="form-control"  type="number" formControlName ="OtherCharges" min="0" >
+                                 </div>
+                                 
+                                </div>
+
+                                <div class="col-md-7 form-group row">
+                                  <label class="col-sm-2 col-form-label">Insurance:</label>
+                                  <div class="col-sm-5 col-form-input">
+                                      <mat-select class="form-control" formControlName = "Insurance">
+                                      <mat-option  value="NO">NO</mat-option>
+                                      <mat-option  value="YES">YES</mat-option>
+                                     </mat-select>
+                                  </div>
+                                </div>
+                      
+
+
+                                <div class="col-md-7 form-group row">
+                                  <label class="col-sm-2 col-form-label">Advance:</label>
+                                  <div class="col-sm-5 col-form-input">
+                                      <mat-select class="form-control" formControlName = "Advance">
+                                      <mat-option *ngFor ="let adv of AdvanceArray" [value]="100-adv">{{100-adv}}</mat-option>
+                                     </mat-select>
+                                  </div>
+                                </div>
+                                
+                                  <div class="col-md-12">
+                                      <button  *ngIf = "formMode==='newOrder'" type="submit" class="btn btn-info btn-fill">Generate order <i class="pe-7s-like2"></i></button>
+                                  </div>
+                                 
+                                  <div class="col-md-12">
+                                    <button  *ngIf = "formMode==='editOrder'"  type="submit" class="btn btn-info btn-fill">Edit order <i class="pe-7s-like2"></i></button>
+                                  </div>
+  
+                                  
+                      
+                              </div>                    
+                          </div>
+                      </div>
+                      </div> 
+    
+  </form>
+
+
+
+
+  
+<div *ngIf = "SolutionForm" class="content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+
+            <form [formGroup] ="form" (submit) = "onSaveSolution()">
+
+
+              <div class="col-md-12">
+                <h4 class="section-title"  style="text-transform:uppercase" >JB GLASS</h4>
+              </div>
+ 
+
+
+            
+
+             <div class="col-md-7 form-group row">
+              <label class="col-sm-2 col-form-label">Glass Application:</label>
+              <div class="col-sm-4">
+                  <div class="box">
+                    <mat-select class="form-control"  formControlName = "GlassApplication">
+                      <mat-option  value="WARDROBE">WARDROBE</mat-option>
+                      <mat-option  value="OFFICE">OFFICE</mat-option>
+                      <mat-option  value="FURNITURE">FURNITURE</mat-option>
+                      <mat-option  value="WALL CLADDING">WALL CLADDING</mat-option>
+                      <mat-option  value="SHUTTERS">SHUTTERS</mat-option>
+                      <mat-option  value="KITCHEN">KITCHEN</mat-option>
+                  
+                    </mat-select>
+          
+                  </div>
+               </div>
+              </div>
+
+
+              
+             <div class="col-md-7 form-group row">
+              <label class="col-sm-2 col-form-label">Glass Type:</label>
+              <div class="col-sm-4">
+                  <div class="box">
+                    <mat-select class="form-control"  formControlName = "GlassCategory">
+                      <mat-option  value="TRANSLUCENT">TRANSLUCENT</mat-option>
+                      <mat-option  value="OPAQUE">OPAQUE</mat-option>
+                      <mat-option  value="TINTED">TINTED</mat-option>
+                    </mat-select>
+          
+                  </div>
+               </div>
+              </div>
+
+
+              <div class="col-md-7 form-group row">
+                <label class="col-sm-2 col-form-label">Glass Category:</label>
+               
+                <div class="col-sm-4">
+                    <div class="box">
+                      <mat-select class="form-control" formControlName = "GlassSubCategory">
+                       <mat-option *ngFor = "let gls of  selectedGlasssubcats" value="{{gls}}">{{gls}}</mat-option>
+                      </mat-select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-7 form-group row">
+              <label class="col-sm-2 col-form-label">Thickness From :</label>
+             
+              <div class="col-sm-4">
+                  <div class="box">
+                    <mat-select class="form-control" formControlName = "ThicknessFrom">
+                      <mat-option *ngFor="let thics of thicknessrangedrop"  value="{{thics}}">{{thics}} mm </mat-option>
+                    
+                     </mat-select>
+                  </div>
+              </div>
+
+
+
+              <label class="col-sm-2 col-form-label">Thickness To :</label>
+             
+              <div class="col-sm-4">
+                  <div class="box">
+                    <mat-select class="form-control" formControlName = "ThicknessTo">
+                      <mat-option *ngFor="let thics of thicknessrangedrop"  value="{{thics}}">{{thics}} mm </mat-option>
+                     
+                    </mat-select>
+                  </div>
+              </div>
+          </div>
+
+
+        
+
+
+        <div class="col-md-10 form-group row" >
+            
+          <label  class="col-sm-2 col-form-label" (click) ="uncollapseGlassFinish()" >Glass Finish:</label>
+         
+            <div class="col-sm-10" id = "plans">
+         
+                 <div class="radio form-check-inline" *ngFor = "let gls of selectedGlassFinish">
+                
+                 <input class = "plantype" type="radio" formControlName = "GlassFinish" value="{{gls.GlassFinish}}" >
+                 <label for="radioInline24">
+                 <img class ="configGO blownup"  src="{{gls.imagethumbnailpath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassFinish}}</div></label>
+                 </div>
+                   
+         
+         
+             </div>
+         
+         
+         </div>
+
+         <div class="col-md-7 form-group row" *ngIf="Matte">
+     
+    
+          <label class="col-sm-2 col-form-label" >Surface:</label>
+         
+          <div class="col-sm-4">
+              <div class="box">
+                <mat-select class="form-control" #matte formControlName = "Matte" (change)="OnSurfaceChange(matte.value)">
+                  <mat-option *ngFor="let opts of MatteOptions" value="{{opts}}">{{opts}}</mat-option>
+                </mat-select>
+              </div>
+          </div>
+         
+  
+        </div>
+
+
+
+
+
+
+
+
+       <div class="col-md-7 form-group row" *ngIf="Temperable">
+
+      
+        <label class="col-sm-2 col-form-label">Tempered:</label>
+       
+        <div class="col-sm-4">
+            <div class="box">
+              <mat-select class="form-control" #tempered  formControlName = "Tempered"  (change)="OnTemperedChange(tempered.value)">
+                <mat-option *ngFor="let opts of TemperedOPtions" value="{{opts}}" >{{opts}}</mat-option>
+             
+               </mat-select>
+            </div>
+        </div>
+        
+     
+       
+
+      </div>
+
+         <div class="col-md-10 form-group row" *ngIf="GlassVariant" >
+            
+          <label class="col-sm-2 col-form-label" (click) ="uncollapseGlassVariant()">Glass Variant:</label>
+            <div class="col-sm-10" id = "plans">
+         
+                 <div class="radio form-check-inline" *ngFor = "let gls of selectedGlassVariant"  >
+                 <input (click)="OnGlassVariantChanges(gls.GlassVariantModelWithThickness)" class = "plantype" type="radio" formControlName = "GlassVariant" value="{{gls.GlassVariantModelWithThickness}}" >
+                 <label for="radioInline24">
+                 <img class ="configGT blownup"  src="{{gls.imagethumbnailpath}}" alt="Super User" /><div class="bottom-left">{{gls.GlassPrintName}}</div></label>
+                 </div>
+         
+         
+             </div>
+         
+         
+         </div>
+         
+
+
+       
+        
+
+      
+  
+
+
+
+
+
+
+
+        
+          <div class="col-md-12">
+              <div class="card-body table-full-width table-responsive margin-30px-top">
+      
+      
+      <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Sno</th>
+              <th>Width(Max: {{maxwidth}})</th>
+              <th>Height(Max: {{maxheight}})</th>
+              <th>Quantity</th>
+              <th>Drawing</th>
+             
+      
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rows; let i = index" [formGroup]="row">
+              <td>{{ i+1 }}</td>
+              <td>
+                <input formControlName="Width" type="number" placeholder="Enter Width" (input)=" onInputWidthEvent(row, i, 'input1')" (keydown.enter)="onEnter($event)"/>
+              </td>
+              <td>
+                <input formControlName="Height" type="number" placeholder="Enter Height" (input)="onInputHeightEvent(row, i, 'input1')" (keydown.enter)="onEnter($event)"/>
+              </td>
+              <td>
+                <input formControlName="Quantity" type="number" placeholder="Enter Quantity" (keydown.enter)="onEnter($event)" />
+                &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+      
+             </td>
+              <td>
+                 <select formControlName="Drawing" (keydown.enter)="onEnter($event)" >
+                  <option value="NONE">NONE</option>
+                  <option value="CUSTOM">CUSTOM</option>
+                  </select>
+                 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+      
+                 <button type="button" (click)="deleteRow(i)" rel="tooltip" title="" class="btn btn-info btn-simple btn-xs" data-original-title="Remove">
+                  <i class="pe-7s-trash"></i>
+              </button>
+      
+      
+              </td>
+             
+            </tr>
+          </tbody>
+        </table>
+        
+        <button type = "button" (click)="addRow()">Add Row</button>
+      
+      </div>
+          </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<!--
+            <div class="col-md-12 form-group row">
+            <app-reactivetable
+             [maxheight] = "maxheight" 
+             [maxwidth] = "maxwidth"
+             [initialData]="initialData" 
+             >
+            </app-reactivetable>
+            </div>
+-->
+            
+            <div  class="col-md-7 form-group row">
+              <label class="col-sm-2 col-form-label">Remarks:</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" formControlName ="SolutionName"   maxlength="50" style="text-transform:uppercase" >
+              </div>
+           </div>
+
+
+ 
+
+            <div class="col-md-12">
+
+              <div (click)="onAddNewButton()" *ngIf="modeButtons!=='UpdateSpace'">
+              
+               <button type="submit"  class="btn btn-info btn-fill" >Save Space <i class="pe-7s-like2"></i></button>
+              
+              </div>
+              
+              <div *ngIf="modeButtons==='UpdateSpace'">
+              
+                 <button type="submit" class="btn btn-info btn-fill" >Update Space <i class="pe-7s-like2"></i></button>
+               
+               </div>
+              
+               <div  *ngIf="modeButtons!=='UpdateSpace'">
+                
+                  <button type="submit" class="btn btn-info btn-fill" (click)="onSaveAndAddNewButton()" >Save & Add New Space <i class="pe-7s-like2"></i></button>
+                  
+               </div>
+              
+               </div>
+
+
+
+
+
+
+
+
+            </form>
+
+
+
+          </div>                       
+        </div> <br>
+     
+  </div>
+  </div>
+
+
+    
+
+

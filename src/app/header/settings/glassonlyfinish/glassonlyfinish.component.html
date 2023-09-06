@@ -1,0 +1,285 @@
+<form [formGroup] ="form" (submit) = "onSaveGlassOnlyFinish()">
+
+
+
+
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">GlassCategory : </label>
+        <div class="col-sm-6">
+            <div class="box">
+              <input class="form-control" formControlName = "GlassCategory" type="text" name="GlassFinish">
+            </div>
+        </div>
+      
+      
+      </div>
+
+      <div class="col-md-7 form-group row">
+        <label class="col-sm-4 col-form-label">GlassSubCategory : </label>
+        <div class="col-sm-6">
+            <div class="box">
+              <input class="form-control" formControlName = "GlassSubCategory" type="text" name="GlassSubCategory">
+            </div>
+        </div>
+      
+      
+      </div>
+      
+
+
+   
+    
+    
+
+     
+
+     
+
+
+
+
+    <div class="col-md-7 form-group row">
+      <label class="col-sm-4 col-form-label">GlassFinish: </label>
+      <div class="col-sm-6">
+          <input class="form-control" formControlName = "GlassFinish" type="text" name="GlassFinish">
+      </div>
+  </div>
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">GlassVariantModel: </label>
+    <div class="col-sm-6">
+        <input class="form-control" formControlName = "GlassVariantModel" type="text" name="GlassVariantModel">
+    </div>
+</div>
+
+<div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">Glass Print Name: </label>
+    <div class="col-sm-6">
+        <input class="form-control" formControlName = "GlassPrintName" type="text" name="GlassPrintName">
+    </div>
+  </div>
+
+
+<div class="col-md-7 form-group row">
+    <label class="col-sm-4 col-form-label">JB Code: </label>
+    <div class="col-sm-6">
+        <input class="form-control" formControlName = "GlassVariantModelWithThickness" type="text" name="GlassVariantModelWithThickness">
+    </div>
+</div>
+
+
+<div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Thickness: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "Thickness" type="number" name="Thickness">
+    </div>
+    
+</div>
+
+
+<div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Min Thickness: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "MinThick" type="number" name="MinThick">
+    </div>
+  
+    <label class="col-sm-2 col-form-label">Max Thickness: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "MaxThick" type="number" name="MaxThick">
+    </div>
+  
+  </div>
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Max Height: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "MaxHeight" type="number" name="MaxHeight">
+    </div>
+  
+    <label class="col-sm-2 col-form-label">Max Width: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "MaxWidth" type="number" name="MaxWidth">
+    </div>
+  
+  </div>
+
+
+
+  
+ 
+  
+  
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Surface : </label>
+    <div class="col-sm-2">
+        <div class="box">
+          <mat-select formControlName = "Matte" class="form-control" >
+            <mat-option value="GLOSS">GLOSS</mat-option>
+            <mat-option value="MATTE">MATTE</mat-option>
+  
+          </mat-select>
+        </div>
+    </div>
+  
+    <label class="col-sm-2 col-form-label">Matte Cost: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "MatteCost" type="number" name="MatteCost">
+    </div>
+  
+  </div>
+  
+
+  
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Price(persqft): </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "Price" type="number" name="Price">
+    </div>
+  
+    <label class="col-sm-2 col-form-label">Color : </label>
+    <div class="col-sm-6">
+        <input class="form-control" formControlName = "Label" type="text" name="Label">
+    </div>
+  
+  </div>
+  
+  
+  
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Temperable : </label>
+    <div class="col-sm-2">
+        <div class="box">
+          <mat-select formControlName = "Temperable" class="form-control" >
+            <mat-option value="NO">NO</mat-option>
+            <mat-option value="YES">YES</mat-option>
+          </mat-select>
+        </div>
+    </div>
+
+    <label class="col-sm-2 col-form-label">Temperable Cost: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "TemperableCost" type="number" name="TemperableCost">
+    </div>
+  
+   
+  
+  </div>
+
+
+  
+  <div class="col-md-7 form-group row">
+   
+
+    <label class="col-sm-2 col-form-label">Lamination: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "Lamination" type="text" name="Lamination">
+    </div>
+  
+    <label class="col-sm-2 col-form-label">Status : </label>
+    <div class="col-sm-2">
+        <div class="box">
+          <mat-select formControlName = "Status" class="form-control" >
+            <mat-option value="ACTIVE">ACTIVE</mat-option>
+            <mat-option value="INACTIVE">INACTIVE</mat-option>
+            <mat-option value="OTHER">OTHER</mat-option>
+          </mat-select>
+        </div>
+    </div>
+  
+  </div>
+
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">LeadTime: </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "LeadTime" type="number" name="LeadTime">
+    </div>
+  
+    <label class="col-sm-2 col-form-label">Weigth : </label>
+    <div class="col-sm-2">
+        <input class="form-control" formControlName = "Weigth" type="number" name="Weigth">
+    </div>
+  
+  </div>
+
+
+
+ 
+
+
+
+  
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">Write Up: </label>
+    <div class="col-sm-6">
+        <input class="form-control" formControlName = "WriteUp" type="text" name="WriteUp">
+    </div>
+  </div>
+  
+ 
+
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerTBN.click()">Image thumbnail</button>
+    <input type="file" #filePickerTBN (change)="OnImagethumbnailpath($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagethumbnailpathpreview!=='' && imagethumbnailpathpreview && form.get('Imagethumbnailpath').valid">
+    <img [src]="imagethumbnailpathpreview" [alt]="form.value.GlassVariantModel">
+  </div>
+
+
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerOP.click()">Image Orientation Path</button>
+    <input type="file" #filePickerOP (change)="OnImageorientationpath($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imageorientationpathpreview!=='' && imageorientationpathpreview && form.get('Imageorientationpath').valid">
+    <img [src]="imageorientationpathpreview" [alt]="form.value.GlassVariantModel">
+  </div>
+  
+
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerAP.click()">Image Application</button>
+    <input type="file" #filePickerAP (change)="OnImageapplicationpath($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imageapplicationpathpreview!=='' && imageapplicationpathpreview && form.get('Imageapplicationpath').valid">
+    <img [src]="imageapplicationpathpreview" [alt]="form.value.GlassVariantModel">
+  </div>
+
+
+  <div class="col-md-7 form-group row">
+    <button mat-stroked-button type = "button" (click)="filePickerP.click()">Image Potrait</button>
+    <input type="file" #filePickerP (change)="OnImagepotraitpath($event)">
+  
+  </div>
+  
+  <div class="image-preview" *ngIf = "imagepotraitpathpreview!=='' && imagepotraitpathpreview && form.get('Imagepotraitpath').valid">
+    <img [src]="imagepotraitpathpreview" [alt]="form.value.GlassVariantModel">
+  </div>
+  
+
+  
+  
+  
+
+  
+
+  
+
+  
+  
+  <div class="col-md-7 form-group row">
+  <div class="btn-group">
+    <button type="submit" class="btn btn-primary btn-sm" >Save Glass Only Finish</button>
+    </div>
+  </div>
+  
+  
+  
+  </form>
+  
+  <app-ggotable></app-ggotable>

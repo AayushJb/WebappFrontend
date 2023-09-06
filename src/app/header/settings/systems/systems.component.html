@@ -1,0 +1,54 @@
+<form [formGroup] ="form" (submit) = "onSaveSystem()">
+
+  <div class="col-md-7 form-group row">
+    <label class="col-sm-2 col-form-label">System : </label>
+    <div class="col-sm-4">
+        <input class="form-control" formControlName = "System" type="text" name="System">
+    </div>
+</div>
+
+
+<div class="col-md-7 form-group row">
+  <label class="col-sm-2 col-form-label">Sub System : </label>
+  <div class="col-sm-4">
+      <div class="box">
+        <select formControlName = "SubSystem" class="form-control" >
+          <option *ngFor = "let subs of subsystems">{{subs.SubSystem}}</option>
+        </select>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-7 form-group row test">
+  <label class="col-sm-2 col-form-label">System Type: </label>
+  <div class="col-sm-4">
+      <div class="box ">
+
+
+        <mat-form-field appearance="fill" style = "width : 600px">
+          <mat-label>Select System Types</mat-label>
+          <mat-select formControlName = "SystemTypes" multiple>
+            <mat-option *ngFor="let sys of systemtypes" [value]="sys.SystemType">{{sys.SystemType}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+  </div>
+</div>
+
+
+<div class="col-md-7 form-group row">
+<div class="btn-group">
+  <button type="submit" class="btn btn-primary btn-sm" >Save System</button>
+  </div>
+</div>
+
+
+
+</form>
+
+<app-systable></app-systable>
+

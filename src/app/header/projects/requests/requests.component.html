@@ -1,0 +1,147 @@
+<div  *ngIf="!spinner" class="loader-container">
+    <mat-spinner style="position:absolute;top :40%;left: 47%;"></mat-spinner>
+</div> 
+
+
+<ng-container *ngIf="spinner">
+
+
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <h3 class="section-title">Special Requests</h3>
+
+      <div class="col-md-12" style="text-align: center;">
+      <h5 class="section-title">Order : {{order.OrderNo}}</h5>
+      <h5 class="section-title">Project Name : {{order.ProjectName}}</h5>
+      <h5  class="section-title">WA Sales Person : {{order.Associate}}</h5>
+      <h5 *ngIf = "ArchitectNameFlag" class="section-title">Architect Name : {{order.Architect}}</h5>
+      <h5 *ngIf = "ClientDiscountFlag" class="section-title">Client Discount : {{order.Discount}}</h5>
+      <h5 *ngIf = "DealerDiscountFlag" class="section-title">Dealer Discount : {{DealerDiscount}}</h5>
+      <h5 *ngIf = "SourceFlag" class="section-title">Source : {{order.Source}}</h5>
+       
+      </div>
+  
+    </div>
+  </div>
+
+<form [formGroup] ="form" (submit) = "onSubmitRequest()">
+
+   
+                     
+                      
+                    <div class="form-group row">
+
+
+                        <label class="col-sm-2 col-form-label">Request Type</label>
+                         <div class="col-sm-6">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "RequestType">
+                             <mat-option  value="None">None</mat-option>
+                             <mat-option  value="ClientDiscount">ClientDiscount</mat-option>
+                             <mat-option value="DealerDiscount">DealerDiscount</mat-option>
+                             <mat-option  value="Source">Source</mat-option>
+                             <mat-option  value="ProjectName">ProjectName</mat-option>
+                             <mat-option  value="ArchitectName">ArchitectName</mat-option>
+                             <mat-option  value="Other">Other</mat-option>
+   
+                         </mat-select>
+                       </div>
+   
+                       </div>
+
+                     
+                       
+
+                    <div *ngIf ="ClientDiscountFlag" class="form-group row">
+    
+                        <label class="col-sm-2 col-form-label">Client Discount</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="number" formControlName = "ClientDiscount">
+                        </div>
+                
+                    </div>
+
+               
+                      
+         
+
+                    <div *ngIf = "DealerDiscountFlag" class="form-group row">
+    
+                        <label class="col-sm-2 col-form-label">Dealer Discount</label>
+                        <div class="col-sm-6">
+                            <input  class="form-control" type="number" formControlName = "DealerDiscount">
+                        </div>
+                       
+                    </div>
+
+                   
+                   
+
+                    
+                    <div *ngIf = "SourceFlag" class="form-group row">
+
+
+                        <label class="col-sm-2 col-form-label">Source</label>
+                         <div class="col-sm-6">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "Source">
+                                <mat-option value = "ARCHITECT EXISTING">ARCHITECT EXISTING</mat-option>
+                                <mat-option value = "SOCIAL">SOCIAL</mat-option>
+                                <mat-option value = "CLIENT EXISTING">CLIENT EXISTING </mat-option>
+                                <mat-option value = "WALK IN">WALK IN</mat-option>
+                                <mat-option value = "EXIHIBITION">EXIHIBITION</mat-option>
+                                <mat-option value = "OHTERS">OTHERS</mat-option>
+   
+                         </mat-select>
+                       </div>
+   
+                       </div>
+
+
+
+                    <div *ngIf= "ProjectNameFlag" class="form-group row">
+    
+                        <label class="col-sm-2 col-form-label">Project Name</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" formControlName = "ProjectName">
+                        </div>
+                
+                    </div>
+
+                    <div *ngIf= "ArchitectNameFlag" class="form-group row">
+    
+                        <label class="col-sm-2 col-form-label">Architect Name</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" formControlName = "ArchitectName">
+                        </div>
+                
+                    </div>
+
+
+                    
+
+                    <div class="form-group row">
+    
+                        <label class="col-sm-2 col-form-label">Remark</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" formControlName = "Remark">
+                        </div>
+                    </div>
+    
+    
+
+    
+    
+            <div class="btn-group">
+                            <button  type="submit" class="btn btn-info">SUBMIT REQUEST</button>
+    
+                        </div>
+    
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                     <div class="btn-group">
+                          <button (click)="OnCloseDialog()" type="button" class="btn btn-info">CANCEL</button>
+    
+                        </div>
+    
+    </form>
+
+
+</ng-container>    

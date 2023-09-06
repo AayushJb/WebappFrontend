@@ -1,0 +1,117 @@
+<form  [formGroup] ="form" (submit) = "onSaveCompany()">
+
+ 
+
+    <div class="col-md-12">
+      <h4 class="section-title">Add New Company</h4>
+    </div>
+  
+  
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Company Name :</label>
+                      <div class="col-sm-4">
+                          <input class="form-control" type="text" name="CompanyName" formControlName = "CompanyName" maxlength="25" style="text-transform:uppercase">
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Profile :</label>
+                     <div class="col-sm-4">
+                        <div class="box">
+                          <select class="form-control" formControlName = "Profile">
+                          <option>Architect</option>
+                          <option>Trader</option>
+                          <option>Customer</option>
+                         </select>
+                       </div>
+                   </div>
+                 </div>
+
+  
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Address Line 1 :</label>
+                      <div class="col-sm-4">
+                          <input class="form-control" type="text" name="client name"  formControlName = "AddressLine" style="text-transform:uppercase">
+                      </div>
+                  </div>
+                  
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Address Line 2 :</label>
+                      <div class="col-sm-4">
+                          <input class="form-control" type="text" formControlName = "Location" style="text-transform:uppercase">
+                      </div>
+                  </div>
+  
+                  
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Address Line 3 :</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" formControlName = "AddressLineThree" style="text-transform:uppercase">
+                    </div>
+                  </div>
+                  
+                  
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">City :</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" formControlName = "City" style="text-transform:uppercase">
+                    </div>
+                  </div>
+
+                  
+  
+               <div class="form-group row">
+                       <label class="col-sm-2 col-form-label">State :</label>
+                        <div class="col-sm-4">
+                           <div class="box">
+                             <select class="form-control" formControlName = "State">
+                             <option>Uttar Pradesh</option>
+                             <option>Delhi</option>
+                             <option>Harayana</option>
+                            </select>
+                          </div>
+                      </div>
+                  </div>
+
+                  
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Country :</label>
+                     <div class="col-sm-4">
+                        <div class="box">
+                          <select class="form-control" formControlName = "Country">
+                          <option>India</option>
+                         </select>
+                       </div>
+                   </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Source :</label>
+                     <div class="col-sm-4">
+                        <div class="box">
+                          <select class="form-control" formControlName = "Source">
+                          <option>Social</option>
+                          <option>Existing Architect</option>
+                          <option>Walk In</option>
+                          <option>Others</option>
+                         </select>
+                       </div>
+                   </div>
+                 </div>
+  
+                  <div class="col-md-7 form-group row">
+                    <div class="btn-group">
+                      <button  type="submit" class="btn btn-info margin-top-5"> <span>SAVE COMPANY</span>&emsp;<i class="fa fa-thumbs-o-up"></i></button>
+                      </div>
+                 </div>
+
+                 <div class="col-md-7 form-group row">
+                    <div class="btn-group">
+                      <button (click)="closeForm()"  type="button" class="btn btn-info margin-top-5"> <span>CANCEL</span></button>
+                      </div>
+                 </div>
+
+                   
+</form>

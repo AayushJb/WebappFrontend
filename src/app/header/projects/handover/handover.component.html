@@ -1,0 +1,141 @@
+<div  *ngIf="!spinner" class="loader-container">
+    <mat-spinner style="position:absolute;top :40%;left: 47%;"></mat-spinner>
+</div> 
+
+
+<ng-container *ngIf="spinner">
+
+
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <h3 class="section-title">Handover Project</h3>
+
+      <div class="col-md-12" style="text-align: center;">
+      <h5 class="section-title">Order : {{OrderNumber}}_{{ProjectName}}</h5>
+      <h5 class="section-title">WA Sales Person : {{Associate}}</h5>
+       
+      </div>
+  
+    </div>
+  </div>
+
+<form [formGroup] ="form" (submit) = "onSaveHandOverDetails()">
+
+   
+    
+                    <div class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Expense</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" formControlName = "Invoice" [readonly]="true">
+                        </div>
+                        <label class="col-sm-2 col-form-label">{{PercentExpense}}%</label>
+                    </div>
+
+                    <div class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Outstanding*</label>
+                        <div class="col-sm-6">
+                            <input  class="form-control" type="text" formControlName = "Amount"  [readonly]="true">
+                        </div>
+                        <label class="col-sm-2 col-form-label">{{Percent}}%</label>
+                    </div>
+
+                    <div class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Special Discount</label>
+                        <div class="col-sm-6">
+                            <input  class="form-control" type="text" formControlName = "SpecialDiscount"  [readonly]="true">
+                        </div>
+                        
+                    </div>
+
+
+                    <div *ngIf = "BadDebtFlag" class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Bad Debt*</label>
+                        <div class="col-sm-6">
+                            <input  class="form-control" type="number" formControlName = "BadDebt">
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group row">
+
+
+                     <label class="col-sm-4 col-form-label">Type*</label>
+                      <div class="col-sm-6">
+                         <mat-select class="form-control noscroll"  type="text" formControlName = "Type">
+                          <mat-option *ngIf ="AdvanceReceived==0" value="NIL">NIL</mat-option>
+                          <mat-option *ngIf ="AdvanceReceived!==0" value="SANCHIT">SANCHIT</mat-option>
+                          <mat-option *ngIf ="AdvanceReceived!==0" value="{{Associate}}">{{Associate}}</mat-option>
+                          <mat-option *ngIf ="AdvanceReceived>0" value="FOC">FOC</mat-option>
+
+                      </mat-select>
+                    </div>
+
+                    </div>
+
+
+
+
+
+      <div class="form-group row">
+    
+        <label class="col-sm-4 col-form-label">Billed</label>
+        <div class="col-sm-6">
+            <input  class="form-control" type="text" formControlName = "Billed"  [readonly]="true">
+        </div>      
+    </div> 
+
+  
+
+    <div class="form-group row">
+    
+        <label class="col-sm-4 col-form-label">Receipt Advance</label>
+        <div class="col-sm-6">
+            <input  class="form-control" type="text" formControlName = "ReceiptAdvance"  [readonly]="true">
+        </div>      
+    </div>
+
+    <div class="form-group row">
+    
+        <label class="col-sm-4 col-form-label">Cheque Required</label>
+        <div class="col-sm-6">
+            <input  class="form-control" type="text" formControlName = "ChequeRequired"  [readonly]="true">
+        </div>      
+    </div>
+
+
+
+
+
+
+
+                    <div class="form-group row">
+    
+                        <label class="col-sm-4 col-form-label">Remark</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" formControlName = "Remark">
+                        </div>
+                    </div>
+    
+    
+
+    
+    
+            <div class="btn-group">
+                            <button  type="submit" class="btn btn-info">HANDOVER PROJECT</button>
+    
+                        </div>
+    
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                     <div class="btn-group">
+                          <button (click)="OnCloseDialog()" type="button" class="btn btn-info">CANCEL</button>
+    
+                        </div>
+    
+    </form>
+
+
+</ng-container>    

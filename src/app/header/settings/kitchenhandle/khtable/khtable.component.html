@@ -1,0 +1,32 @@
+<div>
+
+    <table class="table table-hover" >
+    <thead class="thead-light">
+    <th scope = "col">Sno.</th>
+    <th scope = "col">Kitchen Handle</th>
+    <th scope = "col">Handle Positions</th>
+    <th scope = "col">Image</th>
+    <th scope = "col">Date Created</th>
+    <th scope = "col"></th>
+    <th scope = "col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let pos of kitchenhandles; index as i">
+        <td scope = "row">{{i+1}}</td>
+        <td>{{ pos.HandleName }}</td>
+        <td>{{ pos.HandlePositions }}</td>
+        <td><div class="color-image"><img [src]="pos.imagePath" [alt]="pos.HandleName"></div></td>
+  
+        <td>{{ pos.DateCreated }}</td>
+        <td style="cursor: pointer;" ><a [routerLink] = "['/settings/kitchenhandles/edit',pos._id]">Edit</a></td>
+        <td style="cursor: pointer;"> <a (click)="OnDeleteKitchenHandle(pos._id)">Delete </a></td>
+      </tr>
+    </tbody>
+  
+    </table>
+  
+  
+    </div>
+  
+  
+

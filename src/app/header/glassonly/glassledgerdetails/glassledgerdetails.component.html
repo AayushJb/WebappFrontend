@@ -1,0 +1,527 @@
+
+  
+
+
+<ng-container>
+   
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="section-title">LEDGER FORM FOR ORDER : {{OrderNumber}} , PROJECT NAME : {{ProjectName}}</h3>
+    
+      </div>
+    </div>
+    
+    
+    <form [formGroup] ="form" (submit) = "onSaveLedgerDetails()">
+    
+    <div id = "ContactDiv">
+    
+                    <div class="form-group row">
+    
+                        <label class="col-sm-2 col-form-label">Billing Name*</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" formControlName = "BillingName">
+                        </div>
+                    </div>
+    
+    
+        <h4 class="section-title">Delivary Address</h4>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address Line 1*</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "AddressLine1">
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address Line 2</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "AddressLine2" >
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address Line 3</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "AddressLine3" >
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">City*</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "City" >
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+    
+    
+                        <label class="col-sm-2 col-form-label">State*</label>
+                         <div class="col-sm-4">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "State">
+                            <mat-option></mat-option>
+                            <mat-option value="AP">Andhra Pradesh</mat-option>
+                            <mat-option value="AR">Arunachal Pradesh</mat-option>
+                            <mat-option value="AS">Assam</mat-option>
+                            <mat-option value="BR">Bihar</mat-option>
+                            <mat-option value="CT">Chattisgarh</mat-option>
+                            <mat-option value="GA">Goa</mat-option>
+                            <mat-option value="GJ">Gujrat</mat-option>
+                            <mat-option value="HR">Haryana</mat-option>
+                            <mat-option value="HP">Himachal Pradesh</mat-option>
+                            <mat-option value="JH">Jharkhand</mat-option>
+                            <mat-option value="KA">Karnataka</mat-option>
+                            <mat-option value="KL">Kerala</mat-option>
+                            <mat-option value="MP">Madhya Pradesh</mat-option>
+                            <mat-option value="MH">Maharastra</mat-option>
+                            <mat-option value="MN">Manipur</mat-option>
+                            <mat-option value="ML">Meghalaya</mat-option>
+                            <mat-option value="MZ">Mizoram</mat-option>
+                            <mat-option value="NL">Nagaland</mat-option>
+                            <mat-option value="OR">Orissa</mat-option>
+                            <mat-option value="PB">Punjab</mat-option>
+                            <mat-option value="RJ">Rajasthan</mat-option>
+                            <mat-option value="SK">Sikkim</mat-option>
+                            <mat-option value="TN">Tamil Nadu</mat-option>
+                            <mat-option value="TG">Telangana</mat-option>
+                            <mat-option value="TR">Tripura</mat-option>
+                            <mat-option value="UP">Uttar Pradesh</mat-option>
+                            <mat-option value="UK">Uttrakhand</mat-option>
+                            <mat-option value="WB">West Bengal</mat-option>
+                            <mat-option value="AN">Andaman & Nicobar</mat-option>
+                            <mat-option value="CH">Chandigarh</mat-option>
+                            <mat-option value="DN">Daman & Diu</mat-option>
+                            <mat-option value="DL">Delhi</mat-option>
+                            <mat-option value="JK">Jammu & Kashmir</mat-option>
+                            <mat-option value="LH">Ladakh</mat-option>
+                            <mat-option value="LD">Lakshadweep</mat-option>
+                            <mat-option value="PY">Pondicherry</mat-option>
+                          </mat-select>
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pin Code*</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"   type="number" formControlName = "Pincode">
+    
+                        </div>
+    
+                    </div>
+    
+    <div class="col-md-12">
+    
+    
+    
+    
+        <h5 class="section-title">Contact Details</h5>
+      </div>
+    
+    
+    <div class="form-group row">
+    
+                        <div class="col-sm-2">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "CDProfile1" >
+    
+                          <mat-option value="Direct Client">Direct Client</mat-option>
+                          </mat-select>
+                        </div>
+    
+    
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="text" formControlName = "CDName1" placeholder = "Name*">
+    
+                        </div>
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"   type="number" formControlName = "CDMobile1" placeholder = "Mobile*">
+    
+                        </div>
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="email" formControlName = "CDEmail1" placeholder = "Email Id">
+    
+                        </div>
+    
+           </div>
+    
+    
+    <div class="form-group row">
+    
+                        <div class="col-sm-2">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "CDProfile2">
+                          <mat-option value="Site Person">Site Person</mat-option>
+    
+                          </mat-select>
+                        </div>
+    
+    
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="text" formControlName = "CDName2" placeholder = "Name*">
+    
+                        </div>
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"   type="number" formControlName = "CDMobile2" placeholder = "Mobile*">
+    
+                        </div>
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="email" formControlName = "CDEmail2" placeholder = "Email Id">
+    
+                        </div>
+    
+           </div>
+    
+    <div class="form-group row">
+    
+                        <div class="col-sm-2">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "CDProfile3" >
+                          <mat-option  value ="Account">Account</mat-option>
+    
+                          </mat-select>
+                        </div>
+    
+    
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="text" formControlName = "CDName3" placeholder = "Name">
+    
+                        </div>
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"   type="number"  formControlName = "CDMobile3" placeholder = "Mobile">
+    
+                        </div>
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="email" formControlName = "CDEmail3" placeholder = "Email Id">
+    
+                        </div>
+    
+           </div>
+    
+    
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="col-md-12">
+        <h5 class="section-title">Consultant Details</h5>
+      </div>
+    
+    
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Company Name*</label>
+                        <div class="col-sm-4">
+                     
+                            <input class="form-control noscroll"  type="text" formControlName = "CompanyName" >
+                        </div>
+    
+                    
+    
+                    </div>
+    
+    
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Website</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "Website" >
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address Line 1*</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "AddressLine1Con">
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address Line 2</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "AddressLine2Con" >
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address Line 3</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "AddressLine3Con" >
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">City*</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="text" formControlName = "CityCon">
+    
+                        </div>
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+    
+    
+                        <label class="col-sm-2 col-form-label">State*</label>
+                         <div class="col-sm-4">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "StateCon">
+                                <mat-option></mat-option>
+                                <mat-option value="AP">Andhra Pradesh</mat-option>
+                            <mat-option value="AR">Arunachal Pradesh</mat-option>
+                            <mat-option value="AS">Assam</mat-option>
+                            <mat-option value="BR">Bihar</mat-option>
+                            <mat-option value="CT">Chattisgarh</mat-option>
+                            <mat-option value="GA">Goa</mat-option>
+                            <mat-option value="GJ">Gujrat</mat-option>
+                            <mat-option value="HR">Haryana</mat-option>
+                            <mat-option value="HP">Himachal Pradesh</mat-option>
+                            <mat-option value="JH">Jharkhand</mat-option>
+                            <mat-option value="KA">Karnataka</mat-option>
+                            <mat-option value="KL">Kerala</mat-option>
+                            <mat-option value="MP">Madhya Pradesh</mat-option>
+                            <mat-option value="MH">Maharastra</mat-option>
+                            <mat-option value="MN">Manipur</mat-option>
+                            <mat-option value="ML">Meghalaya</mat-option>
+                            <mat-option value="MZ">Mizoram</mat-option>
+                            <mat-option value="NL">Nagaland</mat-option>
+                            <mat-option value="OR">Orissa</mat-option>
+                            <mat-option value="PB">Punjab</mat-option>
+                            <mat-option value="RJ">Rajasthan</mat-option>
+                            <mat-option value="SK">Sikkim</mat-option>
+                            <mat-option value="TN">Tamil Nadu</mat-option>
+                            <mat-option value="TG">Telangana</mat-option>
+                            <mat-option value="TR">Tripura</mat-option>
+                            <mat-option value="UP">Uttar Pradesh</mat-option>
+                            <mat-option value="UK">Uttrakhand</mat-option>
+                            <mat-option value="WB">West Bengal</mat-option>
+                            <mat-option value="AN">Andaman & Nicobar</mat-option>
+                            <mat-option value="CH">Chandigarh</mat-option>
+                            <mat-option value="DN">Daman & Diu</mat-option>
+                            <mat-option value="DL">Delhi</mat-option>
+                            <mat-option value="JK">Jammu & Kashmir</mat-option>
+                            <mat-option value="LH">Ladakh</mat-option>
+                            <mat-option value="LD">Lakshadweep</mat-option>
+                            <mat-option value="PY">Pondicherry</mat-option>
+                          </mat-select>
+                        </div>
+    
+    
+    
+    
+    
+                    </div>
+    
+    
+    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pincode*</label>
+                        <div class="col-sm-4">
+                            <input class="form-control noscroll"  type="number" formControlName = "PincodeCon" >
+    
+                        </div>
+    
+                    </div>
+    
+    
+    
+    <div class="form-group row">
+    
+                        <div class="col-sm-2">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "ConProfile1" >
+                          <mat-option value="Principle Architect">Principle Architect</mat-option>
+                          </mat-select>
+                        </div>
+    
+    
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="text" formControlName = "ConName1" placeholder = "Name*">
+    
+                        </div>
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="number"  formControlName = "ConPhone1" placeholder = "Mobile*">
+    
+                        </div>
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="email" formControlName = "ConEmail1" placeholder = "Email Id*">
+    
+                        </div>
+    
+           </div>
+    
+    
+    
+    <div class="form-group row">
+    
+                        <div class="col-sm-2">
+                            <mat-select class="form-control noscroll"  type="text" formControlName = "ConProfile2">
+    
+                          <mat-option value="Associate">Associate</mat-option>
+    
+                          </mat-select>
+                        </div>
+    
+    
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="text" formControlName = "ConName2" placeholder = "Name">
+    
+                        </div>
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"   type="number"  formControlName = "ConPhone2" placeholder = "Mobile">
+    
+                        </div>
+    
+    
+    
+    
+    
+                        <div class="col-sm-2">
+                            <input class="form-control noscroll"  type="email" formControlName = "ConEmail2" placeholder = "Email Id">
+    
+                        </div>
+    
+    
+           </div>
+    
+    
+    
+           <div class="form-group row"> 
+                            
+            <input type="radio" id="planbasic" name="ProPlus" formControlName = "ProPlus"  value="Pro" checked>
+       
+            <label for="planbasic" >Pro</label><br>
+                  
+      
+            <input type="radio" id="planpro" name="ProPlus" formControlName = "ProPlus" value="ProPlus">
+        
+            <label for="planpro">Pro Plus</label><br>
+         
+          
+          
+           <div *ngIf = "ProPlusFlag">
+                          <label>@</label>
+                          <div>
+                              <input type="number" class="form-control noscroll" formControlName = "ProPlusCost" >                                       
+                          </div>            
+            </div> 
+                     
+             </div>   
+    
+    
+    
+    
+            <div class="btn-group">
+                            <button  type="submit" class="btn btn-info">SAVE DETAILS & WIN</button>
+    
+                        </div>
+    
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                     <div class="btn-group">
+                          <button (click)="OnCloseDialog()" type="button" class="btn btn-info">SAVE LATER</button>
+    
+                        </div>
+    
+    </form>
+    
+    </ng-container>
+    
+    
