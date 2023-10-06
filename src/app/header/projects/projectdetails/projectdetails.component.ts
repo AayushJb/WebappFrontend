@@ -210,13 +210,16 @@ let SquareFeet =""
 
 
 
-console.log(PunchData)
 
 for (var i = 0 ; i < PunchData.length; i ++)
 {
-
+  BIC = ""
   position = PunchData[i].position;
-  BIC = PunchData[i].ball_in_court[0].name;
+  if(PunchData[i].ball_in_court[0])
+  {
+    BIC = PunchData[i].ball_in_court[0].name;
+  }
+  
   status = PunchData[i].workflow_status
   Type = (PunchData[i].punch_item_type).name
 

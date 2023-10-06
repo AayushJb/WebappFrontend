@@ -529,403 +529,7 @@ export class AnalyticsComponent implements OnInit {
     var ToMonth = To.getMonth() + 1;
     var ToYear = To.getFullYear();
 
-   
-/*
- if(this.Profile==="USER") 
- {  
-  
 
-    var FilteredOrdersUser = [] 
-  
-
-    for(var i = 0; i<Statuses.length; i++)
-    {
-
-       if(User!=="ALL")
-      {
-        
-           for(var j = 0 ; j < this.orders.length ; j ++)
-           {
-
-            if(this.orders[j].Status ==="Win")
-            {
-            var WinDate = Number(this.orders[j].CommercialWinDate.split('-')[0])
-            var WinMonth = Number(this.orders[j].CommercialWinDate.split('-')[1])
-            var WinYear = Number(this.orders[j].CommercialWinDate.split('-')[2])
-            var DateFormat = WinMonth+ "/" + WinDate + "/" + WinYear           
- 
-  
-
-            var winDatetest = new Date(DateFormat)
-
-            winDatetest.setHours(0);
-            winDatetest.setMinutes(0);
-            winDatetest.setSeconds(0);
-            winDatetest.setMilliseconds(0); 
-        
-
-
-          
-          
-              
-            if(winDatetest>=From&&winDatetest<=To&&this.orders[j].Status==="Win"&&this.orders[j].Associate===this.form.value.User)
-            {
-              var temp = {
-                "OrderNumber" : this.orders[j].OrderNo,
-                "CreationDate" : this.orders[j].CreationDate,
-                "EditDate" : this.orders[j].EditDate,
-                "WinDate" : this.orders[j].CommercialWinDate,
-                "ProjectName" : this.orders[j].ProjectName,
-                "ClientName" : this.orders[j].ClientName,
-                "Location" : this.orders[j].Location,
-                "ArchitectName" : this.orders[j].Architect,
-                "GrandTotal" : this.orders[j].GrandTotal,
-                "Discount" : this.orders[j].Discount,
-                "FinalAmount" : this.orders[j].FinalAmount,
-                "TotalSolutions" : this.orders[j].Solutions.length,
-                "WaltzAssociate" : this.orders[j].Associate,
-                "Source" : this.orders[j].Source,
-                "Status" : this.orders[j].Status,
-                "TotalSquarefeet" : this.orders[j].TotalSquareFeet
-              
-                
-              }
-              FilteredOrdersUser.push(temp)
-            }
-             }
-
-             
-            if(this.orders[j].Status ==="Old Win")
-            {
-            var WinDate = Number(this.orders[j].CommercialWinDate.split('-')[0])
-            var WinMonth = Number(this.orders[j].CommercialWinDate.split('-')[1])
-            var WinYear = Number(this.orders[j].CommercialWinDate.split('-')[2])
-            var DateFormat = WinMonth+ "/" + WinDate + "/" + WinYear           
- 
-  
-
-            var winDatetest = new Date(DateFormat)
-
-            winDatetest.setHours(0);
-            winDatetest.setMinutes(0);
-            winDatetest.setSeconds(0);
-            winDatetest.setMilliseconds(0); 
-
-
-          
-          
-              
-            if(winDatetest>=From&&winDatetest<=To&&this.orders[j].Status==="Old Win"&&this.orders[j].Associate===this.form.value.User)
-            {
-              var temp = {
-                "OrderNumber" : this.orders[j].OrderNo,
-                "CreationDate" : this.orders[j].CreationDate,
-                "EditDate" : this.orders[j].EditDate,
-                "WinDate" : this.orders[j].WinDate,
-                "ProjectName" : this.orders[j].ProjectName,
-                "ClientName" : this.orders[j].ClientName,
-                "Location" : this.orders[j].Location,
-                "ArchitectName" : this.orders[j].Architect,
-                "GrandTotal" : this.orders[j].GrandTotal,
-                "Discount" : this.orders[j].Discount,
-                "FinalAmount" : this.orders[j].FinalAmount,
-                "TotalSolutions" : this.orders[j].Solutions.length,
-                "WaltzAssociate" : this.orders[j].Associate,
-                "Source" : this.orders[j].Source,
-                "Status" : this.orders[j].Status,
-                "TotalSquarefeet" : this.orders[j].TotalSquareFeet
-              
-                
-              }
-              FilteredOrdersUser.push(temp)
-            }
-             }
-
-             if(this.orders[j].Status ==="Commercial Hold")
-             {
-             var WinDate = Number(this.orders[j].WinDate.split('-')[0])
-             var WinMonth = Number(this.orders[j].WinDate.split('-')[1])
-             var WinYear = Number(this.orders[j].WinDate.split('-')[2])
-             var DateFormat = WinMonth+ "/" + WinDate + "/" + WinYear           
-  
-   
- 
-             var winDatetest = new Date(DateFormat)
-             
-             winDatetest.setHours(0);
-             winDatetest.setMinutes(0);
-             winDatetest.setSeconds(0);
-             winDatetest.setMilliseconds(0); 
- 
-               
-             if(winDatetest>=From&&winDatetest<=To&&this.orders[j].Status==="Commercial Hold"&&this.orders[j].Associate===this.form.value.User)
-             {
-               var temp = {
-                 "OrderNumber" : this.orders[j].OrderNo,
-                 "CreationDate" : this.orders[j].CreationDate,
-                 "EditDate" : this.orders[j].EditDate,
-                 "WinDate" : this.orders[j].WinDate,
-                 "ProjectName" : this.orders[j].ProjectName,
-                 "ClientName" : this.orders[j].ClientName,
-                 "Location" : this.orders[j].Location,
-                 "ArchitectName" : this.orders[j].Architect,
-                 "GrandTotal" : this.orders[j].GrandTotal,
-                 "Discount" : this.orders[j].Discount,
-                 "FinalAmount" : this.orders[j].FinalAmount,
-                 "TotalSolutions" : this.orders[j].Solutions.length,
-                 "WaltzAssociate" : this.orders[j].Associate,
-                 "Source" : this.orders[j].Source,
-                 "Status" : this.orders[j].Status,
-                 "TotalSquarefeet" : this.orders[j].TotalSquareFeet
-               
-                 
-               }
-               FilteredOrdersUser.push(temp)
-             }
-              }
-              
-              if(this.orders[j].Status ==="Handover")
-              {
-              var WinDate = Number(this.orders[j].HandOverDate.split('-')[0])
-              var WinMonth = Number(this.orders[j].HandOverDate.split('-')[1])
-              var WinYear = Number(this.orders[j].HandOverDate.split('-')[2])
-              var DateFormat = WinMonth+ "/" + WinDate + "/" + WinYear           
-   
-    
-  
-              var winDatetest = new Date(DateFormat)
-
-              winDatetest.setHours(0);
-              winDatetest.setMinutes(0);
-              winDatetest.setSeconds(0);
-              winDatetest.setMilliseconds(0); 
-  
-  
-            
-            
-                
-              if(winDatetest>=From&&winDatetest<=To&&this.orders[j].Status==="Handover"&&this.orders[j].Associate===this.form.value.User)
-              {
-                var temp = {
-                  "OrderNumber" : this.orders[j].OrderNo,
-                  "CreationDate" : this.orders[j].CreationDate,
-                  "EditDate" : this.orders[j].EditDate,
-                  "WinDate" : this.orders[j].WinDate,
-                  "ProjectName" : this.orders[j].ProjectName,
-                  "ClientName" : this.orders[j].ClientName,
-                  "Location" : this.orders[j].Location,
-                  "ArchitectName" : this.orders[j].Architect,
-                  "GrandTotal" : this.orders[j].GrandTotal,
-                  "Discount" : this.orders[j].Discount,
-                  "FinalAmount" : this.orders[j].FinalAmount,
-                  "TotalSolutions" : this.orders[j].Solutions.length,
-                  "WaltzAssociate" : this.orders[j].Associate,
-                  "Source" : this.orders[j].Source,
-                  "Status" : this.orders[j].Status,
-                  "TotalSquarefeet" : this.orders[j].TotalSquareFeet
-                
-                  
-                }
-                FilteredOrdersUser.push(temp)
-              }
-               }  
-
-           }
-        
-        if(Statuses[i]==="Pipeline" )
-        {  
-
-          for(var j = 0 ; j < this.orders.length ; j ++)
-          {
-            if(this.orders[j].Status ==="Pipeline")
-            {
-            var EditDate = Number(this.orders[j].EditDate.split('-')[0])
-            var EditMonth = Number(this.orders[j].EditDate.split('-')[1])
-            var EditYear = Number(this.orders[j].EditDate.split('-')[2])
-            var DateFormatEdit = EditMonth+ "/" + EditDate + "/" + EditYear        
-            
-            var EditDateTest=new Date(DateFormatEdit)
-
-            EditDateTest.setHours(0);
-            EditDateTest.setMinutes(0);
-            EditDateTest.setSeconds(0);
-            EditDateTest.setMilliseconds(0); 
-  
-  
-            if(EditDateTest<=To&&EditDateTest>=From&&this.orders[j].Status===Statuses[i]&&this.orders[j].Associate===this.form.value.User)
-            {
-              var temp2 = {
-                "OrderNumber" : this.orders[j].OrderNo,
-                "CreationDate" : this.orders[j].CreationDate,
-                "EditDate" : this.orders[j].EditDate,
-                "WinDate" : this.orders[j].WinDate,
-                "ProjectName" : this.orders[j].ProjectName,
-                "ClientName" : this.orders[j].ClientName,
-                "Location" : this.orders[j].Location,
-                "ArchitectName" : this.orders[j].Architect,
-                "GrandTotal" : this.orders[j].GrandTotal,
-                "Discount" : this.orders[j].Discount,
-                "FinalAmount" : this.orders[j].FinalAmount,
-                "TotalSolutions" : this.orders[j].Solutions.length,
-                "WaltzAssociate" : this.orders[j].Associate,
-                "Source" : this.orders[j].Source,
-                "Status" : this.orders[j].Status,
-                "TotalSquarefeet" : this.orders[j].TotalSquareFeet
-              
-              }
-
-              FilteredOrdersUser.push(temp2)
-            }
-          }
-          }
-
-        
-        }
-      }
-
-
-
-
-
-      if(User==="ALL")
-      {
-        if(Statuses[i]==="Win"||Statuses[i]==="Commercial Hold"||Statuses[i]==="Old Win")
-        {
-           for(var j = 0 ; j < this.orders.length ; j ++)
-           {
-
-            if(this.orders[j].Status ==="Win"||this.orders[j].Status ==="Old Win"||this.orders[j].Status ==="Commercial Hold")
-            {
-            var WinDate = Number(this.orders[j].WinDate.split('-')[0])
-            var WinMonth = Number(this.orders[j].WinDate.split('-')[1])
-            var WinYear = Number(this.orders[j].WinDate.split('-')[2])
-            var DateFormat = WinMonth+ "/" + WinDate + "/" + WinYear           
- 
-  
-
-            var winDatetest = new Date(DateFormat)
-
-            winDatetest.setHours(0);
-            winDatetest.setMinutes(0);
-            winDatetest.setSeconds(0);
-            winDatetest.setMilliseconds(0); 
-
-            
-          
-            
-              
-            if(winDatetest>=From&&winDatetest<=To&&this.orders[j].Status===Statuses[i])
-            {
-              var temp = {
-                "OrderNumber" : this.orders[j].OrderNo,
-                "CreationDate" : this.orders[j].CreationDate,
-                "EditDate" : this.orders[j].EditDate,
-                "WinDate" : this.orders[j].WinDate,
-                "ProjectName" : this.orders[j].ProjectName,
-                "ClientName" : this.orders[j].ClientName,
-                "Location" : this.orders[j].Location,
-                "ArchitectName" : this.orders[j].Architect,
-                "GrandTotal" : this.orders[j].GrandTotal,
-                "Discount" : this.orders[j].Discount,
-                "FinalAmount" : this.orders[j].FinalAmount,
-                "TotalSolutions" : this.orders[j].Solutions.length,
-                "WaltzAssociate" : this.orders[j].Associate,
-                "Source" : this.orders[j].Source,
-                "Status" : this.orders[j].Status,
-                "TotalSquarefeet" : this.orders[j].TotalSquareFeet
-
-              }
-              FilteredOrdersUser.push(temp)
-            }
-          }
-
-           }
-        }
-        if(Statuses[i]==="Pipeline" )
-        {  
-
-          for(var j = 0 ; j < this.orders.length ; j ++)
-          {
-            if(this.orders[j].Status ==="Pipeline")
-            {
-            var EditDate = Number(this.orders[j].EditDate.split('-')[0])
-            var EditMonth = Number(this.orders[j].EditDate.split('-')[1])
-            var EditYear = Number(this.orders[j].EditDate.split('-')[2])
-            var DateFormatEdit = EditMonth+ "/" + EditDate + "/" + EditYear     
-            
-            
-            
-            var EditDateTest=new Date(DateFormatEdit)
-
-            EditDateTest.setHours(0);
-            EditDateTest.setMinutes(0);
-            EditDateTest.setSeconds(0);
-            EditDateTest.setMilliseconds(0); 
-  
-  
-            if(EditDateTest<=To&&EditDateTest>=From&&this.orders[j].Status===Statuses[i])
-            {
-              var temp2 = {
-                "OrderNumber" : this.orders[j].OrderNo,
-                "CreationDate" : this.orders[j].CreationDate,
-                "EditDate" : this.orders[j].EditDate,
-                "WinDate" : this.orders[j].WinDate,
-                "ProjectName" : this.orders[j].ProjectName,
-                "ClientName" : this.orders[j].ClientName,
-                "Location" : this.orders[j].Location,
-                "ArchitectName" : this.orders[j].Architect,
-                "GrandTotal" : this.orders[j].GrandTotal,
-                "Discount" : this.orders[j].Discount,
-                "FinalAmount" : this.orders[j].FinalAmount,
-                "TotalSolutions" : this.orders[j].Solutions.length,
-                "WaltzAssociate" : this.orders[j].Associate,
-                "Source" : this.orders[j].Source,
-                "Status" : this.orders[j].Status,
-                "TotalSquarefeet" : this.orders[j].TotalSquareFeet
-                
-              }
-
-              FilteredOrdersUser.push(temp2)
-            }
-          }
-          }
-
-        
-        }
-      }
-    
-      
-
-    }
-
-  
-  
-
-   
-var options = { 
- 
-  headers:  ["OrderNumber","CreationDate","EditDate","WinDate","ProjectName","ClientName","Location",
-  "ArchitectName",
-  "GrandTotal",
-  "Discount",
-  "FinalAmount",
-  "TotalSolutions",
-  "WaltzAssociate" ,
-  "Source" ,
-  "Status",
-  "TotalSquarefeet"
-] 
-	
-};
-
-let FileName = "Order Report"
-   
-new ngxCsv(FilteredOrdersUser, FileName, options);
-
-
- }
-
-*/
 
 
 
@@ -972,6 +576,8 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
 
   })
 
+ 
+
   var ArchProList =[]
 
   for(var j=0;j<this.procoreProjects.length;j++)
@@ -1011,6 +617,8 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
     var FilteredOrders = [] 
 
 
+    
+
   //for(var i = 0; i < Statuses.length;i++)
   {
    
@@ -1047,12 +655,16 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
           {
 
 
-           
+          
 
             let OrderProjectRefNo = ""
 
+           
+
             if(this.orders[j].OrderNo.includes("/V-"))
             {
+             
+
              let hyphen = this.orders[j].OrderNo.lastIndexOf("/V-");
              let tempproref = this.orders[j].OrderNo.substring(0, hyphen);
              let slash = tempproref.lastIndexOf("/");
@@ -1062,6 +674,7 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
          
             if(!this.orders[j].OrderNo.includes("/V-"))
             {
+            
              let slash = this.orders[j].OrderNo.lastIndexOf("/");
              let proref = this.orders[j].OrderNo.substring(slash+ 1, this.orders[j].OrderNo.length);
              OrderProjectRefNo = proref
@@ -1071,6 +684,8 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
             let DealerDiscount = '';
 
             this.users.map((item)=>{
+
+           
               if(item.UserFullName===this.orders[j].Associate)
               {
                 DealerDiscount = item.DealerDiscount
@@ -1079,6 +694,8 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
 
 
             this.specialrequests.map((item)=>{
+
+          
               if(item.OrderNo===OrderProjectRefNo)
               {
                 DealerDiscount = item.NewDealerDiscount
@@ -1177,6 +794,7 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
              let ArchitectFirm = ""
 
              ArchProList.map((item)=>{
+           
 
               if(item.OrderNo===OrderProjectRefNo)
               {
@@ -1214,9 +832,10 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
 
              CSData.map((item)=>{
 
+           
               if(OrderProjectRefNo===item.PROJREFNO)
               {
-
+              
                
                  CSPresent = "YES"
                  PROJECTNAME =item.PROJECTNAME
@@ -1332,6 +951,7 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
 
 
              this.ledgerdetails.map((item)=>{
+        
 
               let LedRefno = ""
               
@@ -1371,6 +991,7 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
 
 
              this.commercialwins.map((item)=>{
+         
               let CommRefNo = ""
               
                 if(item.OrderNo.includes("/V-"))
@@ -1403,8 +1024,8 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
 
 
 
-
              this.handovers.map((item)=>{
+
 
               let HandRefNo = ""
               
@@ -1555,6 +1176,12 @@ new ngxCsv(FilteredOrdersUser, FileName, options);
         }
 
       }
+
+
+
+
+
+//============check here==========
 
       if(Statuses==="Win")
       {
@@ -5668,7 +5295,7 @@ new ngxCsv(FilteredOrders, FileName, options);
                 ExpenseArray = CSData[i].EXPENSE_DET.split(",")
               }
   
-              console.log(CSData[i].EXPENSE_DET)
+             
   
               if(ExpenseArray.length>0)
               {
@@ -5883,16 +5510,14 @@ new ngxCsv(FilteredOrders, FileName, options);
 
         if(EditDateTest<=To&&EditDateTest>=From)
         {
-         console.log("EditDateTest"+EditDateTest)
-         console.log("To"+To)
-         console.log("From"+From)
+ 
 
          
 
 
           this.PipeCount = this.PipeCount + 1;
 
-          console.log(this.orders[j].OrderNo)
+        
           this.PipeCsValue = this.PipeCsValue + Number(CSValue)
         }
          }

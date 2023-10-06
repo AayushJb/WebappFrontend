@@ -846,6 +846,9 @@ updateOrder
    
   
 
+  
+  
+
 
 
   const orderPrev : Order  = {
@@ -885,8 +888,24 @@ updateOrder
   
  // this.procoreService.updateProcoreProject(orderPrev)
 
+
+ let NewAndOldOrder = {
+  NewOrder : orderPrev,
+  OldOrder : "",
+  User : "",
+  UserID : "",
+  Profile :"" 
+ }
+ 
+ this.http.post(this.hostUrl+"/api/whatsapp",orderPrev).subscribe(responseData=>{
+   console.log(responseData)
+ }) 
+
   this.http.put(this.hostUrl+"/api/orders/updateorder/"+ _id ,orderPrev).subscribe(responseData => {
    console.log(responseData)
+
+ 
+
 
    this.router.navigate(["/presentation/"+_id]);
   });
@@ -1051,6 +1070,9 @@ updateOrder
 
     this.http.post<{message : string, orderId : string}>(this.hostUrl+"/api/orders/createnew",NewAndOldOrder2).subscribe(responseData => {
   
+      this.http.post(this.hostUrl+"/api/whatsapp",NewAndOldOrder2).subscribe(responseData=>{
+        console.log(responseData)
+      })    
   
   
     let id = responseData.orderId;
@@ -1123,7 +1145,17 @@ updateOrder
         
         this.http.post<{message : string, orderId : string}>(this.hostUrl+"/api/orders/createnew",NewAndOldOrder).subscribe(responseData => {
     
+
+
+         
+
           let id = responseData.orderId;
+
+
+          this.http.post(this.hostUrl+"/api/whatsapp",NewAndOldOrder).subscribe(responseData=>{
+            console.log(responseData)
+          })    
+
           this.Sdialog.closeAll()
           this.router.navigate(["/presentation/"+id]);
              
@@ -1187,6 +1219,8 @@ updateOrder
          UserID : userID,
          Profile :ActualProfile 
         }
+    
+
   
         console.log(NewAndOldOrder)
   
@@ -1195,6 +1229,10 @@ updateOrder
         this.http.post<{message : string, orderId : string}>(this.hostUrl+"/api/orders/createnew",NewAndOldOrder).subscribe(responseData => {
     
           let id = responseData.orderId;
+
+          this.http.post(this.hostUrl+"/api/whatsapp",NewAndOldOrder).subscribe(responseData=>{
+            console.log(responseData)
+          })    
           this.Sdialog.closeAll()
           this.router.navigate(["/presentation/"+id]);
              
